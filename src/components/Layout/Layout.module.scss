@@ -1,0 +1,47 @@
+.flex {
+  display: flex;
+  align-items: center;
+
+  &--row {
+    flex-direction: row;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+
+  &--nowrap {
+    flex-wrap: nowrap;
+  }
+
+  & > * {
+    min-width: 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  align-items: center;
+  justify-items: center;
+}
+
+.gap--sm {
+  gap: 10px;
+}
+
+.gap--md {
+  gap: 20px;
+}
+
+.gap--lg {
+  gap: 40px;
+}
+
+.center {
+  justify-content: center;
+}
