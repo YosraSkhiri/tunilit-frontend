@@ -1,0 +1,21 @@
+.icon {
+  stroke: black;
+
+  &--sm {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1;
+  }
+
+  &--md {
+    width: 24px;
+    height: 24px;
+    stroke-width: 1.5;
+  }
+
+  &--lg {
+    width: 30px;
+    height: 30px;
+    stroke-width: 1.8;
+  }
+}
