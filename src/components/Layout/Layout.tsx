@@ -15,7 +15,7 @@ const Layout = ({
 }: LayoutProps) => {
   const layoutClass = classNames({
     [styles[type]]: true,
-    [styles[dir]]: type === 'flex',
+    [styles[`flex--${dir}`]]: type === 'flex',
     [styles[`flex--${flexWrap}`]]: flexWrap,
     [styles[`gap--${gap}`]]: gap,
     [styles[`gap--row-${rowGap}`]]: rowGap,
