@@ -1,10 +1,10 @@
 .icon {
-  stroke: black;
+  stroke: $text-2-default;
 
   &--sm {
     width: 16px;
     height: 16px;
-    stroke-width: 1;
+    stroke-width: 1.6;
   }
 
   &--md {
