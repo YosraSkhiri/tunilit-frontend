@@ -11,7 +11,10 @@ export default meta
 type Story = StoryObj<typeof Layout>
 
 export const Overview: Story = {
-  render: () => <Layout type='grid'>
+  render: (args) => <Layout type='grid' style={{
+    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+    gap: 40,
+  }} {...args}>
     {Array.from({length: 6}).map((_, i) => (
       <div style={{width: 200, height: 200, backgroundColor: 'pink'}} key={i}></div>
     ))}

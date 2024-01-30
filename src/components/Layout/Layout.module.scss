@@ -1,13 +1,30 @@
-.flex {
+.flex { 
   display: flex;
-  align-items: center;
+}
 
+.inline-flex {
+  display: inline-flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.flex {
   &--row {
     flex-direction: row;
   }
 
   &--column {
     flex-direction: column;
+  }
+
+  &--column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &--row-reverse {
+    flex-direction: row-reverse;
   }
 
   &--wrap {
@@ -21,25 +38,6 @@
   & > * {
     min-width: 0;
   }
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-  align-items: center;
-  justify-items: center;
-}
-
-.gap--sm {
-  gap: 10px;
-}
-
-.gap--md {
-  gap: 20px;
-}
-
-.gap--lg {
-  gap: 40px;
 }
 
 .center {

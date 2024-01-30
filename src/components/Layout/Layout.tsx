@@ -5,27 +5,24 @@ import LayoutProps from './Layout.types'
 const Layout = ({
   component: Component = 'div',
   children,
-  dir = 'row',
+  direction = 'row',
   type = 'flex',
-  rowGap = 'md',
-  columnGap = 'md',
-  gap = 'md',
   flexWrap,
   center = false,
+  classname,
+  style,
 }: LayoutProps) => {
   const layoutClass = classNames({
     [styles[type]]: true,
-    [styles[`flex--${dir}`]]: type === 'flex',
-    [styles[`flex--${flexWrap}`]]: flexWrap,
-    [styles[`gap--${gap}`]]: gap,
-    [styles[`gap--row-${rowGap}`]]: rowGap,
-    [styles[`gap--col-${columnGap}`]]: columnGap,
+    [styles[`flex--${direction}`]]: type === 'flex' && direction,
+    [styles[`flex--${flexWrap}`]]: type === 'flex' && flexWrap,
     [styles['center']]: center,
-  })
+  }, classname)
 
   return (
     <Component 
       className={layoutClass}
+      style={style}
     >
       {children}
     </Component>

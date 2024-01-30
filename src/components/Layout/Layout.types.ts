@@ -1,13 +1,19 @@
-import { ElementType } from 'react';
+import { CSSProperties, ElementType } from 'react';
+
+export type directionType = 'row' 
+| 'column' 
+| 'column-reverse' 
+| 'row-reverse';
 
 export default interface LayoutProps {
   component?: string | ElementType,
   children?: React.ReactNode,
-  dir?: 'row' | 'column' | 'column-reverse' | 'row-reverse',
-  rowGap?: 'sm' | 'md' | 'lg',
-  columnGap?: 'sm' | 'md' | 'lg',
-  gap?: 'sm' | 'md' | 'lg',
-  type?: 'flex' | 'grid',
+  direction?: directionType,
+  type?: 'flex' 
+  | 'grid' 
+  | 'inline-flex',
   flexWrap?: 'wrap' | 'nowrap',
   center?: boolean,
+  classname?: string,
+  style?: CSSProperties,
 }
