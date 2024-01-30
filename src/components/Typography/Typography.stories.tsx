@@ -11,7 +11,7 @@ export default meta
 type Story = StoryObj<typeof Typography>
 
 export const Overview: Story = {
-  render: () => <Layout direction='column'>
+  render: () => <Layout direction='column' style={{ gap: 40, padding: 40 }}>
     <Typography variant='title'>Title</Typography>
     <Typography variant='h1'>Heading 1</Typography>
     <Typography variant='h2'>Heading 2</Typography>
