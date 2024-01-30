@@ -14,5 +14,15 @@ export default defineConfig({
     environment: 'jsdom',
     css: true,
     setupFiles: './src/test/setup.ts',
-  }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use './src/sass/variables/_color-mapped.scss' as *;
+          @use './src/sass/variables/_sizes-spaces.scss' as *;
+        `,
+      },
+    },
+  },
 })
