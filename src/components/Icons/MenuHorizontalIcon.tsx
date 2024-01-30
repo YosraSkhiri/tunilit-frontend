@@ -42,4 +42,6 @@ const MenuHorizontalIcon = ({
   )
 }
 
+MenuHorizontalIcon.displayName = 'MenuHorizontalIcon'
+
 export default MenuHorizontalIcon

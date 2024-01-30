@@ -28,4 +28,6 @@ const ArrowRightIcon = ({
   )
 }
 
+ArrowRightIcon.displayName = 'ArrowRightIcon'
+
 export default ArrowRightIcon

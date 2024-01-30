@@ -28,4 +28,6 @@ const CoinIcon = ({
   )
 }
 
+CoinIcon.displayName = 'CoinIcon'
+
 export default CoinIcon

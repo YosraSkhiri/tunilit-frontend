@@ -28,4 +28,6 @@ const UncompareIcon = ({
   )
 }
 
+UncompareIcon.displayName = 'UncompareIcon'
+
 export default UncompareIcon

@@ -28,4 +28,6 @@ const PlusCircleIcon = ({
   )
 }
 
+PlusCircleIcon.displayName = 'PlusCircleIcon'
+
 export default PlusCircleIcon

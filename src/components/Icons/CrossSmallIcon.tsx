@@ -28,4 +28,6 @@ const CrossSmallIcon = ({
   )
 }
 
+CrossSmallIcon.displayName = 'CrossSmallIcon'
+
 export default CrossSmallIcon

@@ -30,4 +30,6 @@ const YoutubeIcon = ({
   )
 }
 
+YoutubeIcon.displayName = 'YoutubeIcon'
+
 export default YoutubeIcon

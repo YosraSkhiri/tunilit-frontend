@@ -28,4 +28,6 @@ const PlaceholderIcon = ({
   )
 }
 
+PlaceholderIcon.displayName = 'PlaceholderIcon'
+
 export default PlaceholderIcon

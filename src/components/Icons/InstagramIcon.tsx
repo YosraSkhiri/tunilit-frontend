@@ -27,4 +27,6 @@ const InstagramIcon = ({
   )
 }
 
+InstagramIcon.displayName = 'InstagramIcon'
+
 export default InstagramIcon

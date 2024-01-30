@@ -28,4 +28,6 @@ const FacebookIcon = ({
   )
 }
 
+FacebookIcon.displayName = 'FacebookIcon'
+
 export default FacebookIcon

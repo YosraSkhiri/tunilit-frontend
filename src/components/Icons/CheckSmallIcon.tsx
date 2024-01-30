@@ -28,4 +28,6 @@ const CheckSmallIcon = ({
   )
 }
 
+CheckSmallIcon.displayName = 'CheckSmallIcon'
+
 export default CheckSmallIcon

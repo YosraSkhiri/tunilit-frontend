@@ -42,4 +42,6 @@ const MenuVerticalIcon = ({
   )
 }
 
+MenuVerticalIcon.displayName = 'MenuVerticalIcon'
+
 export default MenuVerticalIcon

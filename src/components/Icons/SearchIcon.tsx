@@ -28,4 +28,6 @@ const SearchIcon = ({
   )
 }
 
+SearchIcon.displayName = 'SearchIcon'
+
 export default SearchIcon

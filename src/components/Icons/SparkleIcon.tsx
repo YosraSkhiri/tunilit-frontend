@@ -28,4 +28,6 @@ const SparkleIcon = ({
   )
 }
 
+SparkleIcon.displayName = 'SparkleIcon'
+
 export default SparkleIcon

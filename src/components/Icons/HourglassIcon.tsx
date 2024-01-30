@@ -28,4 +28,6 @@ const HourglassIcon = ({
   )
 }
 
+HourglassIcon.displayName = 'HourglassIcon'
+
 export default HourglassIcon

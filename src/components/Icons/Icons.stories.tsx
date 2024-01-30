@@ -19,19 +19,21 @@ export const Overview: Story =  {
     <Layout type='grid' style={{
       gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
       gap: 40,
+      padding: 40,
     }}>
       {
         Object.values(Icons).map((Icon, i) => (
           <Layout 
-          key={`icon-${i}`} 
-          type='flex' 
-          direction='column' 
-          style={{ 
-            width: 180,
-            alignItems: 'center',
-            gap: 20,
-          }}>
-            <Typography variant='subtitle2'>{Icon.name.slice(0, -4)}</Typography>
+            key={`icon-${i}`} 
+            type='flex' 
+            direction='column' 
+            style={{ 
+              width: 180,
+              alignItems: 'center',
+              gap: 20,
+            }}
+          >
+            <Typography variant='subtitle2'>{Icon?.displayName.slice(0, -4)}</Typography>
             <Icon size='lg' />
             <Icon size='md' />
             <Icon size='sm' />

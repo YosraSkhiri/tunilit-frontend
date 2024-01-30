@@ -28,4 +28,6 @@ const LoaderIcon = ({
   )
 }
 
+LoaderIcon.displayName = 'LoaderIcon'
+
 export default LoaderIcon

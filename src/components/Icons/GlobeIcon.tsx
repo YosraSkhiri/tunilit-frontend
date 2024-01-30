@@ -28,4 +28,6 @@ const GlobeIcon = ({
   )
 }
 
+GlobeIcon.displayName = 'GlobeIcon'
+
 export default GlobeIcon

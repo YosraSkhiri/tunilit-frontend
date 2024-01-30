@@ -28,4 +28,6 @@ const MinusCircleIcon = ({
   )
 }
 
+MinusCircleIcon.displayName = 'MinusCircleIcon'
+
 export default MinusCircleIcon

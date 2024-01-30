@@ -28,4 +28,6 @@ const LinkedInIcon = ({
   )
 }
 
+LinkedInIcon.displayName = 'LinkedInIcon'
+
 export default LinkedInIcon

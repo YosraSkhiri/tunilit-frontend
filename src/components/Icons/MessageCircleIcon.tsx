@@ -28,4 +28,6 @@ const MessageCircleIcon = ({
   )
 }
 
+MessageCircleIcon.displayName = 'MessageCircleIcon'
+
 export default MessageCircleIcon

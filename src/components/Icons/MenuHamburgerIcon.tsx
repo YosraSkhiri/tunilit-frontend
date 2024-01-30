@@ -28,4 +28,6 @@ const MenuHamburgerIcon = ({
   )
 }
 
+MenuHamburgerIcon.displayName = 'MenuHamburgerIcon'
+
 export default MenuHamburgerIcon

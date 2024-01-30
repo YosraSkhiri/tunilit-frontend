@@ -28,4 +28,6 @@ const CompareIcon = ({
   )
 }
 
+CompareIcon.displayName = 'CompareIcon'
+
 export default CompareIcon

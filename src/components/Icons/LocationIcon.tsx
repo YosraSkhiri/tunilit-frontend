@@ -33,4 +33,6 @@ const LocationIcon = ({
   )
 }
 
+LocationIcon.displayName = 'LocationIcon'
+
 export default LocationIcon

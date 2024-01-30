@@ -28,4 +28,6 @@ const LanguagesIcon = ({
   )
 }
 
+LanguagesIcon.displayName = 'LanguagesIcon'
+
 export default LanguagesIcon

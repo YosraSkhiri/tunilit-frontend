@@ -29,4 +29,6 @@ const MessengerIcon = ({
   )
 }
 
+MessengerIcon.displayName = 'MessengerIcon'
+
 export default MessengerIcon

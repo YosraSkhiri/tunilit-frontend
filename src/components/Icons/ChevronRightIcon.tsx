@@ -28,4 +28,6 @@ const ChevronRightIcon = ({
   )
 }
 
+ChevronRightIcon.displayName = 'ChevronRightIcon'
+
 export default ChevronRightIcon

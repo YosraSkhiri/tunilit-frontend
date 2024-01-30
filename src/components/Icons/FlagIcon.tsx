@@ -28,4 +28,6 @@ const FlagIcon = ({
   )
 }
 
+FlagIcon.displayName = 'FlagIcon'
+
 export default FlagIcon
