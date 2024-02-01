@@ -1,0 +1,182 @@
+@use '../../sass/variables/logo-colors' as *;
+
+.icon {
+  &__hoodie {
+    fill: $icon-hoodie;
+
+    &--shadow {
+      fill: $icon-hoodie-shadow;
+    }
+  }
+
+  &__skin {
+    fill: $icon-head-skin;
+
+    &--shadow {
+      fill: $icon-head-skin-shadow;
+    }
+  }
+
+  &__mouth {
+    stroke: $icon-head-mouth;
+  }
+
+  &__blush {
+
+    &--1 {
+      stroke: $icon-head-blush1;
+    }
+    &--2 {
+      fill: $icon-head-blush2;
+    }
+  }
+
+  &__eye {
+    &-sclera {
+      fill: $icon-head-eyes-sclera;
+    }
+
+    &-sclera--shadow {
+      fill: $icon-head-eyes-sclera-shadow;
+    }
+
+    &--highlight {
+      fill: $icon-head-eyes-highlight;
+    }
+
+    &-pupil {
+      fill: $icon-head-eyes-pupils;
+    }
+
+    &-sparkle {
+      &-stroke {
+        stroke: $icon-head-eyes-sparkle;
+      } 
+
+      &-fill {
+        fill: $icon-head-eyes-sparkle;
+      }
+    }
+
+    
+  }
+
+  &__glasses {
+    &-fill {
+      fill: $icon-head-glasses;
+    }
+
+    &-stroke {
+      fill: $icon-head-glasses-stroke;
+    }
+  }
+
+  &__book {
+    &-pages {
+      fill: $icon-book-pages;
+    }
+
+    &-stroke {
+      fill: $icon-book-stroke;
+    }
+
+    &-cover {
+      fill: $icon-book-cover;
+    }
+
+    &-spine--fill {
+      fill: $icon-book-spine;
+    }
+
+    &-spine--stroke {
+      fill: $icon-book-spine-stroke;
+    }
+
+    &-highlight {
+      stroke: $icon-book-spine-stroke;
+      fill: $icon-book-spine-highlight;
+    }
+  }
+
+  &--stroke {
+    stroke: $icon-stroke;
+  }
+
+  &--hide {
+    opacity: 0;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 4.334%;
+  width: fit-content;
+
+  &--link:hover,
+  &--animate {
+    .animate-hide {
+      animation: close 3s steps(1) forwards;
+    }
+    
+    .animate-show {
+      animation: open 3s steps(1) forwards;
+    }
+  }
+}
+
+.text {
+  &--default {
+    fill: $text-dark;
+  }
+
+  &--light {
+    fill: $text-light;
+  }
+}
+
+@keyframes open {
+  0% {
+    opacity: 100%;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 100%;
+  }
+
+  60% {
+    opacity: 0%;
+  }
+
+  80%,
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes close {
+  0% {
+    opacity: 0%;
+  }
+
+  20% {
+    opacity: 100%;
+  }
+
+  40% {
+    opacity: 0%;
+  }
+
+  60% {
+    opacity: 100%;
+  }
+
+  80%,
+  100% {
+    opacity: 0%;
+  }
+}
