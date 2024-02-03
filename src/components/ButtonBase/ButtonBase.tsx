@@ -10,14 +10,16 @@ const ButtonBase = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonBaseP
     onFocus,
     onBlur,
     href,
-    type,
+    type = 'button',
     className,
     ...other
   },
   ref,
 ) => {
+  const ButtonBaseComponent = href ? 'a' : Component;
+
   return (
-    <Component
+    <ButtonBaseComponent
       className={className}
       disabled={disabled}
       onClick={onClick}
@@ -29,7 +31,7 @@ const ButtonBase = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonBaseP
       {...other}
     >
       {children}
-    </Component>
+    </ButtonBaseComponent>
   )
 })
 
