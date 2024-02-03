@@ -225,3 +225,132 @@ $text-info-default: $info;
 $text-info-light: $info-800;
 $text-success-default: $success;
 $text-success-light: $success-800;
+
+$button-variants: (
+	'primary': (
+		'rest': (
+			'border': $component-button-primary-rest-border,
+			'text': $component-button-primary-rest-text,
+			'surface': $component-button-primary-rest-surface,
+			'icon': $component-button-primary-rest-icon,
+		),
+    'hover': (
+			'border': $component-button-primary-hover-border,
+			'text': $component-button-primary-hover-text,
+			'surface': $component-button-primary-hover-surface,
+			'icon': $component-button-primary-hover-icon,
+		),
+    'focused': (
+			'border': $component-button-primary-focused-border,
+			'text': $component-button-primary-focused-text,
+			'surface': $component-button-primary-focused-surface,
+			'icon': $component-button-primary-focused-icon,
+			'outline': $component-button-primary-focused-outline,
+		),
+	),
+  'secondary': (
+		'rest': (
+			'border': $component-button-secondary-rest-border,
+			'text': $component-button-secondary-rest-text,
+			'surface': $component-button-secondary-rest-surface,
+			'icon': $component-button-secondary-rest-icon,
+		),
+    'hover': (
+			'border': $component-button-secondary-hover-border,
+			'text': $component-button-secondary-hover-text,
+			'surface': $component-button-secondary-hover-surface,
+			'icon': $component-button-secondary-hover-icon,
+		),
+    'focused': (
+			'border': $component-button-secondary-focused-border,
+			'text': $component-button-secondary-focused-text,
+			'surface': $component-button-secondary-focused-surface,
+			'icon': $component-button-secondary-focused-icon,
+			'outline': $component-button-secondary-focused-outline,
+		),
+	),
+  'tertiary': (
+		'rest': (
+			'border': $component-button-tertiary-rest-border,
+			'text': $component-button-tertiary-rest-text,
+			'surface': $component-button-tertiary-rest-surface,
+			'icon': $component-button-tertiary-rest-icon,
+		),
+    'hover': (
+			'border': $component-button-tertiary-hover-border,
+			'text': $component-button-tertiary-hover-text,
+			'surface': $component-button-tertiary-hover-surface,
+			'icon': $component-button-tertiary-hover-icon,
+		),
+    'focused': (
+			'border': $component-button-tertiary-focused-border,
+			'text': $component-button-tertiary-focused-text,
+			'surface': $component-button-tertiary-focused-surface,
+			'icon': $component-button-tertiary-focused-icon,
+			'outline': $component-button-tertiary-focused-outline,
+		),
+	),
+  'success': (
+		'rest': (
+			'border': $component-button-success-rest-border,
+			'text': $component-button-success-rest-text,
+			'surface': $component-button-success-rest-surface,
+			'icon': $component-button-success-rest-icon,
+		),
+    'hover': (
+			'border': $component-button-success-hover-border,
+			'text': $component-button-success-hover-text,
+			'surface': $component-button-success-hover-surface,
+			'icon': $component-button-success-hover-icon,
+		),
+    'focused': (
+			'border': $component-button-success-focused-border,
+			'text': $component-button-success-focused-text,
+			'surface': $component-button-success-focused-surface,
+			'icon': $component-button-success-focused-icon,
+			'outline': $component-button-success-focused-outline,
+		),
+	),
+  'error': (
+		'rest': (
+			'border': $component-button-error-rest-border,
+			'text': $component-button-error-rest-text,
+			'surface': $component-button-error-rest-surface,
+			'icon': $component-button-error-rest-icon,
+		),
+    'hover': (
+			'border': $component-button-error-hover-border,
+			'text': $component-button-error-hover-text,
+			'surface': $component-button-error-hover-surface,
+			'icon': $component-button-error-hover-icon,
+		),
+    'focused': (
+			'border': $component-button-error-focused-border,
+			'text': $component-button-error-focused-text,
+			'surface': $component-button-error-focused-surface,
+			'icon': $component-button-error-focused-icon,
+			'outline': $component-button-error-focused-outline,
+		),
+	),
+  'subtle': (
+		'rest': (
+			'border': $component-button-subtle-rest-border,
+			'text': $component-button-subtle-rest-text,
+			'surface': $component-button-subtle-rest-surface,
+			'icon': $component-button-subtle-rest-icon,
+		),
+    'hover': (
+			'border': $component-button-subtle-hover-border,
+			'text': $component-button-subtle-hover-text,
+			'surface': $component-button-subtle-hover-surface,
+			'icon': $component-button-subtle-hover-icon,
+		),
+    'focused': (
+			'border': $component-button-subtle-focused-border,
+			'text': $component-button-subtle-focused-text,
+			'surface': $component-button-subtle-focused-surface,
+			'icon': $component-button-subtle-focused-icon,
+			'outline': $component-button-subtle-focused-outline,
+		),
+	),
+);
