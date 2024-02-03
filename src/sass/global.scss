@@ -180,3 +180,20 @@ body {
     background: $component-scrollbar-thumb;
   }
 }
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  font-smooth: inherit;
+  user-select: none;
+	vertical-align: middle;
+	white-space: normal;
+}
