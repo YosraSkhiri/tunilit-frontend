@@ -1,0 +1,211 @@
+$border-width: 0.125rem;
+$btn-md-height: 3.125rem;
+$btn-lg-height: 3.75rem;
+
+@mixin generateButtonVariant($variant) {
+	border-color: map-get($button-variants, $variant, 'rest', 'border');
+	color: map-get($button-variants, $variant, 'rest', 'text');
+	background-color: map-get($button-variants, $variant, 'hover', 'surface');
+
+	&.btn--md {
+		box-shadow: inset 0 $btn-md-height 0 0
+			map-get($button-variants, $variant, 'rest', 'surface');
+	}
+
+	&.btn--lg {
+		box-shadow: inset 0 $btn-lg-height 0 0
+			map-get($button-variants, $variant, 'rest', 'surface');
+	}
+
+	& svg {
+		stroke: map-get($button-variants, $variant, 'rest', 'icon');
+	}
+
+	&:hover {
+		box-shadow: inset 0 0px 0 0
+			map-get($button-variants, $variant, 'hover', 'surface');
+		color: map-get($button-variants, $variant, 'hover', 'text');
+		border-color: map-get($button-variants, $variant, 'hover', 'border');
+
+		& svg {
+			stroke: map-get($button-variants, $variant, 'hover', 'icon');
+		}
+	}
+
+	&:focus {
+		box-shadow: inset 0 0px 0 0
+				map-get($button-variants, $variant, 'focused', 'surface'),
+			0 0 0 4px
+				rgba(map-get($button-variants, $variant, 'focused', 'outline'), 0.4);
+		color: map-get($button-variants, $variant, 'focused', 'text');
+		border-color: map-get($button-variants, $variant, 'focused', 'border');
+
+		& svg {
+			stroke: map-get($button-variants, $variant, 'focused', 'icon');
+		}
+	}
+}
+
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	gap: 0.625rem;
+	padding: 0.625rem 1.875rem;
+	border-radius: $corner-radius-medium;
+	border-width: $border-width;
+	border-style: solid;
+	border-color: transparent;
+	font-weight: 500;
+	overflow: hidden;
+	transition: all 0.25s ease-in-out;
+	cursor: pointer;
+
+	&--md {
+		font-size: 1rem;
+		line-height: 1rem;
+		height: $btn-md-height;
+	}
+
+	&--lg {
+		font-size: 1.125rem;
+		line-height: 1.125rem;
+		height: $btn-lg-height;
+	}
+
+	&--full-width {
+		width: 100%;
+	}
+
+	&--shadow {
+		position: relative;
+		z-index: 1;
+		width: fit-content;
+		height: fit-content;
+
+		&::after {
+			position: absolute;
+			display: block;
+			bottom: -22px;
+			left: -16px;
+			z-index: -1;
+			pointer-events: none;
+		}
+
+		&-md::after {
+			content: url('/images/dotted-shadow-md.svg');
+		}
+
+		&-lg::after {
+			content: url('/images/dotted-shadow-lg.svg');
+		}
+	}
+
+	&--primary {
+		@include generateButtonVariant('primary');
+	}
+
+	&--secondary {
+		@include generateButtonVariant('secondary');
+	}
+
+	&--tertiary {
+		@include generateButtonVariant('tertiary');
+	}
+
+	&--success {
+		@include generateButtonVariant('success');
+	}
+
+	&--error {
+		@include generateButtonVariant('error');
+	}
+
+	&--subtle {
+		@include generateButtonVariant('subtle');
+	}
+
+	&--disabled {
+		&-outlined {
+			border-color: map-get($button-variants, 'disabled', 'border');
+			color: map-get($button-variants, 'disabled', 'text');
+			background-color: map-get($button-variants, 'disabled', 'surface');
+			cursor: not-allowed;
+		}
+
+		&-subtle {
+			color: map-get($button-variants, 'disabled', 'text');
+			background-color: map-get($button-variants, 'disabled', 'surface');
+			cursor: not-allowed;
+		}
+	}
+}
+
+.wrapper {
+	&__arrow {
+		position: relative;
+		width: fit-content;
+		height: fit-content;
+		transition: all 0.3s ease-in-out;
+
+		& > .btn--primary {
+			min-width: 200px;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+
+		&:hover {
+			.arrow:not(.arrow--disabled) > .path1 {
+				stroke-dasharray: 80;
+				stroke-dashoffset: 80;
+				animation: draw 0.5s ease-in-out forwards;
+			}
+
+			.arrow:not(.arrow--disabled) > .path2,
+			.arrow:not(.arrow--disabled) > .path3 {
+				stroke-dasharray: 40;
+				stroke-dashoffset: 40;
+				animation: draw 0.5s 0.5s ease-in-out forwards;
+			}
+
+			& > .arrow > path {
+				stroke: $component-button-primary-hover-icon;
+			}
+		}
+	}
+}
+
+.arrow {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	z-index: 10;
+	display: block;
+	transform: translate3d(50%, -50%, 0);
+	pointer-events: none;
+	stroke: $component-button-primary-rest-icon;
+
+	&.arrow--focus-primary > path {
+		stroke: $component-button-primary-focused-icon;
+	}
+}
+
+.loader--animation {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes draw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
