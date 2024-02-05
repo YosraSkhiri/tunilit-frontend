@@ -50,13 +50,13 @@ const variants: buttonVariantType[] = [
 
 export const Overview: Story = {
 	render: () => (
-		<Layout style={{ gap: 80, padding: 40 }} direction='column'>
+		<Layout style={{ gap: 80, padding: 40, minWidth: 845 }} direction='column'>
       <Layout style={{ gap: 60 }}>
         <Layout
           direction="column"
           style={{ gap: 40 }}>
-          {variants.map((variant: buttonVariantType) => (
-            <Button variant={variant}>
+          {variants.map((variant: buttonVariantType, i: number) => (
+            <Button variant={variant} key={`a-${i}`}>
               <PlaceholderIcon />
               Button
             </Button>
@@ -65,8 +65,8 @@ export const Overview: Story = {
         <Layout
           direction="column"
           style={{ gap: 40 }}>
-            {variants.map((variant: buttonVariantType) => (
-            <Button variant={variant}>
+            {variants.map((variant: buttonVariantType, i: number) => (
+            <Button variant={variant} key={`b-${i}`}>
               Button
               <PlaceholderIcon />
             </Button>
@@ -75,8 +75,8 @@ export const Overview: Story = {
         <Layout
           direction="column"
           style={{ gap: 40 }}>
-          {variants.map((variant: buttonVariantType) => (
-            <Button variant={variant} shadow>
+          {variants.map((variant: buttonVariantType, i: number) => (
+            <Button variant={variant} shadow key={`c-${i}`}>
               <PlaceholderIcon />
               Button
             </Button>
@@ -85,8 +85,8 @@ export const Overview: Story = {
         <Layout
           direction="column"
           style={{ gap: 40 }}>
-            {variants.map((variant: buttonVariantType) => (
-            <Button variant={variant} shadow>
+            {variants.map((variant: buttonVariantType, i: number) => (
+            <Button variant={variant} shadow key={`d-${i}`}>
               Button
               <PlaceholderIcon />
             </Button>
@@ -97,8 +97,8 @@ export const Overview: Story = {
 			<Layout
 				direction="column"
 				style={{ gap: 40 }}>
-				{variants.map((variant: buttonVariantType) => (
-					<Button variant={variant} size='lg'>
+				{variants.map((variant: buttonVariantType, i: number) => (
+					<Button variant={variant} size='lg' key={`e-${i}`}>
 						<PlaceholderIcon size='lg' />
 						Button
 					</Button>
@@ -107,8 +107,8 @@ export const Overview: Story = {
 			<Layout
 				direction="column"
 				style={{ gap: 40 }}>
-          {variants.map((variant: buttonVariantType) => (
-					<Button variant={variant} size='lg'>
+          {variants.map((variant: buttonVariantType, i: number) => (
+					<Button variant={variant} size='lg' key={`f-${i}`}>
 						Button
             <PlaceholderIcon size='lg' />
 					</Button>
@@ -117,8 +117,8 @@ export const Overview: Story = {
       <Layout
 				direction="column"
 				style={{ gap: 40 }}>
-				{variants.map((variant: buttonVariantType) => (
-					<Button variant={variant} shadow size='lg'>
+				{variants.map((variant: buttonVariantType, i: number) => (
+					<Button variant={variant} shadow size='lg' key={`g-${i}`}>
 						<PlaceholderIcon size='lg' />
 						Button
 					</Button>
@@ -127,8 +127,8 @@ export const Overview: Story = {
 			<Layout
 				direction="column"
 				style={{ gap: 40 }}>
-          {variants.map((variant: buttonVariantType) => (
-					<Button variant={variant} shadow size='lg'>
+          {variants.map((variant: buttonVariantType, i: number) => (
+					<Button variant={variant} shadow size='lg' key={`h-${i}`}>
 						Button
             <PlaceholderIcon size='lg' />
 					</Button>
