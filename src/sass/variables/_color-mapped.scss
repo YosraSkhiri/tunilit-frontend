@@ -353,4 +353,10 @@ $button-variants: (
 			'outline': $component-button-subtle-focused-outline,
 		),
 	),
+  'disabled': (
+		'border': $status-disabled-border,
+    'text': $status-disabled-text,
+    'surface': $status-disabled-surface,
+    'icon': $status-disabled-icon,
+	),
 );
