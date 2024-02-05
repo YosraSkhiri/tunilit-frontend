@@ -6,6 +6,33 @@ import Layout from '../Layout'
 
 const meta: Meta<typeof Button> = {
 	component: Button,
+  argTypes: {
+    component: {
+      table: {
+        disable: true,
+      },
+    },
+    onBlur: {
+      table: {
+        disable: true,
+      },
+    },
+    onClick: {
+      table: {
+        disable: true,
+      },
+    },
+    onFocus: {
+      table: {
+        disable: true,
+      },
+    },
+    className: {
+      table: {
+        disable: true,
+      }
+    }
+  }
 }
 
 export default meta
@@ -125,4 +152,13 @@ export const Overview: Story = {
     </Layout>
     </Layout>
 	),
+}
+
+export const Example: Story = {
+  args: {
+    children: 'Button',
+  },
+  render: (args) => (
+    <Button {...args} />
+  )
 }
