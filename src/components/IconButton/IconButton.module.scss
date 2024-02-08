@@ -1,0 +1,90 @@
+@use "../../sass/mixins" as *;
+
+$btn-md-size: $btn-md-height;
+$btn-lg-size: $btn-lg-height;
+
+.btn {
+  display: flex;
+	justify-items: center;
+	justify-content: center;
+	align-items: center;
+  flex-shrink: 0;
+	width: fit-content;
+	border-radius: $corner-radius-medium;
+	border-width: $border-medium;
+	border-style: solid;
+	border-color: transparent;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+
+	&--md {
+		width: $btn-md-size;
+		height: $btn-md-size;
+	}
+
+	&--lg {
+		width: $btn-lg-size;
+		height: $btn-lg-size;
+	}
+
+	&--primary {
+		@include generateButtonVariant($button-variants, 'primary', $btn-md-height, $btn-lg-height);
+	}
+
+  &--secondary {
+		@include generateButtonVariant($button-variants, 'secondary', $btn-md-height, $btn-lg-height);
+	}
+
+	&--tertiary {
+		@include generateButtonVariant($button-variants, 'tertiary', $btn-md-height, $btn-lg-height);
+	}
+
+	&--success {
+		@include generateButtonVariant($button-variants, 'success', $btn-md-height, $btn-lg-height);
+	}
+
+	&--error {
+		@include generateButtonVariant($button-variants, 'error', $btn-md-height, $btn-lg-height);
+	}
+
+	&--subtle {
+		@include generateButtonVariant($button-variants, 'subtle', $btn-md-height, $btn-lg-height);
+	}
+
+	&--disabled {
+		&-outlined {
+			border-color: map-get($button-variants, 'disabled', 'border');
+			color: map-get($button-variants, 'disabled', 'text');
+			background-color: map-get($button-variants, 'disabled', 'surface');
+			cursor: not-allowed;
+
+      & svg {
+        stroke: map-get($button-variants, 'disabled', 'icon');
+      }
+		}
+
+		&-subtle {
+			color: map-get($button-variants, 'disabled', 'text');
+			background-color: map-get($button-variants, 'disabled', 'surface');
+			cursor: not-allowed;
+
+      & svg {
+        stroke: map-get($button-variants, 'disabled', 'icon');
+      }
+		}
+	}
+}
+
+.loader--animation {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
