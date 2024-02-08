@@ -1,0 +1,21 @@
+.label {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: $text-1-default;
+
+  &--success {
+    color: $text-success-default;
+  } 
+
+  &--error {
+    color: $text-error-default;
+  }
+
+  &--info {
+    color: $text-info-default;
+  }
+
+  &--disabled {
+    color: $status-disabled-text;
+  }
+}
