@@ -1,50 +1,4 @@
-$border-width: 0.125rem;
-$btn-md-height: 3.125rem;
-$btn-lg-height: 3.75rem;
-
-@mixin generateButtonVariant($variant) {
-	border-color: map-get($button-variants, $variant, 'rest', 'border');
-	color: map-get($button-variants, $variant, 'rest', 'text');
-	background-color: map-get($button-variants, $variant, 'hover', 'surface');
-
-	&.btn--md {
-		box-shadow: inset 0 $btn-md-height 0 0
-			map-get($button-variants, $variant, 'rest', 'surface');
-	}
-
-	&.btn--lg {
-		box-shadow: inset 0 $btn-lg-height 0 0
-			map-get($button-variants, $variant, 'rest', 'surface');
-	}
-
-	& svg {
-		stroke: map-get($button-variants, $variant, 'rest', 'icon');
-	}
-
-	&:hover {
-		box-shadow: inset 0 0px 0 0
-			map-get($button-variants, $variant, 'hover', 'surface');
-		color: map-get($button-variants, $variant, 'hover', 'text');
-		border-color: map-get($button-variants, $variant, 'hover', 'border');
-
-		& svg {
-			stroke: map-get($button-variants, $variant, 'hover', 'icon');
-		}
-	}
-
-	&:focus {
-		box-shadow: inset 0 0px 0 0
-				map-get($button-variants, $variant, 'focused', 'surface'),
-			0 0 0 4px
-				rgba(map-get($button-variants, $variant, 'focused', 'outline'), 0.4);
-		color: map-get($button-variants, $variant, 'focused', 'text');
-		border-color: map-get($button-variants, $variant, 'focused', 'border');
-
-		& svg {
-			stroke: map-get($button-variants, $variant, 'focused', 'icon');
-		}
-	}
-}
+@use "../../sass/mixins" as *;
 
 .btn {
 	display: flex;
@@ -54,7 +8,7 @@ $btn-lg-height: 3.75rem;
 	gap: 0.625rem;
 	padding: 0.625rem 1.875rem;
 	border-radius: $corner-radius-medium;
-	border-width: $border-width;
+	border-width: $border-medium;
 	border-style: solid;
 	border-color: transparent;
 	font-weight: 500;
@@ -103,27 +57,27 @@ $btn-lg-height: 3.75rem;
 	}
 
 	&--primary {
-		@include generateButtonVariant('primary');
+		@include generateButtonVariant($button-variants, 'primary', $btn-md-height, $btn-lg-height);
 	}
 
 	&--secondary {
-		@include generateButtonVariant('secondary');
+		@include generateButtonVariant($button-variants, 'secondary', $btn-md-height, $btn-lg-height);
 	}
 
 	&--tertiary {
-		@include generateButtonVariant('tertiary');
+		@include generateButtonVariant($button-variants, 'tertiary', $btn-md-height, $btn-lg-height);
 	}
 
 	&--success {
-		@include generateButtonVariant('success');
+		@include generateButtonVariant($button-variants, 'success', $btn-md-height, $btn-lg-height);
 	}
 
 	&--error {
-		@include generateButtonVariant('error');
+		@include generateButtonVariant($button-variants, 'error', $btn-md-height, $btn-lg-height);
 	}
 
 	&--subtle {
-		@include generateButtonVariant('subtle');
+		@include generateButtonVariant($button-variants, 'subtle', $btn-md-height, $btn-lg-height);
 	}
 
 	&--disabled {
@@ -132,12 +86,20 @@ $btn-lg-height: 3.75rem;
 			color: map-get($button-variants, 'disabled', 'text');
 			background-color: map-get($button-variants, 'disabled', 'surface');
 			cursor: not-allowed;
+
+      & svg {
+        stroke: map-get($button-variants, 'disabled', 'icon');
+      }
 		}
 
 		&-subtle {
 			color: map-get($button-variants, 'disabled', 'text');
 			background-color: map-get($button-variants, 'disabled', 'surface');
 			cursor: not-allowed;
+
+      & svg {
+        stroke: map-get($button-variants, 'disabled', 'icon');
+      }
 		}
 	}
 }
