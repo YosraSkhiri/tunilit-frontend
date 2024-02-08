@@ -1,0 +1,11 @@
+.tooltip {
+  padding: $sizes-snudge $sizes-sm;
+  border-radius: $corner-radius-medium;
+  border: solid $border-small $component-tooltip-border;
+  background-color: $component-tooltip-surface;
+  backdrop-filter: $blur-effect;
+
+  &__text {
+    color: $text-3-default;
+  }
+}
