@@ -1,0 +1,43 @@
+@mixin generateButtonVariant($button-variants, $variant, $btn-md-height, $btn-lg-height) {
+	border-color: map-get($button-variants, $variant, 'rest', 'border');
+	color: map-get($button-variants, $variant, 'rest', 'text');
+	background-color: map-get($button-variants, $variant, 'hover', 'surface');
+
+	&.btn--md {
+		box-shadow: inset 0 $btn-md-height 0 0
+			map-get($button-variants, $variant, 'rest', 'surface');
+	}
+
+	&.btn--lg {
+		box-shadow: inset 0 $btn-lg-height 0 0
+			map-get($button-variants, $variant, 'rest', 'surface');
+	}
+
+	& svg {
+		stroke: map-get($button-variants, $variant, 'rest', 'icon');
+	}
+
+	&:hover {
+		box-shadow: inset 0 0px 0 0
+			map-get($button-variants, $variant, 'hover', 'surface');
+		color: map-get($button-variants, $variant, 'hover', 'text');
+		border-color: map-get($button-variants, $variant, 'hover', 'border');
+
+		& svg {
+			stroke: map-get($button-variants, $variant, 'hover', 'icon');
+		}
+	}
+
+	&:focus {
+		box-shadow: inset 0 0px 0 0
+				map-get($button-variants, $variant, 'focused', 'surface'),
+			0 0 0 4px
+				rgba(map-get($button-variants, $variant, 'focused', 'outline'), 0.4);
+		color: map-get($button-variants, $variant, 'focused', 'text');
+		border-color: map-get($button-variants, $variant, 'focused', 'border');
+
+		& svg {
+			stroke: map-get($button-variants, $variant, 'focused', 'icon');
+		}
+	}
+}
