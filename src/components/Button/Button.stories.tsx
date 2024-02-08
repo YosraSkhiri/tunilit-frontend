@@ -50,7 +50,7 @@ const variants: buttonVariantType[] = [
 
 export const Overview: Story = {
 	render: () => (
-		<Layout style={{ gap: 80, padding: 40, minWidth: 845 }} direction='column'>
+		<Layout style={{ gap: 80, padding: 40, minWidth: 1300 }} direction='column'>
       <Layout style={{ gap: 60 }}>
         <Layout
           direction="column"
