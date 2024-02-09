@@ -1,21 +1,21 @@
 .icon {
-  stroke: $text-2-default;
+	stroke: $text-2-default;
 
-  &--sm {
-    width: 16px;
-    height: 16px;
-    stroke-width: 1.6;
-  }
+	&--sm {
+		width: 16px;
+		height: 16px;
+		stroke-width: 1.6;
+	}
 
-  &--md {
-    width: 24px;
-    height: 24px;
-    stroke-width: 1.5;
-  }
+	&--md {
+		width: 24px;
+		height: 24px;
+		stroke-width: 2;
+	}
 
-  &--lg {
-    width: 30px;
-    height: 30px;
-    stroke-width: 1.8;
-  }
+	&--lg {
+		width: 30px;
+		height: 30px;
+		stroke-width: 2;
+	}
 }
