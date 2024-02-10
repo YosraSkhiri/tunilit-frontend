@@ -1,9 +1,10 @@
 @use "./global" as *;
 
 $border-none: $stroke-width-none;
-$border-x-small: $stroke-width-5;
-$border-small: $stroke-width-10;
-$border-medium: $stroke-width-20;
+$border-xxsmall: $stroke-width-5;
+$border-xsmall: $stroke-width-10;
+$border-small: $stroke-width-20;
+$border-medium: $stroke-width-30;
 $border-large: $stroke-width-40;
 $breakpoints-phone: 280px;
 $breakpoints-tablet: 744px;
