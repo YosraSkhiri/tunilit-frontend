@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import InputLabel from './InputLabel'
-import Layout from '../Layout'
 
 const meta: Meta<typeof InputLabel> = {
 	component: InputLabel,
@@ -10,23 +9,29 @@ export default meta
 
 type Story = StoryObj<typeof InputLabel>
 
-export const Overview: Story = {
-	render: () => (
-		<Layout direction='column' style={{ gap: 40 }}>
-			<InputLabel>label</InputLabel>
-			<InputLabel variant="info">label</InputLabel>
-			<InputLabel variant='success'>label</InputLabel>
-			<InputLabel variant='error'>label</InputLabel>
-			<InputLabel disabled>label</InputLabel>
-		</Layout>
-	),
+export const DefaultLabel: Story = {
+	render: () => <InputLabel>label</InputLabel>,
 }
 
-export const Example: Story = {
-  args: {
-    children: 'Label',
-  },
-  render: (args) => (
-    <InputLabel {...args} />
-  )
+export const InfoLabel: Story = {
+	render: () => <InputLabel variant="info">label</InputLabel>,
+}
+
+export const SuccessLabel: Story = {
+	render: () => <InputLabel variant="success">label</InputLabel>,
+}
+
+export const ErrorLabel: Story = {
+	render: () => <InputLabel variant="error">label</InputLabel>,
+}
+
+export const DisabledLabel: Story = {
+	render: () => <InputLabel disabled>label</InputLabel>,
+}
+
+export const Playground: Story = {
+	args: {
+		children: 'Label',
+	},
+	render: (args) => <InputLabel {...args} />,
 }
