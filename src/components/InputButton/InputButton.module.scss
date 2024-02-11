@@ -1,0 +1,105 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	border-radius: $corner-radius-small;
+	border-width: $border-xxsmall;
+	border-style: solid;
+	border-color: transparent;
+	overflow: hidden;
+	transition: all 0.25s ease-in-out;
+	cursor: pointer;
+
+	&--md {
+		width: 1.875rem;
+		height: 1.875rem;
+	}
+
+	&--lg {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	&--default {
+		background-color: $status-generic-2-surface-dark;
+		border-color: $status-generic-2-border-lighter;
+
+		& svg {
+			stroke: $status-generic-2-icon;
+		}
+
+		&:hover {
+			background-color: $status-generic-2-surface-darker;
+		}
+
+		&:focus {
+			background-color: $status-generic-2-surface-darker;
+			box-shadow: $default-focus-outline;
+		}
+	}
+
+	&--info {
+		background-color: $status-info-surface-dark;
+		border-color: $status-info-border-light;
+
+		& svg {
+			stroke: $status-info-icon;
+		}
+
+		&:hover {
+			background-color: $status-info-surface-darker;
+		}
+
+		&:focus {
+			background-color: $status-info-surface-darker;
+			box-shadow: $info-focus-outline;
+		}
+	}
+
+	&--success {
+		background-color: $status-success-surface-dark;
+		border-color: $status-success-border-light;
+
+		& svg {
+			stroke: $status-success-icon;
+		}
+
+		&:hover {
+			background-color: $status-success-surface-darker;
+		}
+
+		&:focus {
+			background-color: $status-success-surface-darker;
+			box-shadow: $success-focus-outline;
+		}
+	}
+
+  &--error {
+		background-color: $status-error-surface-dark;
+		border-color: $status-error-border-light;
+
+		& svg {
+			stroke: $status-error-icon;
+		}
+
+		&:hover {
+			background-color: $status-error-surface-darker;
+		}
+
+		&:focus {
+			background-color: $status-error-surface-darker;
+			box-shadow: $error-focus-outline;
+		}
+	}
+
+  &--disabled {
+		background-color: $status-disabled-surface;
+		border-color: $status-disabled-border;
+    cursor: not-allowed;
+    
+		& svg {
+			stroke: $status-disabled-icon;
+		}
+	}
+}
