@@ -23,6 +23,7 @@ export const TooltipContent = forwardRef<
           ...context.floatingStyles,
           ...style
         }}
+        data-testid='tooltip-content'
         {...context.getFloatingProps(otherProps)}
       >
         <Typography variant='body3' classname={styles['tooltip__text']}>
