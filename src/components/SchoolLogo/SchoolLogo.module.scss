@@ -1,0 +1,48 @@
+.s-logo {
+	border-color: $border-2;
+	border-style: solid;
+	overflow: hidden;
+
+	&--xxlarge {
+		width: 180px;
+		height: 180px;
+		border-width: $border-large;
+		border-radius: $corner-radius-large;
+		box-shadow: -6px 8px 0 $shadow-box-shadow;
+	}
+
+	&--xlarge {
+		width: 100px;
+		height: 100px;
+		border-radius: $corner-radius-medium;
+		box-shadow: -4px 6px 0 $shadow-box-shadow;
+	}
+
+	&--large {
+		width: 72px;
+		height: 72px;
+		border-radius: $corner-radius-medium;
+		box-shadow: -4px 5px 0 $shadow-box-shadow;
+	}
+
+	&--medium {
+		width: 45px;
+		height: 45px;
+		border-radius: $corner-radius-small;
+		box-shadow: -2.5px 3.75px 0 $shadow-box-shadow;
+	}
+
+	&--small {
+		width: 38px;
+		height: 38px;
+		border-radius: $corner-radius-small;
+		box-shadow: -1.9px 2.85px 0 $shadow-box-shadow;
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
