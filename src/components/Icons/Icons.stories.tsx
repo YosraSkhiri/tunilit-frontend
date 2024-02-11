@@ -18,8 +18,8 @@ export const Overview: Story =  {
   render: () => 
     <Layout type='grid' style={{
       gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
-      gap: 40,
-      padding: 40,
+      columnGap: 40,
+      rowGap: 60,
     }}>
       {
         Object.values(Icons).map((Icon, i) => (
@@ -33,7 +33,7 @@ export const Overview: Story =  {
               gap: 20,
             }}
           >
-            <Typography variant='subtitle2'>{Icon?.displayName.slice(0, -4)}</Typography>
+            <Typography variant='body3'>{Icon?.displayName.slice(0, -4)}</Typography>
             <Icon size='lg' />
             <Icon size='md' />
             <Icon size='sm' />
@@ -43,6 +43,6 @@ export const Overview: Story =  {
     </Layout>
 }
 
-export const Example: Story = {
+export const Playground: Story = {
   render: (args) => <SparkleIcon {...args} />
 }
