@@ -43,11 +43,14 @@ const IconButton = forwardRef<
 				aria-label={ariaLabel}
 				ref={ref}
 				{...other}>
-				{
-          loading ? (
-            <LoaderIcon size={size} classname={styles['loader--animation']} />
-          ) : children
-        }
+				{loading ? (
+					<LoaderIcon
+						size={size}
+						classname={styles['loader--animation']}
+					/>
+				) : (
+					children
+				)}
 			</ButtonBase>
 		)
 
@@ -58,8 +61,7 @@ const IconButton = forwardRef<
 					onOpenChange={setShowTooltip}>
 					<TooltipTrigger
 						onMouseMove={() => setShowTooltip(true)}
-						onMouseLeave={() => setShowTooltip(false)}
-          >
+						onMouseLeave={() => setShowTooltip(false)}>
 						{btnIcon}
 					</TooltipTrigger>
 					<TooltipContent>{tooltip}</TooltipContent>
