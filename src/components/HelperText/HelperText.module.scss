@@ -1,0 +1,21 @@
+.helper-text {
+	font-size: 0.75rem;
+	line-height: 150%;
+	color: $text-3-default;
+
+	&--info {
+		color: $text-info-default;
+	}
+
+	&--success {
+		color: $text-success-default;
+	}
+
+	&--error {
+		color: $text-error-default;
+	}
+
+	&--disabled {
+		color: $status-disabled-text;
+	}
+}
