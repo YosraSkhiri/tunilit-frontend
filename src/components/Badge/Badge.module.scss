@@ -1,0 +1,68 @@
+.badge {
+	&-wrapper {
+		width: fit-content;
+		height: fit-content;
+		position: relative;
+	}
+
+	&--dot {
+		position: absolute;
+		right: -0.25rem;
+		top: -0.25rem;
+		width: 1rem;
+		height: 1rem;
+		border-radius: $corner-radius-large;
+		border-width: $border-small;
+		border-style: solid;
+    animation: expand .2s ease-in-out forwards;
+
+		&.badge--primary {
+			border-color: $status-generic-4-border;
+			background-color: $status-generic-4-surface;
+		}
+
+		&.badge--secondary {
+			border-color: $status-generic-inverted-1-border;
+			background-color: $status-generic-inverted-1-surface;
+		}
+	}
+
+	&--standard {
+		position: absolute;
+		right: -0.5rem;
+		bottom: -0.625rem;
+		width: fit-content;
+		height: fit-content;
+		padding: 0.5rem 0.375rem;
+		border-radius: $corner-radius-medium;
+		border-width: $border-xxsmall;
+		border-style: solid;
+		font-size: 0.75rem;
+		font-weight: 700;
+		line-height: 0.625rem;
+		text-align: center;
+		text-transform: uppercase;
+    animation: expand .2s ease-in-out forwards;
+
+		&.badge--primary {
+			border-color: $status-generic-4-border;
+			background-color: $status-generic-4-surface;
+			color: $status-generic-4-text;
+		}
+
+		&.badge--secondary {
+			border-color: $status-generic-inverted-1-border;
+			background-color: $status-generic-inverted-1-surface;
+			color: $status-generic-inverted-1-text;
+		}
+	}
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
