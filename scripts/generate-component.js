@@ -62,7 +62,7 @@ const directoryExists = async (dirPath) => {
     return true
   } catch (error) {
     if (error.code === 'ENOENT') {
-      console.log('The directory does not exist')
+      // console.log(error)
       return false
     }
     throw error
@@ -85,6 +85,7 @@ const createComponentFiles = async (componentFiles) => {
     try {
       await fs.mkdir(componentFolderName)
       await createComponentFiles(componentFiles)
+      console.log('Component files created')
     } catch (error) {
       console.error('Error creating component directory or files:', error)
     }
