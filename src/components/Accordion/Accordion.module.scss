@@ -1,0 +1,12 @@
+.accordion-container {
+	width: 100%;
+	border-radius: $corner-radius-large;
+	border-color: $status-generic-3-border;
+	border-width: $border-small;
+	border-style: solid;
+	background-color: $status-generic-3-surface;
+
+	&:not(:last-child) {
+		margin-bottom: 0.625rem;
+	}
+}
