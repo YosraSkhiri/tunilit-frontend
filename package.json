@@ -23,6 +23,7 @@
     "sass-loader": "^13.3.3"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.6.16",
     "@storybook/addon-essentials": "^7.6.16",
     "@storybook/addon-interactions": "^7.6.16",
     "@storybook/addon-links": "^7.6.16",
