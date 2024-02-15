@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest",
-    "create-component": "node ./scripts/generate-component.js"
+    "create-component": "node ./scripts/generate-component.js",
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.9",
@@ -33,6 +34,7 @@
     "@storybook/react": "^7.6.16",
     "@storybook/react-vite": "^7.6.16",
     "@storybook/test": "^7.6.16",
+    "@storybook/test-runner": "^0.16.0",
     "@storybook/theming": "^7.6.16",
     "@testing-library/jest-dom": "^6.3.0",
     "@testing-library/react": "^14.1.2",
