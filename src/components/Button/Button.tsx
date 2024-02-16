@@ -3,7 +3,7 @@ import ButtonBase from '../ButtonBase'
 import { LoaderIcon } from '../Icons'
 import ButtonProps from './Button.types'
 import styles from './Button.module.scss'
-import classNames from 'classnames'
+import clsx from 'clsx'
 
 type WrapperElemType = typeof Fragment | 'div'
 
@@ -19,7 +19,7 @@ const Button = ({
 	loading,
 	...other
 }: ButtonProps) => {
-	const buttonClass = classNames(
+	const buttonClass = clsx(
 		{
 			[styles.btn]: true,
 			[styles[`btn--${variant}`]]: !disabled && !loading,
@@ -33,7 +33,7 @@ const Button = ({
 		className
 	)
 
-	const wrapperClass = classNames({
+	const wrapperClass = clsx({
 		[styles['btn--shadow']]: shadow,
 		[styles[`btn--shadow-${size}`]]: shadow,
 		[styles['wrapper__arrow']]: arrow && variant === 'primary',
