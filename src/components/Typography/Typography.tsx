@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import styles from './Typography.module.scss'
 import TypographyProps from './Typography.types'
 import { ElementType, Fragment } from 'react'
@@ -12,7 +12,7 @@ const Typography = ({
   noWrap = false,
   adorn = false,
 }: TypographyProps) => {
-  const typographyClass = classNames({
+  const typographyClass = clsx({
     [styles['typography']]: true,
     [styles['typography--nowrap']]: noWrap,
     [styles[`typography--${variant}`]]: true,

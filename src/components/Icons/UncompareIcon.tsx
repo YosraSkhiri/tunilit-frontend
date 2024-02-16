@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import styles from './Icon.module.scss'
 import IconProps from './Icon.types'
 
@@ -11,7 +11,7 @@ const UncompareIcon = ({
 	size = 'md',
 	...other
 }: IconProps) => {
-	const iconClass = classNames(
+	const iconClass = clsx(
 		{
 			[styles['icon']]: true,
 			[styles[`icon--${size}`]]: size,

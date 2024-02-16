@@ -1,6 +1,6 @@
 import styles from './Logo.module.scss'
 import LogoProps, { EyeProps } from './Logo.types'
-import classNames from 'classnames'
+import clsx from 'clsx'
 
 type LogoWrapperType = 'div' | 'a'
 
@@ -9,13 +9,13 @@ const Eye = ({
   animate = false,
   side = 'left',
 }: EyeProps) => {
-  const closedEyeClass = classNames({
+  const closedEyeClass = clsx({
     [styles['icon--hide']]: !closed,
     [styles['icon--stroke']]: true,
     [styles['animate-hide']]: animate,
   })
 
-  const openEyeClass = classNames({
+  const openEyeClass = clsx({
     [styles['icon--hide']]: closed,
     [styles['animate-show']]: animate,
   })
@@ -72,7 +72,7 @@ const Logo = ({
   eyes = 'open',
   classname,
 }: LogoProps) => {
-  const logoClass = classNames({
+  const logoClass = clsx({
     [styles.logo]: true,
     [styles['logo--link']]: link,
     [styles['logo--animate']]: animate && !link && eyes === 'open',

@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import styles from './Layout.module.scss'
 import LayoutProps from './Layout.types'
 
@@ -12,7 +12,7 @@ const Layout = ({
   classname,
   style,
 }: LayoutProps) => {
-  const layoutClass = classNames({
+  const layoutClass = clsx({
     [styles[type]]: true,
     [styles[`flex--${direction}`]]: type === 'flex' && direction,
     [styles[`flex--${flexWrap}`]]: type === 'flex' && flexWrap,

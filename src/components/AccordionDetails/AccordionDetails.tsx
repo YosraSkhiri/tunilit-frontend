@@ -2,12 +2,12 @@ import styles from './AccordionDetails.module.scss'
 import AccordionDetailsProps from './AccordionDetails.types'
 import { useContext } from 'react'
 import { AccordionContext } from '../Accordion/AccordionContext'
-import classNames from 'classnames'
+import clsx from 'clsx'
 
 const AccordionDetails = ({ children }: AccordionDetailsProps) => {
 	const { isExpanded } = useContext(AccordionContext)
 
-	const contentWrapperClass = classNames({
+	const contentWrapperClass = clsx({
 		[styles['details-content-wrapper']]: true,
 		[styles['details-content-wrapper--expended']]: isExpanded,
 		[styles['details-content-wrapper--contracted']]: !isExpanded,

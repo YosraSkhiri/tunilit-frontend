@@ -1,6 +1,6 @@
 import { forwardRef, useState } from 'react'
 import IconButtonProps from './IconButton.type'
-import classNames from 'classnames'
+import clsx from 'clsx'
 import styles from './IconButton.module.scss'
 import ButtonBase from '../ButtonBase'
 import Tooltip, { TooltipContent, TooltipTrigger } from '../Tooltip'
@@ -26,7 +26,7 @@ const IconButton = forwardRef<
 
 		const { disabled } = other
 
-		const iconButtonClass = classNames({
+		const iconButtonClass = clsx({
 			[styles.btn]: true,
 			[styles[`btn--${size}`]]: true,
 			[styles[`btn--${variant}`]]: !disabled && !loading,

@@ -1,9 +1,9 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import styles from './HelperText.module.scss'
 import HelperTextProps from './HelperText.types.ts'
 
 const HelperText = ({children, variant}: HelperTextProps) => {
-  const helperTextClass = classNames({
+  const helperTextClass = clsx({
     [styles['helper-text']]: true,
     [styles[`helper-text--${variant}`]]: variant,
   })

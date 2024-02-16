@@ -2,7 +2,7 @@ import { useState } from 'react'
 import ButtonBase from '../ButtonBase'
 import Tooltip, { TooltipContent, TooltipTrigger } from '../Tooltip'
 import InputButtonProps from './InputButton.types'
-import classNames from 'classnames'
+import clsx from 'clsx'
 import styles from './InputButton.module.scss'
 
 const InputButton = ({
@@ -16,7 +16,7 @@ const InputButton = ({
 }: InputButtonProps) => {
 	const [showTooltip, setShowTooltip] = useState<boolean>(false)
 
-	const inputButtonClass = classNames({
+	const inputButtonClass = clsx({
 		[styles.btn]: true,
 		[styles[`btn--${variant}`]]: !disabled,
 		[styles[`btn--${size}`]]: size,
