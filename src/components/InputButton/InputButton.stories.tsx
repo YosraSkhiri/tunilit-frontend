@@ -11,65 +11,64 @@ export default meta
 type Story = StoryObj<typeof InputButton>
 
 export const DefaultInputButton: Story = {
-  render: () => (
-		<InputButton>
-			<CrossSmallIcon />
-		</InputButton>
-	),
+	args: {
+		ariaLabel: 'close',
+		children: <CrossSmallIcon />,
+	},
 }
 
 export const InfoInputButton: Story = {
-  render: () => (
-		<InputButton variant='info'>
-			<CrossSmallIcon />
-		</InputButton>
-	),
+	args: {
+		ariaLabel: 'close',
+		children: <CrossSmallIcon />,
+		variant: 'info',
+	},
 }
 
 export const SuccessInputButton: Story = {
-  render: () => (
-		<InputButton variant='success'>
-			<CrossSmallIcon />
-		</InputButton>
-	),
+	args: {
+		ariaLabel: 'close',
+		children: <CrossSmallIcon />,
+		variant: 'success',
+	},
 }
 
 export const ErrorInputButton: Story = {
-  render: () => (
-		<InputButton variant='error'>
-			<CrossSmallIcon />
-		</InputButton>
-	),
+	args: {
+		ariaLabel: 'close',
+		children: <CrossSmallIcon />,
+		variant: 'error',
+	},
 }
 
 export const DisabledInputButton: Story = {
-  render: () => (
-		<InputButton disabled>
-			<CrossSmallIcon />
-		</InputButton>
-	),
+	args: {
+		ariaLabel: 'close',
+		children: <CrossSmallIcon />,
+		disabled: true,
+	},
 }
 
 export const MediumInputButton: Story = {
-  render: () => (
-		<InputButton size='md'>
-			<CrossSmallIcon />
-		</InputButton>
-	),
+	args: {
+		ariaLabel: 'close',
+		children: <CrossSmallIcon />,
+		size: 'md',
+	},
 }
 
 export const LargeInputButton: Story = {
-  render: () => (
-		<InputButton size='lg'>
-			<CrossSmallIcon size='lg' />
-		</InputButton>
-	),
+	args: {
+		ariaLabel: 'close',
+		children: <CrossSmallIcon size="lg" />,
+		size: 'lg',
+	},
 }
 
 export const Playground: Story = {
-	render: (args) => (
-		<InputButton {...args}>
-			<CrossSmallIcon />
-		</InputButton>
-	),
+	args: {
+		ariaLabel: 'close',
+		children: <CrossSmallIcon />,
+		size: 'md',
+	},
 }

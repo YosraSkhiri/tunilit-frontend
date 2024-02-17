@@ -10,60 +10,48 @@ export default meta
 type Story = StoryObj<typeof Logo>
 
 export const FullLogo: Story = {
-	render: () => (
-		<Logo
-			animate
-			iconWidth={316.96}
-			iconHeight={275.01}
-			textWidth={544.03}
-		/>
-	),
+	args: {
+		animate: true,
+		iconWidth: 316.96,
+		iconHeight: 275.01,
+		textWidth: 544.03,
+	},
 }
 
 export const FullLogoOnDarkBackground: Story = {
-	render: () => (
-		<div style={{ backgroundColor: '#046862' }}>
-			<Logo
-				lightText
-				iconWidth={316.96}
-				iconHeight={275.01}
-				textWidth={544.03}
-			/>
-		</div>
-	),
+	args: {
+		lightText: true,
+		iconWidth: 316.96,
+		iconHeight: 275.01,
+		textWidth: 544.03,
+	},
 }
 
 export const OpenEyesIcon: Story = {
-	render: () => (
-		<Logo
-			onlyIcon
-			eyes="open"
-			iconWidth={260}
-			iconHeight={260}
-		/>
-	),
+	args: {
+		onlyIcon: true,
+		iconWidth: 260,
+		iconHeight: 260,
+		eyes: 'open',
+	},
 }
 
 export const ClosedEyesIcon: Story = {
-	render: () => (
-		<Logo
-			onlyIcon
-			eyes="closed"
-			iconWidth={260}
-			iconHeight={260}
-		/>
-	),
+	args: {
+		onlyIcon: true,
+		iconWidth: 260,
+		iconHeight: 260,
+		eyes: 'closed',
+	},
 }
 
 export const WinkIcon: Story = {
-	render: () => (
-		<Logo
-			onlyIcon
-			eyes="wink"
-			iconWidth={260}
-			iconHeight={260}
-		/>
-	),
+	args: {
+		onlyIcon: true,
+		iconWidth: 260,
+		iconHeight: 260,
+		eyes: 'wink',
+	},
 }
 
 export const Playground: Story = {

@@ -16,7 +16,9 @@ export const BadgeDot: Story = {
 		<Badge
 			type="primary"
 			variant="dot">
-			<IconButton variant="tertiary">
+			<IconButton
+				ariaLabel="Menu"
+				variant="tertiary">
 				<MenuHamburgerIcon />
 			</IconButton>
 		</Badge>
@@ -28,7 +30,9 @@ export const BadgeDotSecondary: Story = {
 		<Badge
 			type="secondary"
 			variant="dot">
-			<IconButton variant="tertiary">
+			<IconButton
+				ariaLabel="Menu"
+				variant="tertiary">
 				<MenuHamburgerIcon />
 			</IconButton>
 		</Badge>
@@ -41,7 +45,9 @@ export const BadgeStandardPrimary: Story = {
 			type="primary"
 			variant="standard"
 			content="en">
-			<IconButton variant="tertiary">
+			<IconButton
+				ariaLabel="Translate"
+				variant="tertiary">
 				<LanguagesIcon />
 			</IconButton>
 		</Badge>
@@ -54,7 +60,9 @@ export const BadgeStandardSecondary: Story = {
 			type="secondary"
 			variant="standard"
 			content="en">
-			<IconButton variant="tertiary">
+			<IconButton
+				ariaLabel="Translate"
+				variant="tertiary">
 				<LanguagesIcon />
 			</IconButton>
 		</Badge>
@@ -70,7 +78,9 @@ export const Playground: Story = {
 	},
 	render: (args) => (
 		<Badge {...args}>
-			<IconButton variant="tertiary">
+			<IconButton
+				ariaLabel="Menu"
+				variant="tertiary">
 				<MenuHamburgerIcon />
 			</IconButton>
 		</Badge>

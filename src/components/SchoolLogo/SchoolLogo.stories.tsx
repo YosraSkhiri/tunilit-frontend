@@ -11,53 +11,48 @@ export default meta
 type Story = StoryObj<typeof SchoolLogo>
 
 export const XXLarge: Story = {
-	render: () => (
-		<SchoolLogo
-			size="xxlarge"
-			src={placeholderImg}
-		/>
-	),
+	args: {
+		alt: 'Placeholder',
+		size: 'xxlarge',
+		src: placeholderImg,
+	},
 }
 
 export const XLarge: Story = {
-	render: () => (
-		<SchoolLogo
-			size="xlarge"
-			src={placeholderImg}
-		/>
-	),
+	args: {
+		alt: 'Placeholder',
+		size: 'xlarge',
+		src: placeholderImg,
+	},
 }
 
 export const Large: Story = {
-	render: () => (
-		<SchoolLogo
-			size="large"
-			src={placeholderImg}
-		/>
-	),
+	args: {
+		alt: 'Placeholder',
+		size: 'large',
+		src: placeholderImg,
+	},
 }
 
 export const Medium: Story = {
-	render: () => (
-		<SchoolLogo
-			size="medium"
-			src={placeholderImg}
-		/>
-	),
+	args: {
+		alt: 'Placeholder',
+		size: 'medium',
+		src: placeholderImg,
+	},
 }
 
 export const Small: Story = {
-	render: () => (
-		<SchoolLogo
-			size="small"
-			src={placeholderImg}
-		/>
-	),
+	args: {
+		alt: 'Placeholder',
+		size: 'small',
+		src: placeholderImg,
+	},
 }
 
 export const Playground: Story = {
 	args: {
+		alt: 'Placeholder',
 		src: placeholderImg,
 	},
-	render: (args) => <SchoolLogo {...args} />,
 }

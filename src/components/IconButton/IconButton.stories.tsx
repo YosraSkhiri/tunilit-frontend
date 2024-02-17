@@ -11,106 +11,107 @@ export default meta
 type Story = StoryObj<typeof IconButton>
 
 export const Primary: Story = {
-	render: () => (
-		<IconButton>
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+	},
 }
 
 export const Secondary: Story = {
-	render: () => (
-		<IconButton variant="secondary">
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		variant: 'secondary',
+	},
 }
 
 export const Tertiary: Story = {
-	render: () => (
-		<IconButton variant="tertiary">
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		variant: 'tertiary',
+	},
 }
 
 export const Success: Story = {
-	render: () => (
-		<IconButton variant="success">
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		variant: 'success',
+	},
 }
 
 export const Error: Story = {
-	render: () => (
-		<IconButton variant="error">
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		variant: 'error',
+	},
 }
 
 export const Subtle: Story = {
-	render: () => (
-		<IconButton variant="subtle">
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		variant: 'subtle',
+	},
 }
 
 export const MediumButton: Story = {
-	render: () => (
-		<IconButton>
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		size: 'md',
+	},
 }
 
 export const LargeButton: Story = {
-	render: () => (
-		<IconButton size="lg">
-			<PlaceholderIcon size="lg" />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon size="lg" />,
+		size: 'lg',
+	},
 }
 
 export const DisabledOutlinedButton: Story = {
-	render: () => (
-		<IconButton disabled>
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		disabled: true,
+	},
 }
 
 export const DisabledSubtleButton: Story = {
-	render: () => (
-		<IconButton
-			variant="subtle"
-			disabled>
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		disabled: true,
+		variant: 'subtle',
+	},
 }
 
 export const LoadingOutlinedButton: Story = {
-	render: () => (
-		<IconButton loading>
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		loading: true,
+	},
 }
 
 export const LoadingSubtleButton: Story = {
-	render: () => (
-		<IconButton
-			variant="subtle"
-			loading>
-			<PlaceholderIcon />
-		</IconButton>
-	),
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+		loading: true,
+		variant: 'subtle',
+	},
 }
 
 export const Playground: Story = {
+	args: {
+		ariaLabel: 'Test button',
+		children: <PlaceholderIcon />,
+	},
 	parameters: {
 		layout: 'centered',
 	},
@@ -141,9 +142,4 @@ export const Playground: Story = {
 			},
 		},
 	},
-	render: (args) => (
-		<IconButton {...args}>
-			<PlaceholderIcon />
-		</IconButton>
-	),
 }

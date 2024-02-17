@@ -10,38 +10,41 @@ export default meta
 type Story = StoryObj<typeof HelperText>
 
 export const DefaultHelperText: Story = {
-	render: () => (
-		<HelperText>This is a helper message</HelperText>
-	),
+	args: {
+		children: 'This is a helper message',
+	},
 }
 
 export const InfoHelperText: Story = {
-	render: () => (
-		<HelperText variant="info">This is a helper message</HelperText>
-	),
+	args: {
+		children: 'This is a helper message',
+		variant: 'info',
+	},
 }
 
 export const SuccessHelperText: Story = {
-	render: () => (
-		<HelperText variant="success">This is a helper message</HelperText>
-	),
+	args: {
+		children: 'This is a helper message',
+		variant: 'success',
+	},
 }
 
 export const ErrorHelperText: Story = {
-	render: () => (
-		<HelperText variant="error">This is a helper message</HelperText>
-	),
+	args: {
+		children: 'This is a helper message',
+		variant: 'error',
+	},
 }
 
 export const DisabledHelperText: Story = {
-	render: () => (
-		<HelperText variant="disabled">This is a helper message</HelperText>
-	),
+	args: {
+		children: 'This is a helper message',
+		variant: 'disabled',
+	},
 }
 
 export const Playground: Story = {
 	args: {
 		children: 'This is a helper message',
 	},
-	render: (args) => <HelperText {...args} />,
 }

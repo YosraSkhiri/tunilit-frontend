@@ -11,89 +11,124 @@ export default meta
 type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
-	render: () => <Button>Button</Button>,
+	args: {
+		children: 'Button',
+	},
 }
 
 export const Secondary: Story = {
-	render: () => <Button variant="secondary">Button</Button>,
+	args: {
+		children: 'Button',
+		variant: 'secondary',
+	},
 }
 
 export const Tertiary: Story = {
-	render: () => <Button variant="tertiary">Button</Button>,
+	args: {
+		children: 'Button',
+		variant: 'tertiary',
+	},
 }
 
 export const Success: Story = {
-	render: () => <Button variant="success">Button</Button>,
+	args: {
+		children: 'Button',
+		variant: 'success',
+	},
 }
 
 export const Error: Story = {
-	render: () => <Button variant="error">Button</Button>,
+	args: {
+		children: 'Button',
+		variant: 'error',
+	},
 }
 
 export const Subtle: Story = {
-	render: () => <Button variant="subtle">Button</Button>,
+	args: {
+		children: 'Button',
+		variant: 'subtle',
+	},
 }
 
 export const IconLeftButton: Story = {
-	render: () => (
-		<Button>
-			<PlaceholderIcon />
-			Button
-		</Button>
-	),
+	args: {
+		children: (
+			<>
+				<PlaceholderIcon />
+				Button
+			</>
+		),
+	},
 }
 
 export const IconRightButton: Story = {
-	render: () => (
-		<Button>
-			Button
-			<PlaceholderIcon />
-		</Button>
-	),
+	args: {
+		children: (
+			<>
+				Button
+				<PlaceholderIcon />
+			</>
+		),
+	},
 }
 
 export const ShadowButton: Story = {
-	render: () => <Button shadow>Button</Button>,
+	args: {
+		children: 'Button',
+		shadow: true,
+	},
 }
 
 export const PrimaryArrowButton: Story = {
-	render: () => <Button arrow>Button</Button>,
+	args: {
+		children: 'Button',
+		arrow: true,
+	},
 }
 
 export const MediumButton: Story = {
-	render: () => <Button>Button</Button>,
+	args: {
+		children: 'Button',
+		size: 'md',
+	},
 }
 
 export const LargeButton: Story = {
-	render: () => <Button size="lg">Button</Button>,
+	args: {
+		children: 'Button',
+		size: 'lg',
+	},
 }
 
 export const DisabledOutlinedButton: Story = {
-	render: () => <Button disabled>Button</Button>,
+	args: {
+		children: 'Button',
+		disabled: true,
+	},
 }
 
 export const DisabledSubtleButton: Story = {
-	render: () => (
-		<Button
-			variant="subtle"
-			disabled>
-			Button
-		</Button>
-	),
+	args: {
+		children: 'Button',
+		disabled: true,
+		variant: 'subtle',
+	},
 }
 
 export const LoadingOutlinedButton: Story = {
-	render: () => <Button loading>Button</Button>,
+	args: {
+		children: 'Button',
+		loading: true,
+	},
 }
 
 export const LoadingSubtleButton: Story = {
-	render: () => (
-		<Button
-			variant="subtle"
-			loading>
-			Button
-		</Button>
-	),
+	args: {
+		children: 'Button',
+		loading: true,
+		variant: 'subtle',
+	},
 }
 
 export const Playground: Story = {
@@ -130,5 +165,4 @@ export const Playground: Story = {
 			},
 		},
 	},
-	render: (args) => <Button {...args} />,
 }

@@ -10,104 +10,91 @@ export default meta
 type Story = StoryObj<typeof Typography>
 
 export const Title: Story = {
-	render: () => (
-		<Typography variant="title">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'title',
+	},
 }
 
 export const Heading1: Story = {
-	render: () => (
-		<Typography variant="h1">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'h1',
+	},
 }
 
 export const Heading2: Story = {
-	render: () => (
-		<Typography variant="h2">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'h2',
+	},
 }
 
 export const Heading3: Story = {
-	render: () => (
-		<Typography variant="h3">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'h3',
+	},
 }
 
 export const Heading4: Story = {
-	render: () => (
-		<Typography variant="h4">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'h4',
+	},
 }
 
 export const Heading5: Story = {
-	render: () => (
-		<Typography variant="h5">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'h5',
+	},
 }
 
 export const Heading6: Story = {
-	render: () => (
-		<Typography variant="h6">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'h6',
+	},
 }
 
 export const Subtitle1: Story = {
-	render: () => (
-		<Typography variant="subtitle1">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'subtitle1',
+	},
 }
 
 export const Subtitle2: Story = {
-	render: () => (
-		<Typography variant="subtitle2">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'subtitle2',
+	},
 }
 
 export const Body1: Story = {
-	render: () => (
-		<Typography variant="body1">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'body1',
+	},
 }
 
 export const Body2: Story = {
-	render: () => (
-		<Typography variant="body2">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'body2',
+	},
 }
 
 export const Body3: Story = {
-	render: () => (
-		<Typography variant="body3">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit
-		</Typography>
-	),
+	args: {
+		children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+		variant: 'body3',
+	},
 }
 
 export const Playground: Story = {
 	args: {
 		children: 'Typography',
 	},
-	render: (args) => <Typography {...args} />,
 }

@@ -10,28 +10,41 @@ export default meta
 type Story = StoryObj<typeof InputLabel>
 
 export const DefaultLabel: Story = {
-	render: () => <InputLabel>label</InputLabel>,
+	args: {
+		children: 'Label',
+	},
 }
 
 export const InfoLabel: Story = {
-	render: () => <InputLabel variant="info">label</InputLabel>,
+	args: {
+		children: 'Label',
+		variant: 'info',
+	},
 }
 
 export const SuccessLabel: Story = {
-	render: () => <InputLabel variant="success">label</InputLabel>,
+	args: {
+		children: 'Label',
+		variant: 'success',
+	},
 }
 
 export const ErrorLabel: Story = {
-	render: () => <InputLabel variant="error">label</InputLabel>,
+	args: {
+		children: 'Label',
+		variant: 'error',
+	},
 }
 
 export const DisabledLabel: Story = {
-	render: () => <InputLabel disabled>label</InputLabel>,
+	args: {
+		children: 'Label',
+		disabled: true,
+	},
 }
 
 export const Playground: Story = {
 	args: {
 		children: 'Label',
 	},
-	render: (args) => <InputLabel {...args} />,
 }
