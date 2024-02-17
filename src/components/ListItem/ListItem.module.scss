@@ -1,0 +1,12 @@
+.list-item {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+	padding: 0.625rem;
+  color: $text-2-default;
+
+  & svg {
+    stroke: $text-4-default;
+  }
+}
