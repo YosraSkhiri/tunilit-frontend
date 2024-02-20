@@ -1,0 +1,85 @@
+@mixin generateLinkVariant($link-variants, $variant) {
+	color: map-get($link-variants, $variant, 'rest', 'text');
+
+	& > svg {
+		stroke: map-get($link-variants, $variant, 'rest', 'icon');
+	}
+
+	&:hover {
+		color: map-get($link-variants, $variant, 'hover', 'text');
+
+		& > svg {
+			stroke: map-get($link-variants, $variant, 'hover', 'icon');
+		}
+	}
+
+	&:focus {
+		color: map-get($link-variants, $variant, 'focused', 'icon');
+		box-shadow: 0 0 0 4px $surface-page,
+			0 0 0 8px map-get($link-variants, $variant, 'focused', 'outline');
+
+		& > svg {
+			stroke: map-get($link-variants, $variant, 'focused', 'icon');
+		}
+	}
+}
+
+.link {
+	display: inline-flex;
+	align-items: center;
+	width: fit-content;
+	gap: 10px;
+	white-space: nowrap;
+	transition: all 0.1s ease-in-out;
+	border-radius: 4px;
+
+	&--default {
+		@include generateLinkVariant($link-variants, 'default');
+	}
+
+	&--subtle {
+		@include generateLinkVariant($link-variants, 'subtle');
+	}
+
+	&--light {
+		@include generateLinkVariant($link-variants, 'light');
+	}
+
+	.link-text-wrapper {
+		position: relative;
+	}
+
+	&--underline::before,
+	&--underline::after {
+		display: block;
+		background-color: currentColor;
+		bottom: 0;
+		content: '';
+		height: 2px;
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
+
+	&--underline::after {
+		transition: transform 0.2s ease-in-out;
+		transform: scaleX(1);
+		transform-origin: top right;
+	}
+
+	&--underline::before {
+		transition: transform 0.2s 0.4s ease-in-out;
+		transform: scaleX(0);
+		transform-origin: top left;
+	}
+
+	&--underline:hover {
+		&::after {
+			transform: scaleX(0);
+		}
+
+		&::before {
+			transform: scaleX(1);
+		}
+	}
+}
