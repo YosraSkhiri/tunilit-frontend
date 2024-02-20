@@ -1,6 +1,6 @@
 import { ElementType, ReactNode } from 'react';
 
-export type variantType ='body1'
+export type typographyVariantType ='body1'
 | 'body2'
 | 'body3'
 | 'title'
@@ -16,9 +16,9 @@ export type variantType ='body1'
 export default interface TypographyProps {
   component?: ElementType | string,
   children?: ReactNode,
-  classname?: string,
+  className?: string,
   align?: 'center' | 'inherit' | 'justify' | 'left' | 'right',
-  variant?: variantType,
+  variant?: typographyVariantType,
   noWrap?: boolean,
   adorn?: boolean,
 }
