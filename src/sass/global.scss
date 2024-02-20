@@ -167,6 +167,7 @@ body {
   font-size: $font-size;
   font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: $surface-page;
+  color: $text-3-default;
 
   &::-webkit-scrollbar {
     width: 12px;
