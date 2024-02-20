@@ -367,6 +367,51 @@ $button-variants: (
 	),
 );
 
+$link-variants : (
+  default: (
+    rest: (
+      text: $component-link-default-rest-text,
+      icon: $component-link-default-rest-icon,
+    ),
+    hover: (
+      text: $component-link-default-hover-text,
+      icon: $component-link-default-hover-icon,
+    ),
+    focused: (
+      text: $component-link-default-focused-text,
+      icon: $component-link-default-focused-icon,
+    ),
+  ),
+  subtle: (
+    rest: (
+      text: $component-link-subtle-rest-text,
+      icon: $component-link-subtle-rest-icon,
+    ),
+    hover: (
+      text: $component-link-subtle-hover-text,
+      icon: $component-link-subtle-hover-icon,
+    ),
+    focused: (
+      text: $component-link-subtle-focused-text,
+      icon: $component-link-subtle-focused-icon,
+    ),
+  ),
+  light: (
+    rest: (
+      text: $component-link-light-rest-text,
+      icon: $component-link-light-rest-icon,
+    ),
+    hover: (
+      text: $component-link-light-hover-text,
+      icon: $component-link-light-hover-icon,
+    ),
+    focused: (
+      text: $component-link-light-focused-text,
+      icon: $component-link-light-focused-icon,
+    ),
+  ),
+);
+
 $blur-effect: blur(10px);
 $default-focus-outline: 0 0 0 4px rgba($secondary-dark, 40%);
 $info-focus-outline: 0 0 0 4px rgba($info, 40%);
