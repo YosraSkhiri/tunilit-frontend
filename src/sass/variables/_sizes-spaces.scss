@@ -1,18 +1,18 @@
 @use "./global" as *;
 
-$border-none: $stroke-width-none;
+$border-none: $stroke-width-0;
 $border-xxsmall: $stroke-width-5;
 $border-xsmall: $stroke-width-10;
 $border-small: $stroke-width-20;
 $border-medium: $stroke-width-30;
 $border-large: $stroke-width-40;
-$corner-radius-none: $corner-radius-none;
+$corner-radius-none: $corner-radius-0;
 $corner-radius-xsmall: $corner-radius-40;
 $corner-radius-small: $corner-radius-80;
 $corner-radius-medium: $corner-radius-100;
 $corner-radius-large: $corner-radius-200;
 $corner-radius-circular: $corner-radius-990;
-$sizes-none: $size-none;
+$sizes-none: $size-0;
 $sizes-sssnudge: $size-20;
 $sizes-ssnudge: $size-40;
 $sizes-snudge: $size-100;
