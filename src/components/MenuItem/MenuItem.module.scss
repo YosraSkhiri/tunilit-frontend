@@ -1,0 +1,119 @@
+.menu-item {
+	width: 100%;
+	border-radius: $corner-radius-medium;
+	background-color: $status-generic-3-surface-dark;
+	border-width: $border-xxsmall;
+	border-style: solid;
+	border-color: $status-generic-3-border-light;
+	transition: all 0.2s ease-in-out;
+
+  &--default {
+    &:hover {
+      background-color: $status-generic-3-surface-darker;
+      border-color: $status-generic-3-border-light;
+      border-width: $border-xxsmall;
+    }
+  
+    &:hover &__text {
+      color: $status-generic-3-text;
+    }
+  
+    &:hover &__right-adorn {
+      stroke: $status-generic-3-icon-light;
+    }
+  
+    &:hover &__left-adorn {
+      stroke: $status-generic-3-icon;
+    }
+  
+    &:focus {
+      background-color: $status-generic-3-surface-darker;
+      border-color: $status-generic-3-border-light;
+      border-width: $border-xxsmall;
+      box-shadow: $default-focus-outline;
+    }
+  
+    &:focus &__text {
+      color: $status-generic-3-text;
+    }
+  
+    &:focus &__right-adorn {
+      stroke: $status-generic-3-icon-light;
+    }
+  
+    &:focus &__left-adorn {
+      stroke: $status-generic-3-icon;
+    }
+  }
+
+  &--selected {
+    border-width: $border-small;
+    border-color: $status-generic-4-border;
+    background-color: $status-generic-4-surface;
+  }
+
+  &--selected &__text {
+    color: $status-generic-4-text;
+    font-weight: 600;
+  }
+
+  &--selected &__right-adorn {
+    stroke: $status-generic-4-icon-light;
+  }
+
+  &--selected &__left-adorn {
+    stroke: $status-generic-4-icon;
+  }
+
+  &--lg {
+    padding: 38px 20px;
+  }
+
+	&--md {
+		padding: 18px 20px;
+	}
+
+  &--sm {
+    padding: 13px 20px;
+  }
+
+	&--disabled {
+		background-color: $status-disabled-surface;
+		border-color: $status-disabled-border;
+		cursor: not-allowed;
+	}
+
+	&--disabled &__text {
+		color: $status-disabled-text;
+		font-weight: 600;
+	}
+
+	&--disabled &__right-adorn {
+		stroke: $status-disabled-icon;
+	}
+
+	&--disabled &__left-adorn {
+		stroke: $status-disabled-icon;
+	}
+
+	&__content {
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+	}
+
+	&__details {
+		align-items: center;
+		gap: 8px;
+	}
+
+	&__right-adorn {
+		stroke: $status-generic-3-icon-light;
+		flex-shrink: 0;
+	}
+
+	&__left-adorn {
+		stroke: $status-generic-3-icon;
+		flex-shrink: 0;
+	}
+}
