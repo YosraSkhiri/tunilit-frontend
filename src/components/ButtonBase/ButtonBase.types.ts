@@ -10,6 +10,7 @@ interface ButtonBaseProps {
   className?: string,
   disabled?: boolean,
   tabIndex?: number,
+  role?: string,
   onClick?: (e?: MouseEvent<HTMLElement>) => void,
   onBlur?: (e?: MouseEvent<HTMLElement>) => void,
   onFocus?: (e?: MouseEvent<HTMLElement>) => void,
