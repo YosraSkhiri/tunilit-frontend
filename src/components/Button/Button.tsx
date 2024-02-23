@@ -1,4 +1,4 @@
-import { Fragment, useRef } from 'react'
+import { Fragment, useRef, forwardRef } from 'react'
 import ButtonBase from '../ButtonBase'
 import { LoaderIcon } from '../Icons'
 import ButtonProps from './Button.types'
@@ -7,7 +7,7 @@ import clsx from 'clsx'
 
 type WrapperElemType = typeof Fragment | 'div'
 
-const Button = ({
+const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(({
 	variant = 'primary',
 	size = 'md',
 	fullWidth,
@@ -18,7 +18,7 @@ const Button = ({
 	disabled,
 	loading,
 	...other
-}: ButtonProps) => {
+}, ref) => {
 	const buttonClass = clsx(
 		{
 			[styles.btn]: true,
@@ -75,6 +75,7 @@ const Button = ({
 				onBlur={handleBlur}
 				className={buttonClass}
 				disabled={disabled}
+        ref={ref}
 				{...other}>
 				{loading && (
 					<LoaderIcon
@@ -122,6 +123,6 @@ const Button = ({
 			)}
 		</WrapperElem>
 	)
-}
+})
 
 export default Button
