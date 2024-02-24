@@ -7,7 +7,7 @@ const CrossSmallIcon = ({
 	height,
 	stroke,
 	strokeWidth,
-	classname,
+	className,
 	size = 'md',
 	...other
 }: IconProps) => {
@@ -16,7 +16,7 @@ const CrossSmallIcon = ({
 			[styles['icon']]: true,
 			[styles[`icon--${size}`]]: size,
 		},
-		classname
+		className
 	)
 
 	return (

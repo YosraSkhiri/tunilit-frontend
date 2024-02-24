@@ -7,7 +7,7 @@ const YoutubeIcon = ({
 	height,
 	stroke,
 	strokeWidth,
-	classname,
+	className,
 	size = 'md',
 	...other
 }: IconProps) => {
@@ -16,7 +16,7 @@ const YoutubeIcon = ({
 			[styles['icon']]: true,
 			[styles[`icon--${size}`]]: size,
 		},
-		classname
+		className
 	)
 
 	return (

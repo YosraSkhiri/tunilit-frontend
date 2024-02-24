@@ -3,6 +3,6 @@ export default interface IconProps {
   height?: number,
   stroke?: string,
   strokeWidth?: number,
-  classname?: string,
+  className?: string,
   size?: 'sm' | 'md' | 'lg',
 }

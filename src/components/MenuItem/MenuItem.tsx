@@ -79,7 +79,7 @@ const MenuItem = React.forwardRef<
 							)}
 						</div>
 					</Layout>
-					<ChevronSmallRightIcon classname={styles['menu-item__right-adorn']} />
+					<ChevronSmallRightIcon className={styles['menu-item__right-adorn']} />
 				</Layout>
 			</ButtonBase>
 		)
