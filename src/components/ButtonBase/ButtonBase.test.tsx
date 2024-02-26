@@ -43,7 +43,7 @@ describe('<ButtonBase />', () => {
       expect(onFocus).toHaveBeenCalledTimes(1)
 
       button && fireEvent.blur(button)
-      expect(onFocus).toHaveBeenCalledTimes(1)
+      expect(onBlur).toHaveBeenCalledTimes(1)
     })
   })
 })
