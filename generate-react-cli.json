@@ -6,11 +6,21 @@
   "testLibrary": "Testing Library",
   "component": {
     "default": {
+      "customTemplates": {
+        "index": "./templates/index.tsx",
+        "component": "./templates/TemplateName.tsx",
+        "story": "./templates/TemplateName.stories.tsx",
+        "style": "./templates/TemplateName.module.scss",
+        "test": "./templates/TemplateName.test.tsx",
+        "types": "./templates/TemplateName.types.ts"
+      },
       "path": "src/components",
       "withStyle": true,
       "withTest": true,
       "withStory": true,
-      "withLazy": false
+      "withLazy": false,
+      "withIndex": true,
+      "withTypes": true
     }
   }
 }
