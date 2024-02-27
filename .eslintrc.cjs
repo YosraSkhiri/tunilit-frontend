@@ -4,11 +4,28 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended', 'plugin:storybook/recommended'],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'eslint-plugin-react', 'typescript-sort-keys', "simple-import-sort", "sort-destructure-keys"],
   rules: {
+    "typescript-sort-keys/interface": [
+      "error",
+      "asc",
+      { "caseSensitive": true, "natural": false, "requiredFirst": false }
+    ],
+    "sort-destructure-keys/sort-destructure-keys": 2,
+    'react/jsx-sort-props': [
+      'error',
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "multiline": "first",
+        "ignoreCase": true,
+      }
+    ],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
 }
