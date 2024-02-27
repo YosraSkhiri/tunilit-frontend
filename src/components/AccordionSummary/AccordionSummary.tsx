@@ -24,19 +24,19 @@ const AccordionSummary = ({
 			{isExpanded ? (
 				<MinusCircleIcon
 					size="lg"
-					classname={styles['summary__icon']}
+					className={styles['summary__icon']}
 					data-testid="minus-circle-icon"
 				/>
 			) : (
 				<PlusCircleIcon
 					size="lg"
-					classname={styles['summary__icon']}
+					className={styles['summary__icon']}
 					data-testid="plus-circle-icon"
 				/>
 			)}
 			<Typography
 				variant="body1"
-				classname={styles['summary__text']}>
+				className={styles['summary__text']}>
 				{children}
 			</Typography>
 		</ButtonBase>
