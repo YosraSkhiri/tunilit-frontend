@@ -1,0 +1,107 @@
+.input-wrapper {
+	display: flex;
+	align-items: flex-start;
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-width: $border-small;
+	border-style: solid;
+	border-radius: $corner-radius-medium;
+	transition: all 0.25s ease-in-out;
+
+  &--disabled {
+    background-color: $status-disabled-surface;
+		border-color: $status-disabled-border;
+    cursor: not-allowed;
+  }
+
+	&--default {
+		background-color: $status-generic-1-surface;
+		border-color: $status-generic-1-border;
+
+		&:hover {
+			background-color: $status-generic-1-surface-dark;
+		}
+
+		&-focus {
+			box-shadow: $default-focus-outline;
+		}
+	}
+
+	&--info {
+		background-color: $status-info-surface;
+		border-color: $status-info-border;
+
+		&:hover {
+			background-color: $status-info-surface-dark;
+		}
+
+		&-focus {
+			box-shadow: $info-focus-outline;
+		}
+	}
+
+	&--success {
+		background-color: $status-success-surface;
+		border-color: $status-success-border;
+
+		&:hover {
+			background-color: $status-success-surface-dark;
+		}
+
+		&-focus {
+			box-shadow: $success-focus-outline;
+		}
+	}
+
+	&--error {
+		background-color: $status-error-surface;
+		border-color: $status-error-border;
+
+		&:hover {
+			background-color: $status-error-surface-dark;
+		}
+
+		&-focus {
+			box-shadow: $error-focus-outline;
+		}
+	}
+}
+
+.input {
+  width: 100%;
+	padding: 4.5px 0;
+	font-size: 14px;
+	line-height: 140%;
+	color: $text-1-default;
+	background-color: transparent;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  &--default::placeholder {
+    color: $text-3-light;
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    &::placeholder {
+      color: $status-disabled-text;
+    }
+  }
+
+	&__tags {
+    width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 4px;
+	}
+
+	&__actions {
+		display: flex;
+		gap: 10px;
+	}
+}
