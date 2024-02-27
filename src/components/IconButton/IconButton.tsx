@@ -46,7 +46,7 @@ const IconButton = forwardRef<
 				{loading ? (
 					<LoaderIcon
 						size={size}
-						classname={styles['loader--animation']}
+						className={styles['loader--animation']}
 					/>
 				) : (
 					children
