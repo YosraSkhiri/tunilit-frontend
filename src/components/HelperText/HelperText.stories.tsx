@@ -39,7 +39,7 @@ export const ErrorHelperText: Story = {
 export const DisabledHelperText: Story = {
 	args: {
 		children: 'This is a helper message',
-		variant: 'disabled',
+		disabled: true,
 	},
 }
 
