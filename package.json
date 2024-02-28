@@ -11,7 +11,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest",
-    "create-component": "node ./scripts/generate-component.js",
+    "create-component": "npx generate-react-cli component",
     "test-storybook": "test-storybook"
   },
   "dependencies": {
