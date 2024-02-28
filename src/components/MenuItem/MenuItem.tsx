@@ -1,13 +1,14 @@
 import { useFloatingTree, useListItem, useMergeRefs } from '@floating-ui/react'
-import * as React from 'react'
 import clsx from 'clsx'
-import styles from './MenuItem.module.scss'
-import MenuContext from '../MenuContext'
+import * as React from 'react'
 import { cloneElement } from 'react'
+
 import ButtonBase from '../ButtonBase'
-import Layout from '../Layout'
-import Typography from '../Typography'
 import ChevronSmallRightIcon from '../Icons/ChevronSmallRightIcon'
+import Layout from '../Layout'
+import MenuContext from '../MenuContext'
+import Typography from '../Typography'
+import styles from './MenuItem.module.scss'
 import MenuItemProps from './MenuItem.types'
 
 const MenuItem = React.forwardRef<
@@ -16,14 +17,14 @@ const MenuItem = React.forwardRef<
 >(
 	(
 		{
-			label,
-			size = 'md',
 			adorn,
-			selected = false,
-			disabled = false,
-			children,
-			typographyProps,
 			buttonBaseProps,
+			children,
+			disabled = false,
+			label,
+			selected = false,
+			size = 'md',
+			typographyProps,
 			...props
 		},
 		forwardedRef
@@ -69,8 +70,8 @@ const MenuItem = React.forwardRef<
 						<div>
 							{children && typeof children == 'string' ? (
 								<Typography
-									variant="body3"
 									className={styles['menu-item__text']}
+									variant="body3"
 									{...typographyProps}>
 									{children}
 								</Typography>

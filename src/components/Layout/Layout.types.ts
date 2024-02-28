@@ -6,14 +6,14 @@ export type directionType = 'row'
 | 'row-reverse';
 
 export default interface LayoutProps {
-  component?: string | ElementType,
+  center?: boolean,
   children?: React.ReactNode,
+  classname?: string,
+  component?: string | ElementType,
   direction?: directionType,
+  flexWrap?: 'wrap' | 'nowrap',
+  style?: CSSProperties,
   type?: 'flex' 
   | 'grid' 
-  | 'inline-flex',
-  flexWrap?: 'wrap' | 'nowrap',
-  center?: boolean,
-  classname?: string,
-  style?: CSSProperties,
+  | 'inline-flex'
 }

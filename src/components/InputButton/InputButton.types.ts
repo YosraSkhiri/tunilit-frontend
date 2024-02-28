@@ -4,10 +4,10 @@ type variantType = 'default' | 'info' | 'success' | 'error'
 type sizeType = 'md' | 'lg'
 
 export default interface InputButtonProps {
-	variant?: variantType,
-  size?: sizeType,
+	ariaLabel?: string,
   children: ReactNode,
-  tooltip?: string,
-  ariaLabel?: string,
   disabled?: boolean,
+  size?: sizeType,
+  tooltip?: string,
+  variant?: variantType
 }

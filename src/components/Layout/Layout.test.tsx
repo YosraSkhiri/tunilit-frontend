@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
-import styles from './Layout.module.scss'
+
 import Layout from './Layout'
+import styles from './Layout.module.scss'
 import { directionType } from './Layout.types'
 
 const direction: directionType[] = [
@@ -24,7 +25,7 @@ describe('<Layout />', () => {
 
   direction.forEach((dir: directionType) => {
     it(`should render flex layout on ${dir} direction`, () => {
-      const { container } = render(<Layout type='flex' direction={dir}></Layout>)
+      const { container } = render(<Layout direction={dir} type='flex'></Layout>)
       expect(container.firstChild).toHaveClass(styles[`flex--${dir}`])
     })
   })

@@ -1,10 +1,11 @@
 import { useContext } from 'react'
+
 import { AccordionContext } from '../Accordion/AccordionContext'
+import ButtonBase from '../ButtonBase'
+import { MinusCircleIcon,PlusCircleIcon } from '../Icons'
+import Typography from '../Typography'
 import styles from './AccordionSummary.module.scss'
 import AccordionSummaryProps from './AccordionSummary.types'
-import { PlusCircleIcon, MinusCircleIcon } from '../Icons'
-import Typography from '../Typography'
-import ButtonBase from '../ButtonBase'
 
 const AccordionSummary = ({
 	children,
@@ -15,28 +16,28 @@ const AccordionSummary = ({
 
 	return (
 		<ButtonBase
+			aria-expanded={isExpanded}
 			className={styles['summary']}
-			onClick={onClick}
-			onKeyDown={onKeyDown}
-			type="button"
 			tabIndex={0}
-			aria-expanded={isExpanded}>
+			type="button"
+			onClick={onClick}
+			onKeyDown={onKeyDown}>
 			{isExpanded ? (
 				<MinusCircleIcon
-					size="lg"
 					className={styles['summary__icon']}
 					data-testid="minus-circle-icon"
+					size="lg"
 				/>
 			) : (
 				<PlusCircleIcon
-					size="lg"
 					className={styles['summary__icon']}
 					data-testid="plus-circle-icon"
+					size="lg"
 				/>
 			)}
 			<Typography
-				variant="body1"
-				className={styles['summary__text']}>
+				className={styles['summary__text']}
+				variant="body1">
 				{children}
 			</Typography>
 		</ButtonBase>

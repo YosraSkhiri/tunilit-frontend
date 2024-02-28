@@ -1,15 +1,16 @@
-import { ReactNode, ElementType } from 'react'
+import { ElementType,ReactNode } from 'react'
+
 import TypographyProps from '../Typography/Typography.types'
 
 type linkVariants = 'default' | 'subtle' | 'light'
 
 export default interface LinkProps {
-	component?: ElementType,
-	variant?: linkVariants,
-  typographyProps?: TypographyProps,
-	underline?: boolean
 	children: string,
-  leftAdorn?: ReactNode,
-  rightAdorn?: ReactNode,
+	component?: ElementType,
   href?: string,
+	leftAdorn?: ReactNode,
+	rightAdorn?: ReactNode,
+  typographyProps?: TypographyProps,
+  underline?: boolean,
+  variant?: linkVariants
 }

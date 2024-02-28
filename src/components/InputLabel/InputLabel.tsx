@@ -1,12 +1,13 @@
 import clsx from 'clsx'
-import InputLabelProps from './InputLabel.types'
+
 import styles from './InputLabel.module.scss'
+import InputLabelProps from './InputLabel.types'
 
 const InputLabel = ({
   children,
+  disabled,
   htmlFor,
   variant,
-  disabled,
   ...other
 }: InputLabelProps) => {
   const labelClass = clsx({

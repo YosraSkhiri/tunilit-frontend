@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
+
 import Logo from './Logo'
 import styles from './Logo.module.scss'
 

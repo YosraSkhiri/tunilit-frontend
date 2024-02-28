@@ -1,8 +1,9 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
+
 import HelperText from './HelperText'
-import { variantType } from './HelperText.types'
 import styles from './HelperText.module.scss'
+import { variantType } from './HelperText.types'
 
 const variants: variantType[] = ['info', 'success', 'error']
 

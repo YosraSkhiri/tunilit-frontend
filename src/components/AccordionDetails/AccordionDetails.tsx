@@ -1,8 +1,9 @@
+import clsx from 'clsx'
+import { useContext } from 'react'
+
+import { AccordionContext } from '../Accordion/AccordionContext'
 import styles from './AccordionDetails.module.scss'
 import AccordionDetailsProps from './AccordionDetails.types'
-import { useContext } from 'react'
-import { AccordionContext } from '../Accordion/AccordionContext'
-import clsx from 'clsx'
 
 const AccordionDetails = ({ children }: AccordionDetailsProps) => {
 	const { isExpanded } = useContext(AccordionContext)

@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
-import InputButton from './InputButton'
+
 import { PlaceholderIcon } from '../Icons'
+import InputButton from './InputButton'
 import styles from './InputButton.module.scss'
 
 describe('<InputButton />', () => {

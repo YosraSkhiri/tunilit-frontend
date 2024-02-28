@@ -11,8 +11,8 @@ type BtnSizes = 'md' | 'lg'
 
 export default interface IconButtonProps extends ButtonBaseProps {
   ariaLabel?: string,
-  variant?: buttonVariantType,
+  loading?: boolean,
   size?: BtnSizes,
   tooltip?: string,
-  loading?: boolean,
+  variant?: buttonVariantType
 }

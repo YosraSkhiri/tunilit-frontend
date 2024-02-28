@@ -1,8 +1,9 @@
 import clsx from 'clsx'
-import SchoolLogoProps from './SchoolLogo.types'
-import styles from './SchoolLogo.module.scss'
 
-const SchoolLogo = ({ src, alt, size = 'medium' }: SchoolLogoProps) => {
+import styles from './SchoolLogo.module.scss'
+import SchoolLogoProps from './SchoolLogo.types'
+
+const SchoolLogo = ({ alt, size = 'medium', src }: SchoolLogoProps) => {
 	const logoClass = clsx({
 		[styles['s-logo']]: true,
 		[styles[`s-logo--${size}`]]: size,
@@ -11,9 +12,9 @@ const SchoolLogo = ({ src, alt, size = 'medium' }: SchoolLogoProps) => {
 	return (
 		<div className={logoClass}>
 			<img
-				src={src}
 				alt={alt}
 				className={styles['s-logo__img']}
+				src={src}
 			/>
 		</div>
 	)

@@ -1,11 +1,12 @@
-import { cloneElement, forwardRef, isValidElement } from 'react'
-import { useTooltipContext } from './useTooltipContext'
 import { useMergeRefs } from '@floating-ui/react'
+import { cloneElement, forwardRef, isValidElement } from 'react'
+
+import { useTooltipContext } from './useTooltipContext'
 
 export const TooltipTrigger = forwardRef<
   HTMLElement,
   React.HTMLProps<HTMLElement> & { asChild?: boolean }
->(function TooltipTrigger({ children, asChild = false, ...props }, propRef) {
+>(function TooltipTrigger({ asChild = false, children, ...props }, propRef) {
   const context = useTooltipContext()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const childrenRef = (children as any).ref
@@ -26,11 +27,11 @@ export const TooltipTrigger = forwardRef<
 
   return (
     <div
-      ref={ref}
       // The user can style the trigger based on the state
       data-state={context.open ? "open" : "closed"}
-      style={{width: 'fit-content'}}
       data-testid='tooltip-trigger'
+      ref={ref}
+      style={{width: 'fit-content'}}
       {...context.getReferenceProps(props)}
     >
       {children}

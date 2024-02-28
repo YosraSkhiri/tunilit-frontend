@@ -1,14 +1,15 @@
 import clsx from 'clsx'
+
 import styles from './Icon.module.scss'
 import IconProps from './Icon.types'
 
 const PlaceholderIcon = ({
-	width,
+	className,
 	height,
+	size = 'md',
 	stroke,
 	strokeWidth,
-	className,
-	size = 'md',
+	width,
 	...other
 }: IconProps) => {
 	const iconClass = clsx(
@@ -22,18 +23,18 @@ const PlaceholderIcon = ({
 	return (
 		<svg
 			className={iconClass}
-			width={width}
+			fill="none"
 			height={height}
 			viewBox="0 0 32 32"
-			fill="none"
+			width={width}
 			xmlns="http://www.w3.org/2000/svg"
 			{...other}>
 			<circle
-				stroke={stroke}
-				strokeWidth={strokeWidth}
 				cx="16"
 				cy="16"
 				r="15"
+				stroke={stroke}
+				strokeWidth={strokeWidth}
 			/>
 		</svg>
 	)

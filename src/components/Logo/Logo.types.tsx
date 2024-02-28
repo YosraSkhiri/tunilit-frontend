@@ -1,17 +1,17 @@
 export default interface LogoProps {
-  iconWidth?: number,
-  iconHeight?: number,
-  textWidth?: number,
-  eyes?: 'open' | 'closed' | 'wink',
-  onlyIcon?: boolean,
-  lightText?: boolean,
-  link?: boolean,
   animate?: boolean,
   classname?: string,
+  eyes?: 'open' | 'closed' | 'wink',
+  iconHeight?: number,
+  iconWidth?: number,
+  lightText?: boolean,
+  link?: boolean,
+  onlyIcon?: boolean,
+  textWidth?: number
 }
 
 export interface EyeProps {
-  closed?: boolean, 
-  animate?: boolean,
+  animate?: boolean, 
+  closed?: boolean,
   side: 'left' | 'right',
 }

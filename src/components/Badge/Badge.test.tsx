@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
+
 import Badge from './Badge'
 import styles from './Badge.module.scss'
 
@@ -28,9 +29,9 @@ describe('<Badge />', () => {
 	it('should render a primary standard badge', () => {
 		const { container } = render(
 			<Badge
-				variant="standard"
+				content="1"
 				type="primary"
-				content="1"></Badge>
+				variant="standard"></Badge>
 		)
 		expect(container.firstChild?.lastChild).toHaveClass(
 			styles['badge--standard'],
@@ -41,9 +42,9 @@ describe('<Badge />', () => {
 	it('should render a secondary standard badge', () => {
 		const { container } = render(
 			<Badge
-				variant="standard"
+				content="1"
 				type="secondary"
-				content="1"></Badge>
+				variant="standard"></Badge>
 		)
 		expect(container.firstChild?.lastChild).toHaveClass(
 			styles['badge--standard'],
@@ -54,8 +55,8 @@ describe('<Badge />', () => {
 	it('should not render a dot badge when invisible is set to true', () => {
 		const { container } = render(
 			<Badge
-				variant="dot"
-				invisible></Badge>
+				invisible
+				variant="dot"></Badge>
 		)
 
 		expect(container.firstChild?.lastChild).toBeFalsy()

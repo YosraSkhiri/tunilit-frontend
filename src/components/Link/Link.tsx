@@ -1,17 +1,18 @@
+import clsx from 'clsx'
+
+import Typography from '../Typography'
 import styles from './Link.module.scss'
 import LinkProps from './Link.types.ts'
-import clsx from 'clsx'
-import Typography from '../Typography'
 
 const Link = ({
-	component: Component = 'a',
-	variant = 'default',
-	underline = false,
 	children,
+	component: Component = 'a',
 	href,
-	typographyProps,
 	leftAdorn,
 	rightAdorn,
+	typographyProps,
+	underline = false,
+	variant = 'default',
 	...other
 }: LinkProps) => {
 	const linkClass = clsx(styles.link, {
@@ -30,8 +31,8 @@ const Link = ({
 			{leftAdorn}
 			<div className={styles['link-text-wrapper']}>
 				<Typography
-					variant="body2"
 					className={typographyClass}
+					variant="body2"
 					{...typographyProps}>
 					{children}
 				</Typography>

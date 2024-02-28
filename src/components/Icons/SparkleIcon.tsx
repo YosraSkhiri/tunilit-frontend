@@ -1,14 +1,15 @@
 import clsx from 'clsx'
+
 import styles from './Icon.module.scss'
 import IconProps from './Icon.types'
 
 const SparkleIcon = ({
-	width,
+	className,
 	height,
+	size = 'md',
 	stroke,
 	strokeWidth,
-	className,
-	size = 'md',
+	width,
 	...other
 }: IconProps) => {
 	const iconClass = clsx(
@@ -22,18 +23,18 @@ const SparkleIcon = ({
 	return (
 		<svg
 			className={iconClass}
-			width={width}
+			fill="none"
 			height={height}
 			viewBox="0 0 30 30"
-			fill="none"
+			width={width}
 			xmlns="http://www.w3.org/2000/svg"
 			{...other}>
 			<path
+				d="M15 3.75C15 9.9632 20.0368 15 26.25 15C20.0368 15 15 20.0368 15 26.25C15 20.0368 9.9632 15 3.75 15C9.9632 15 15 9.9632 15 3.75Z"
 				stroke={stroke}
-				strokeWidth={strokeWidth}
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				d="M15 3.75C15 9.9632 20.0368 15 26.25 15C20.0368 15 15 20.0368 15 26.25C15 20.0368 9.9632 15 3.75 15C9.9632 15 15 9.9632 15 3.75Z"
+				strokeWidth={strokeWidth}
 			/>
 		</svg>
 	)

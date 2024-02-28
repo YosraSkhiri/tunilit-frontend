@@ -1,14 +1,15 @@
 import clsx from 'clsx'
+
 import styles from './Icon.module.scss'
 import IconProps from './Icon.types'
 
 const CheckIcon = ({
-	width,
+	className,
 	height,
+	size = 'md',
 	stroke,
 	strokeWidth,
-	className,
-	size = 'md',
+	width,
 	...other
 }: IconProps) => {
 	const iconClass = clsx(
@@ -22,18 +23,18 @@ const CheckIcon = ({
 	return (
 		<svg
 			className={iconClass}
-			width={width}
+			fill="none"
 			height={height}
 			viewBox="0 0 30 30"
-			fill="none"
+			width={width}
 			xmlns="http://www.w3.org/2000/svg"
 			{...other}>
 			<path
+				d="M24.9998 8.74997L11.2499 22.4999L4.99976 16.25"
 				stroke={stroke}
-				strokeWidth={strokeWidth}
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				d="M24.9998 8.74997L11.2499 22.4999L4.99976 16.25"
+				strokeWidth={strokeWidth}
 			/>
 		</svg>
 	)

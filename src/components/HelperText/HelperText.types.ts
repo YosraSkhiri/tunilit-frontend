@@ -5,6 +5,6 @@ export type variantType = 'default'
 
 export default interface HelperTextProps {
   children: string,
-  variant?: variantType,
   disabled?: boolean,
+  variant?: variantType
 }

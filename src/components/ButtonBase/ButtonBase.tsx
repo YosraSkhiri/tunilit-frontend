@@ -1,4 +1,5 @@
 import { forwardRef } from 'react'
+
 import ButtonBaseProps from './ButtonBase.types'
 
 const ButtonBase = forwardRef<
@@ -7,16 +8,16 @@ const ButtonBase = forwardRef<
 >(
 	(
 		{
-			component: Component = 'button',
 			children,
+			className,
+			component: Component = 'button',
 			disabled,
+			href,
+			onBlur,
 			onClick,
 			onFocus,
-			onBlur,
-			href,
-			type = 'button',
-			className,
 			role = 'button',
+			type = 'button',
 			...other
 		},
 		ref
@@ -27,11 +28,11 @@ const ButtonBase = forwardRef<
 			<ButtonBaseComponent
 				className={className}
 				disabled={disabled}
-				onClick={onClick}
-				onFocus={onFocus}
-				onBlur={onBlur}
 				ref={ref}
 				role={role}
+				onBlur={onBlur}
+				onClick={onClick}
+				onFocus={onFocus}
 				{...(href && { href: href })}
 				{...(type && Component === 'button' && { type: type })}
 				{...other}>

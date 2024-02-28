@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
-import ListItem from './ListItem'
+
 import { PlaceholderIcon } from '../Icons'
+import ListItem from './ListItem'
 
 const meta: Meta<typeof ListItem> = {
 	component: ListItem,

@@ -1,6 +1,7 @@
 import { FloatingTree, useFloatingParentNodeId } from '@floating-ui/react'
-import MenuContent from '../MenuContent'
 import { forwardRef } from 'react'
+
+import MenuContent from '../MenuContent'
 import MenuProps from './Menu.types'
 
 const Menu = forwardRef<

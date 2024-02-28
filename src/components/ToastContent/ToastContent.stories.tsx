@@ -1,9 +1,11 @@
-import { Meta, StoryObj } from '@storybook/react'
-import ToastContent from './ToastContent'
-import { Slide, ToastContainer, toast } from 'react-toastify'
 import '../../sass/react-toastify/main.scss'
+
+import { Meta, StoryObj } from '@storybook/react'
+import { Slide, toast,ToastContainer } from 'react-toastify'
+
 import Button from '../Button'
 import { CompareIcon } from '../Icons'
+import ToastContent from './ToastContent'
 
 const meta: Meta<typeof ToastContent> = {
 	component: ToastContent,
@@ -32,11 +34,11 @@ export const Overview: Story = {
 			<div>
 				<Button onClick={handleClick}>Show Toast!</Button>
 				<ToastContainer
-					limit={1}
 					autoClose={false}
-					hideProgressBar={true}
-					position="bottom-left"
 					closeButton={false}
+					hideProgressBar={true}
+					limit={1}
+					position="bottom-left"
 					transition={Slide}
 				/>
 			</div>

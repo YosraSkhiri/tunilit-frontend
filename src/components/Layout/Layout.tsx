@@ -1,16 +1,17 @@
 import clsx from 'clsx'
+
 import styles from './Layout.module.scss'
 import LayoutProps from './Layout.types'
 
 const Layout = ({
-  component: Component = 'div',
-  children,
-  direction = 'row',
-  type = 'flex',
-  flexWrap,
   center = false,
+  children,
   classname,
+  component: Component = 'div',
+  direction = 'row',
+  flexWrap,
   style,
+  type = 'flex',
 }: LayoutProps) => {
   const layoutClass = clsx({
     [styles[type]]: true,

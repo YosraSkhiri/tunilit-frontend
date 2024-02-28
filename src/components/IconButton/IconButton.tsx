@@ -1,10 +1,11 @@
-import { forwardRef, useState } from 'react'
-import IconButtonProps from './IconButton.type'
 import clsx from 'clsx'
-import styles from './IconButton.module.scss'
+import { forwardRef, useState } from 'react'
+
 import ButtonBase from '../ButtonBase'
-import Tooltip, { TooltipContent, TooltipTrigger } from '../Tooltip'
 import { LoaderIcon } from '../Icons'
+import Tooltip, { TooltipContent, TooltipTrigger } from '../Tooltip'
+import styles from './IconButton.module.scss'
+import IconButtonProps from './IconButton.type'
 
 const IconButton = forwardRef<
 	HTMLButtonElement | HTMLAnchorElement,
@@ -12,12 +13,12 @@ const IconButton = forwardRef<
 >(
 	(
 		{
-			children,
-			size = 'md',
-			variant = 'primary',
 			ariaLabel,
+			children,
 			loading,
+			size = 'md',
 			tooltip,
+			variant = 'primary',
 			...other
 		},
 		ref
@@ -38,15 +39,15 @@ const IconButton = forwardRef<
 
 		const btnIcon = (
 			<ButtonBase
-				data-testid="icon-btn"
-				className={iconButtonClass}
 				aria-label={ariaLabel}
+				className={iconButtonClass}
+				data-testid="icon-btn"
 				ref={ref}
 				{...other}>
 				{loading ? (
 					<LoaderIcon
-						size={size}
 						className={styles['loader--animation']}
+						size={size}
 					/>
 				) : (
 					children
@@ -60,8 +61,8 @@ const IconButton = forwardRef<
 					open={showTooltip}
 					onOpenChange={setShowTooltip}>
 					<TooltipTrigger
-						onMouseMove={() => setShowTooltip(true)}
-						onMouseLeave={() => setShowTooltip(false)}>
+						onMouseLeave={() => setShowTooltip(false)}
+						onMouseMove={() => setShowTooltip(true)}>
 						{btnIcon}
 					</TooltipTrigger>
 					<TooltipContent>{tooltip}</TooltipContent>

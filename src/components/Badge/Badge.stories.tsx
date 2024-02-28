@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Badge from './Badge'
+
 import IconButton from '../IconButton'
-import { MenuHamburgerIcon, LanguagesIcon } from '../Icons'
+import { LanguagesIcon,MenuHamburgerIcon } from '../Icons'
+import Badge from './Badge'
 
 const meta: Meta<typeof Badge> = {
 	component: Badge,
@@ -42,9 +43,9 @@ export const BadgeDotSecondary: Story = {
 export const BadgeStandardPrimary: Story = {
 	render: () => (
 		<Badge
+			content="en"
 			type="primary"
-			variant="standard"
-			content="en">
+			variant="standard">
 			<IconButton
 				ariaLabel="Translate"
 				variant="tertiary">
@@ -57,9 +58,9 @@ export const BadgeStandardPrimary: Story = {
 export const BadgeStandardSecondary: Story = {
 	render: () => (
 		<Badge
+			content="en"
 			type="secondary"
-			variant="standard"
-			content="en">
+			variant="standard">
 			<IconButton
 				ariaLabel="Translate"
 				variant="tertiary">

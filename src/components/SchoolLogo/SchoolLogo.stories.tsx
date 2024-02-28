@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
-import SchoolLogo from './SchoolLogo'
+
 import placeholderImg from '/placeholder.png'
+
+import SchoolLogo from './SchoolLogo'
 
 const meta: Meta<typeof SchoolLogo> = {
 	component: SchoolLogo,

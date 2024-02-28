@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
+
 import styles from './Icon.module.scss'
 import * as Icons from './index'
 

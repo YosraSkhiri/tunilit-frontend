@@ -1,5 +1,6 @@
-import { describe, expect } from 'vitest'
 import { render } from '@testing-library/react'
+import { describe, expect } from 'vitest'
+
 import InputLabel from './InputLabel'
 import styles from './InputLabel.module.scss'
 import { labelVariantType } from './InputLabel.types'

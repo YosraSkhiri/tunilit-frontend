@@ -1,19 +1,19 @@
 import { useFloatingTree, useListItem, useMergeRefs } from '@floating-ui/react'
 import * as React from 'react'
-
-import MenuContext from '../MenuContext'
 import { ReactElement } from 'react'
 
+import MenuContext from '../MenuContext'
+
 interface MenuItemProps {
-	label: string
-	disabled?: boolean
+	disabled?: boolean,
+	label: string,
 	renderMenuItem: (props: object) => ReactElement
 }
 
 const MenuItemWrapper = React.forwardRef<
 	HTMLButtonElement,
 	MenuItemProps & React.ButtonHTMLAttributes<HTMLButtonElement>
->(({ label, disabled, renderMenuItem, ...props }, forwardedRef) => {
+>(({ disabled, label, renderMenuItem, ...props }, forwardedRef) => {
 	const menu = React.useContext(MenuContext)
 	const item = useListItem({ label: disabled ? null : label })
 	const tree = useFloatingTree()

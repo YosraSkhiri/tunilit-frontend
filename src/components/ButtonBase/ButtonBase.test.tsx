@@ -1,5 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import { describe, expect, vi } from 'vitest'
+
 import ButtonBase from './ButtonBase'
 
 describe('<ButtonBase />', () => {
@@ -27,8 +28,8 @@ describe('<ButtonBase />', () => {
 
       const { container } = render(
         <ButtonBase
-          onClick={onClick}
           onBlur={onBlur}
+          onClick={onClick}
           onFocus={onFocus}
         >
         </ButtonBase>

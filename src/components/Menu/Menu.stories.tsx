@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Menu from './Menu'
+
 import Button from '../Button'
 import MenuItemWrapper from '../MenuItem'
+import Menu from './Menu'
 
 const meta: Meta<typeof Menu> = {
 	component: Menu,

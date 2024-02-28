@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
-import AccordionSummary from './AccordionSummary'
+
 import Accordion from '../Accordion'
+import AccordionSummary from './AccordionSummary'
 
 describe('<AccordionSummary />', () => {
 	it('should render a string inside .summary-text element', () => {

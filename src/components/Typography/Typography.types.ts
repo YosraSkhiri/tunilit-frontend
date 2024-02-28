@@ -14,11 +14,11 @@ export type typographyVariantType ='body1'
 | 'subtitle2';
 
 export default interface TypographyProps {
-  component?: ElementType | string,
+  adorn?: boolean,
+  align?: 'center' | 'inherit' | 'justify' | 'left' | 'right',
   children?: ReactNode,
   className?: string,
-  align?: 'center' | 'inherit' | 'justify' | 'left' | 'right',
-  variant?: typographyVariantType,
+  component?: ElementType | string,
   noWrap?: boolean,
-  adorn?: boolean,
+  variant?: typographyVariantType
 }

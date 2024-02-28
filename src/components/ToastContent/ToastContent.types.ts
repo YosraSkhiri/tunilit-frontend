@@ -1,9 +1,10 @@
 import { ReactElement } from 'react'
+
 import LinkProps from '../Link/Link.types'
 
 export default interface ToastContentProps {
-	closeToast?: never
-	adorn?: ReactElement
-	message: string
+	adorn?: ReactElement,
+	closeToast?: never,
 	linkProps: LinkProps,
+	message: string
 }

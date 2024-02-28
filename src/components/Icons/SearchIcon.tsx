@@ -1,14 +1,15 @@
 import clsx from 'clsx'
+
 import styles from './Icon.module.scss'
 import IconProps from './Icon.types'
 
 const SearchIcon = ({
-	width,
+	className,
 	height,
+	size = 'md',
 	stroke,
 	strokeWidth,
-	className,
-	size = 'md',
+	width,
 	...other
 }: IconProps) => {
 	const iconClass = clsx(
@@ -22,18 +23,18 @@ const SearchIcon = ({
 	return (
 		<svg
 			className={iconClass}
-			width={width}
+			fill="none"
 			height={height}
 			viewBox="0 0 30 30"
-			fill="none"
+			width={width}
 			xmlns="http://www.w3.org/2000/svg"
 			{...other}>
 			<path
+				d="M25 25L19.7541 19.7541M22.5 13.125C22.5 7.94733 18.3027 3.75 13.125 3.75C7.94733 3.75 3.75 7.94733 3.75 13.125C3.75 18.3027 7.94733 22.5 13.125 22.5C18.3027 22.5 22.5 18.3027 22.5 13.125Z"
 				stroke={stroke}
-				strokeWidth={strokeWidth}
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				d="M25 25L19.7541 19.7541M22.5 13.125C22.5 7.94733 18.3027 3.75 13.125 3.75C7.94733 3.75 3.75 7.94733 3.75 13.125C3.75 18.3027 7.94733 22.5 13.125 22.5C18.3027 22.5 22.5 18.3027 22.5 13.125Z"
+				strokeWidth={strokeWidth}
 			/>
 		</svg>
 	)

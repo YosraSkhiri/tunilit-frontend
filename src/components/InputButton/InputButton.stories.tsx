@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
-import InputButton from './InputButton'
+
 import { CrossSmallIcon } from '../Icons'
+import InputButton from './InputButton'
 
 const meta: Meta<typeof InputButton> = {
 	component: InputButton,

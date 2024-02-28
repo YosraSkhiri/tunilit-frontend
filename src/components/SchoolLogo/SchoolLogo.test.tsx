@@ -1,9 +1,11 @@
-import { describe, expect } from 'vitest'
-import { schoolLogoSizes } from './SchoolLogo.types'
 import { render } from '@testing-library/react'
+import { describe, expect } from 'vitest'
+
+import placeholderImg from '/public/placeholder.png'
+
 import SchoolLogo from './SchoolLogo'
 import styles from './SchoolLogo.module.scss'
-import placeholderImg from '/public/placeholder.png'
+import { schoolLogoSizes } from './SchoolLogo.types'
 
 const sizes: schoolLogoSizes[] = [
 	'xxlarge',

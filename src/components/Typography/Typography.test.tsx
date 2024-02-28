@@ -1,7 +1,8 @@
 import {render} from "@testing-library/react"
 import { describe, expect } from 'vitest'
-import styles from './Typography.module.scss'
+
 import Typography from './Typography'
+import styles from './Typography.module.scss'
 import { variantType } from './Typography.types'
 
 const variants: variantType[] = [

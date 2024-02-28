@@ -1,20 +1,20 @@
-import { ElementType, MouseEvent, KeyboardEvent } from 'react'
+import { ElementType, KeyboardEvent,MouseEvent } from 'react'
 
 type BtnTypes = 'button' | 'submit' | 'reset'
 
 interface ButtonBaseProps {
-  component?: string | ElementType,
   children?: React.ReactNode,
-  href?: string,
-  type?: BtnTypes,
   className?: string,
+  component?: string | ElementType,
   disabled?: boolean,
-  tabIndex?: number,
-  role?: string,
-  onClick?: (e?: MouseEvent<HTMLElement>) => void,
+  href?: string,
   onBlur?: (e?: MouseEvent<HTMLElement>) => void,
+  onClick?: (e?: MouseEvent<HTMLElement>) => void,
   onFocus?: (e?: MouseEvent<HTMLElement>) => void,
   onKeyDown?: (e?: KeyboardEvent) => void,
+  role?: string,
+  tabIndex?: number,
+  type?: BtnTypes
 }
 
 export default ButtonBaseProps

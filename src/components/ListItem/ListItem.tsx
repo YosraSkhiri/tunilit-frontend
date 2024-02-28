@@ -1,9 +1,10 @@
+import clsx from 'clsx'
+
+import Typography from '../Typography'
 import styles from './ListItem.module.scss'
 import ListItemProps from './ListItem.types.ts'
-import clsx from 'clsx'
-import Typography from '../Typography'
 
-const ListItem = ({ children, adorn }: ListItemProps) => {
+const ListItem = ({ adorn, children }: ListItemProps) => {
 	const listItemClass = clsx({
 		[styles['list-item']]: true,
 	})

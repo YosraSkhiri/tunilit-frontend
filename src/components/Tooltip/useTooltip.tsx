@@ -1,23 +1,24 @@
 import {
-  useFloating,
   autoUpdate,
-  offset,
   flip,
+  offset,
   shift,
-  useHover,
-  useFocus,
   useDismiss,
-  useRole,
+  useFloating,
+  useFocus,
+  useHover,
   useInteractions,
+  useRole,
 } from "@floating-ui/react"
 import { useMemo, useState } from 'react'
+
 import TooltipOptions from './Tooltip.types'
 
 export function useTooltip({
   initialOpen = false,
-  placement = "top",
+  onOpenChange: setControlledOpen,
   open: controlledOpen,
-  onOpenChange: setControlledOpen
+  placement = "top"
 }: TooltipOptions = {}) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(initialOpen)
 

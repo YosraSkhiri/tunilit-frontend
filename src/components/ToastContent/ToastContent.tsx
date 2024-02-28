@@ -1,16 +1,16 @@
+import IconButton from '../IconButton/index.tsx'
+import { CrossSmallIcon } from '../Icons/index.tsx'
+import Layout from '../Layout/index.tsx'
+import Link from '../Link/index.tsx'
+import Typography from '../Typography/index.tsx'
 import styles from './ToastContent.module.scss'
 import ToastContentProps from './ToastContent.types.ts'
-import { CrossSmallIcon } from '../Icons/index.tsx'
-import IconButton from '../IconButton/index.tsx'
-import Typography from '../Typography/index.tsx'
-import Link from '../Link/index.tsx'
-import Layout from '../Layout/index.tsx'
 
 const ToastContent = ({
-	closeToast,
 	adorn,
-	message,
+	closeToast,
 	linkProps,
+	message,
 }: ToastContentProps) => {
 	return (
 		<Layout classname={styles['toast-content']}>

@@ -1,17 +1,18 @@
+import clsx from 'clsx'
 import { useState } from 'react'
+
 import ButtonBase from '../ButtonBase'
 import Tooltip, { TooltipContent, TooltipTrigger } from '../Tooltip'
-import InputButtonProps from './InputButton.types'
-import clsx from 'clsx'
 import styles from './InputButton.module.scss'
+import InputButtonProps from './InputButton.types'
 
 const InputButton = ({
-	variant = 'default',
-	size = 'md',
-	children,
-	tooltip,
 	ariaLabel,
-  disabled,
+	children,
+	disabled,
+	size = 'md',
+	tooltip,
+  variant = 'default',
 	...other
 }: InputButtonProps) => {
 	const [showTooltip, setShowTooltip] = useState<boolean>(false)
@@ -25,9 +26,9 @@ const InputButton = ({
 
 	const btnIcon = (
 		<ButtonBase
-			data-testid="icon-btn"
-			className={inputButtonClass}
 			aria-label={ariaLabel}
+			className={inputButtonClass}
+			data-testid="icon-btn"
       disabled={disabled}
 			{...other}>
 			{children}
@@ -40,8 +41,8 @@ const InputButton = ({
 				open={showTooltip}
 				onOpenChange={setShowTooltip}>
 				<TooltipTrigger
-					onMouseMove={() => setShowTooltip(true)}
-					onMouseLeave={() => setShowTooltip(false)}>
+					onMouseLeave={() => setShowTooltip(false)}
+					onMouseMove={() => setShowTooltip(true)}>
 					{btnIcon}
 				</TooltipTrigger>
 				<TooltipContent>{tooltip}</TooltipContent>

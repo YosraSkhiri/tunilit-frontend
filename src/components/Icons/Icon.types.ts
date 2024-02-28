@@ -1,8 +1,8 @@
 export default interface IconProps {
-  width?: number,
+  className?: string,
   height?: number,
+  size?: 'sm' | 'md' | 'lg',
   stroke?: string,
   strokeWidth?: number,
-  className?: string,
-  size?: 'sm' | 'md' | 'lg',
+  width?: number
 }

@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
-import AccordionDetails from './AccordionDetails'
+
 import Accordion from '../Accordion'
+import AccordionDetails from './AccordionDetails'
 import styles from './AccordionDetails.module.scss'
 
 describe('<AccordionDetails />', () => {

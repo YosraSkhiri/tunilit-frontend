@@ -1,8 +1,9 @@
 import { FloatingPortal, useMergeRefs } from '@floating-ui/react'
 import { forwardRef } from 'react'
-import { useTooltipContext } from './useTooltipContext'
+
 import Typography from '../Typography'
 import styles from './Tooltip.module.scss'
+import { useTooltipContext } from './useTooltipContext'
 
 export const TooltipContent = forwardRef<
   HTMLDivElement,
@@ -17,16 +18,16 @@ export const TooltipContent = forwardRef<
   return (
     <FloatingPortal>
       <div
-        ref={ref}
-        className={styles['tooltip']}
         style={{
           ...context.floatingStyles,
           ...style
         }}
+        className={styles['tooltip']}
         data-testid='tooltip-content'
+        ref={ref}
         {...context.getFloatingProps(otherProps)}
       >
-        <Typography variant='body3' classname={styles['tooltip__text']}>
+        <Typography classname={styles['tooltip__text']} variant='body3'>
           {children}
         </Typography>
       </div>

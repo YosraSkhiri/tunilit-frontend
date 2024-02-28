@@ -1,13 +1,14 @@
-import BadgeProps from './Badge.type'
-import styles from './Badge.module.scss'
 import clsx from 'clsx'
 
+import styles from './Badge.module.scss'
+import BadgeProps from './Badge.type'
+
 const Badge = ({
-	variant = 'dot',
-	type = 'primary',
 	children,
 	content,
 	invisible,
+	type = 'primary',
+	variant = 'dot',
 }: BadgeProps) => {
 	const badgeClass = clsx({
 		[styles[`badge--${variant}`]]: variant,

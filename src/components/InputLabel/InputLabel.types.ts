@@ -6,8 +6,8 @@ export type labelVariantType = 'default'
 | 'error'
 
 export default interface InputLabelProps {
-  variant?: labelVariantType, 
-  htmlFor?: string,
-  children: ReactNode,
+  children: ReactNode, 
   disabled?: boolean,
+  htmlFor?: string,
+  variant?: labelVariantType
 }

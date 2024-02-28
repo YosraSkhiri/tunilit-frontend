@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
+
+import Layout from '../Layout'
 import Tooltip from './Tooltip'
 import { TooltipContent } from './TooltipContent'
 import { TooltipTrigger } from './TooltipTrigger'
-import Layout from '../Layout'
 
 const meta: Meta<typeof Tooltip> = {
   component: Tooltip,

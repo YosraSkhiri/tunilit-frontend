@@ -1,14 +1,15 @@
 import clsx from 'clsx'
+
 import styles from './Icon.module.scss'
 import IconProps from './Icon.types'
 
 const ArrowRightIcon = ({
-	width,
+	className,
 	height,
+	size = 'md',
 	stroke,
 	strokeWidth,
-	className,
-	size = 'md',
+	width,
 	...other
 }: IconProps) => {
 	const iconClass = clsx(
@@ -22,18 +23,18 @@ const ArrowRightIcon = ({
 	return (
 		<svg
 			className={iconClass}
-			width={width}
+			fill="none"
 			height={height}
 			viewBox="0 0 30 30"
-			fill="none"
+			width={width}
 			xmlns="http://www.w3.org/2000/svg"
 			{...other}>
 			<path
+				d="M1.875 15H26.25M26.25 15L17.8125 7.5M26.25 15L17.8125 22.5"
 				stroke={stroke}
-				strokeWidth={strokeWidth}
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				d="M1.875 15H26.25M26.25 15L17.8125 7.5M26.25 15L17.8125 22.5"
+				strokeWidth={strokeWidth}
 			/>
 		</svg>
 	)

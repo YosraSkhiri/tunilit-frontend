@@ -1,13 +1,14 @@
 import {
-	useState,
 	Children,
 	cloneElement,
 	isValidElement,
 	KeyboardEvent,
+	useState,
 } from 'react'
-import { AccordionContext } from './AccordionContext'
+
 import styles from './Accordion.module.scss'
 import AccordionProps from './Accordion.types'
+import { AccordionContext } from './AccordionContext'
 
 const Accordion = ({ children, expanded = false }: AccordionProps) => {
 	const [isExpanded, setIsExpanded] = useState(expanded)

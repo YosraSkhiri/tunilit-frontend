@@ -1,8 +1,9 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
-import Link from './Link'
-import typographyStyles from '../Typography/Typography.module.scss'
+
 import { PlaceholderIcon } from '../Icons'
+import typographyStyles from '../Typography/Typography.module.scss'
+import Link from './Link'
 
 describe('<Link />', () => {
 	it('should render a text', () => {

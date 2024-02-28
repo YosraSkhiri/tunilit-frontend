@@ -24,16 +24,17 @@ import {
 } from '@floating-ui/react'
 import clsx from 'clsx'
 import { forwardRef, useContext, useEffect, useRef, useState } from 'react'
+
+import MenuProps from '../Menu/Menu.types'
 import MenuContext from '../MenuContext'
 import styles from './MenuContent.module.scss'
-import MenuProps from '../Menu/Menu.types'
 
 const MenuContent = forwardRef<
 	HTMLButtonElement,
 	MenuProps & React.HTMLProps<HTMLButtonElement>
 >(
 	(
-		{ children, renderMenuTrigger, cornerRadius = 10, ...props },
+		{ children, cornerRadius = 10, renderMenuTrigger, ...props },
 		forwardedRef
 	) => {
 		const [isOpen, setIsOpen] = useState(false)
@@ -54,7 +55,7 @@ const MenuContent = forwardRef<
 			[styles[`menu-wrapper--${cornerRadius}`]]: cornerRadius,
 		})
 
-		const { floatingStyles, refs, context } = useFloating<HTMLButtonElement>({
+		const { context, floatingStyles, refs } = useFloating<HTMLButtonElement>({
 			nodeId,
 			open: isOpen,
 			onOpenChange: setIsOpen,
@@ -87,7 +88,7 @@ const MenuContent = forwardRef<
 			activeIndex,
 		})
 
-		const { getReferenceProps, getFloatingProps, getItemProps } =
+		const { getFloatingProps, getItemProps, getReferenceProps } =
 			useInteractions([hover, click, role, dismiss, listNavigation, typeahead])
 
 		// Event emitter allows you to communicate across tree components.
@@ -155,8 +156,8 @@ const MenuContent = forwardRef<
 							<FloatingPortal>
 								<FloatingFocusManager
 									context={context}
-									modal={false}
 									initialFocus={0}
+									modal={false}
 									returnFocus={true}>
 									<div
 										className={menuWrapperClass}

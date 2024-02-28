@@ -1,9 +1,10 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
-import Button from './Button'
+
 import {
   PlaceholderIcon,
 } from '../Icons'
+import Button from './Button'
 import styles from './Button.module.scss'
 import { buttonVariantType } from './Button.types'
 

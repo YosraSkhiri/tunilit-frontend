@@ -1,16 +1,17 @@
 import { ReactElement, ReactNode } from 'react'
-import TypographyProps from '../Typography/Typography.types'
+
 import ButtonBaseProps from '../ButtonBase/ButtonBase.types'
+import TypographyProps from '../Typography/Typography.types'
 
 type menuItemSize = 'lg' | 'md' | 'sm'
 
 export default interface MenuItemProps {
-	label: string
-	size?: menuItemSize
-	adorn?: ReactElement
-	selected?: boolean
-	disabled?: boolean
-	children: ReactNode
+	adorn?: ReactElement,
+	buttonBaseProps?: ButtonBaseProps,
+	children: ReactNode,
+	disabled?: boolean,
+	label: string,
+	selected?: boolean,
+	size?: menuItemSize,
 	typographyProps?: TypographyProps
-	buttonBaseProps?: ButtonBaseProps
 }

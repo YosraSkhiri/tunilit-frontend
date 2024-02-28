@@ -1,7 +1,7 @@
 import ButtonBase from '../ButtonBase'
-import TagProps from './Tag.types'
 import { CrossSmallIcon } from '../Icons'
 import styles from './Tag.module.scss'
+import TagProps from './Tag.types'
 
 const Tag = ({ children, ...other }: TagProps) => {
 	return (
@@ -13,9 +13,9 @@ const Tag = ({ children, ...other }: TagProps) => {
 				className={styles['tag__btn']}
 				{...other}>
 				<CrossSmallIcon
-					strokeWidth={1.6}
-					size="sm"
 					className={styles['tag__icon']}
+					size="sm"
+					strokeWidth={1.6}
 				/>
 			</ButtonBase>
 		</div>

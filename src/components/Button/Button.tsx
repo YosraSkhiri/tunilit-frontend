@@ -1,22 +1,23 @@
-import { Fragment, useRef, forwardRef } from 'react'
+import clsx from 'clsx'
+import { forwardRef,Fragment, useRef } from 'react'
+
 import ButtonBase from '../ButtonBase'
 import { LoaderIcon } from '../Icons'
-import ButtonProps from './Button.types'
 import styles from './Button.module.scss'
-import clsx from 'clsx'
+import ButtonProps from './Button.types'
 
 type WrapperElemType = typeof Fragment | 'div'
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(({
-	variant = 'primary',
-	size = 'md',
-	fullWidth,
 	arrow,
-	shadow,
 	children,
 	className,
 	disabled,
+	fullWidth,
 	loading,
+	shadow,
+	size = 'md',
+	variant = 'primary',
 	...other
 }, ref) => {
 	const buttonClass = clsx(
@@ -70,52 +71,52 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(({
 				['data-testid']: '',
 			})}>
 			<ButtonBase
-				onClick={handleClick}
-				onFocus={handleFocus}
-				onBlur={handleBlur}
 				className={buttonClass}
 				disabled={disabled}
-        ref={ref}
+				ref={ref}
+				onBlur={handleBlur}
+				onClick={handleClick}
+        onFocus={handleFocus}
 				{...other}>
 				{loading && (
 					<LoaderIcon
-						size={size}
 						classname={styles['loader--animation']}
+						size={size}
 					/>
 				)}
 				{loading ? 'Loading' : children}
 			</ButtonBase>
 			{arrow && variant !== 'subtle' ? (
 				<svg
-					ref={arrowSvgRef}
 					className={`${styles.arrow} ${
 						disabled ? styles['arrow--disabled'] : ''
 					}`}
-					width="72"
-					height="17"
-					viewBox="0 0 72 17"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
+					aria-hidden={true}
 					data-testid="arrow-svg"
+					fill="none"
 					focusable={false}
-					aria-hidden={true}>
+					height="17"
+					ref={arrowSvgRef}
+					viewBox="0 0 72 17"
+					width="72"
+					xmlns="http://www.w3.org/2000/svg">
 					<path
 						className={styles.path1}
 						d="M1.16111 8.20063C7.25514 8.21308 60.5781 8.32203 66.3199 8.33377"
-						strokeWidth="2"
 						strokeLinecap="round"
+						strokeWidth="2"
 					/>
 					<path
 						className={styles.path2}
 						d="M58.8581 1.25788C62.2902 5.50703 66.6865 8.32578 70.7984 8.23543"
-						strokeWidth="2"
 						strokeLinecap="round"
+						strokeWidth="2"
 					/>
 					<path
 						className={styles.path3}
 						d="M59.265 15.7288C62.454 11.3341 66.6865 8.32578 70.7984 8.23543"
-						strokeWidth="2"
 						strokeLinecap="round"
+						strokeWidth="2"
 					/>
 				</svg>
 			) : (
