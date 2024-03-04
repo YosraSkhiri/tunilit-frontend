@@ -43,3 +43,10 @@ export const DisabledInput: Story = {
     disabled: true,
   }
 }
+
+export const LargeInput: Story = {
+  args: {
+    placeholder: 'Placeholder',
+    size: 'lg',
+  }
+}

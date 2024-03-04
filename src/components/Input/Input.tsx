@@ -1,18 +1,19 @@
 import clsx from 'clsx'
-import { FocusEvent, useRef } from 'react'
+import { FocusEvent, forwardRef,useRef } from 'react'
 
+import { mergeRefs } from '../../utils'
 import InputBase from '../InputBase'
 import styles from './Input.module.scss'
 import InputProps from './Input.types'
 
-const Input = ({
+const Input = forwardRef<HTMLInputElement, InputProps>(({
 	disabled = false,
 	endAdornment,
 	size = 'md',
 	startAdornment,
   variant = 'default',
 	...other
-}: InputProps) => {
+}, ref) => {
 	const inputWrapperRef = useRef<HTMLDivElement>(null)
 	const inputRef = useRef<HTMLInputElement>(null)
 	const { onBlur, onFocus, ...rest } = other
@@ -23,6 +24,11 @@ const Input = ({
 		[styles['input-wrapper--disabled']]: disabled,
 		[styles[`input-wrapper--${size}`]]: size,
 	})
+
+  const inputBaseWrapperClass = clsx({
+    [styles['input-base-wrapper']]: true,
+    [styles[`input-base-wrapper--${size}`]]: size,
+  })
 
   const inputClass = clsx({
     [styles['input']]: true,
@@ -55,22 +61,26 @@ const Input = ({
 			className={inputWrapperClass}
 			ref={inputWrapperRef}
 			onClick={handleInputWrapperOnClick}>
-			<div className={inputClass}>
+			<div className={styles['input__container']}>
 				{startAdornment && startAdornment}
-				<InputBase
-					className={inputClass}
-          disabled={disabled}
-					ref={inputRef}
-          onBlur={handleOnBlur}
-          onFocus={handleOnFocus}
-					{...rest}
-				/>
+				
+				<div className={inputBaseWrapperClass}>
+					<InputBase
+						className={inputClass}
+						disabled={disabled}
+						ref={mergeRefs(inputRef, ref)}
+						onBlur={handleOnBlur}
+						onFocus={handleOnFocus}
+						{...rest}
+          />
+				</div>
+				
 			</div>
 			{endAdornment && (
 				<div className={styles['input__actions']}>{endAdornment}</div>
 			)}
 		</div>
 	)
-}
+})
 
 export default Input

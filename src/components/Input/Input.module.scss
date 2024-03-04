@@ -1,4 +1,5 @@
 .input-wrapper {
+  min-height: 60px;
 	display: flex;
 	align-items: flex-start;
 	padding-left: 20px;
@@ -9,6 +10,14 @@
 	border-style: solid;
 	border-radius: $corner-radius-medium;
 	transition: all 0.25s ease-in-out;
+
+  &--md {
+    min-height: 50px;
+  }
+
+  &--lg {
+    min-height: 60px;
+  }
 
   &--disabled {
     background-color: $status-disabled-surface;
@@ -69,9 +78,24 @@
 	}
 }
 
+.input-base-wrapper {
+  flex-grow: 1;
+  align-self: center;
+  height: 30px;
+  display: flex;
+
+  &--md {
+    min-height: 30px;
+  }
+
+  &--lg {
+    min-height: 40px;
+  }
+}
+
 .input {
   width: 100%;
-  align-self: center;
+  margin: auto 0;
   font-size: 14px;
 	line-height: 140%;
 	color: $text-1-default;
@@ -91,6 +115,13 @@
     &::placeholder {
       color: $status-disabled-text;
     }
+  }
+
+  &__container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 4px;
   }
 
 	&__tags {
