@@ -46,21 +46,21 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(({
 
 	const WrapperElem: WrapperElemType = shadow || arrow ? 'div' : Fragment
 
-	const handleFocus = (e?: React.MouseEvent<HTMLElement>) => {
+	const handleFocus = (e?: React.FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => {
 		if (onFocus) onFocus(e)
 		if (arrowSvgRef.current && arrow) {
 			arrowSvgRef.current.classList.add(styles[`arrow--focus-${variant}`])
 		}
 	}
 
-	const handleBlur = (e?: React.MouseEvent<HTMLElement>) => {
+	const handleBlur = (e?: React.FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => {
 		if (onBlur) onBlur(e)
 		if (arrowSvgRef.current && arrow) {
 			arrowSvgRef.current.classList.remove(styles[`arrow--focus-${variant}`])
 		}
 	}
 
-	const handleClick = (e?: React.MouseEvent<HTMLElement>) => {
+	const handleClick = (e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
 		if (onClick) onClick(e)
 	}
 
@@ -80,7 +80,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(({
 				{...other}>
 				{loading && (
 					<LoaderIcon
-						classname={styles['loader--animation']}
+						className={styles['loader--animation']}
 						size={size}
 					/>
 				)}
