@@ -1,13 +1,11 @@
 import clsx from 'clsx'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import HelperText from '../HelperText'
 import Input from '../Input'
 import InputLabel from '../InputLabel'
 import styles from './TextField.module.scss'
 import TextFieldProps from './TextField.types.ts'
-
-type InputGroupElemType = typeof React.Fragment | 'div'
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 	(
@@ -29,12 +27,11 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 			[styles['full-width']]: fullWidth,
 		})
 
-		const InputGroupElem: InputGroupElemType =
-			label || helperText ? 'div' : React.Fragment
-
 		return (
-			<InputGroupElem
-				{...((label || helperText) && { className: inputGroupClass })}>
+			<div
+				className={inputGroupClass}
+				ref={ref}
+      >
 				{label && (
 					<InputLabel
 						disabled={disabled}
@@ -47,7 +44,6 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 					defaultValue={defaultValue}
 					disabled={disabled}
 					id={id}
-					ref={ref}
 					variant={variant}
 					{...other}
 					{...floatingUIProps}
@@ -59,7 +55,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 						{helperText}
 					</HelperText>
 				)}
-			</InputGroupElem>
+			</div>
 		)
 	}
 )

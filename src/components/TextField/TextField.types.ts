@@ -1,8 +1,7 @@
-import InputBaseProps from '../InputBase/InputBase.types'
-
+import InputProps from '../Input/Input.types'
 type textFieldVariantType = 'default' | 'info' | 'success' | 'error'
 
-export default interface TextFieldProps extends InputBaseProps {
+export default interface TextFieldProps extends InputProps {
 	className?: string,
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	floatingUIProps?: any,
@@ -11,5 +10,5 @@ export default interface TextFieldProps extends InputBaseProps {
 	helperText?: string,
 	label?: string,
 	placeholder?: string,
-	variant: textFieldVariantType
+	variant?: textFieldVariantType
 }
