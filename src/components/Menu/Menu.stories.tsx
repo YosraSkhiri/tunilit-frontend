@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import Button from '../Button'
-import MenuItemWrapper from '../MenuItem'
+import { ChevronSmallRightIcon } from '../Icons'
+import MenuItem from '../MenuItem'
 import Menu from './Menu'
 
 const meta: Meta<typeof Menu> = {
@@ -19,13 +20,13 @@ export const Overview: Story = {
 			renderMenuTrigger={(props: object) => (
 				<Button {...props}>Show menu</Button>
 			)}>
-			<MenuItemWrapper label="option1">Menu item</MenuItemWrapper>
-			<MenuItemWrapper label="option2">Menu item</MenuItemWrapper>
-			<MenuItemWrapper label="option3">Menu item</MenuItemWrapper>
-			<MenuItemWrapper label="option4">Menu item</MenuItemWrapper>
-			<MenuItemWrapper label="option5">Menu item</MenuItemWrapper>
-			<MenuItemWrapper label="option6">Menu item</MenuItemWrapper>
-			<MenuItemWrapper label="option7">Menu item</MenuItemWrapper>
+			<MenuItem label="option1" rightAdorn={ChevronSmallRightIcon}>Menu item</MenuItem>
+			<MenuItem label="option2" rightAdorn={ChevronSmallRightIcon}>Menu item</MenuItem>
+			<MenuItem label="option3" rightAdorn={ChevronSmallRightIcon}>Menu item</MenuItem>
+			<MenuItem label="option4" rightAdorn={ChevronSmallRightIcon}>Menu item</MenuItem>
+			<MenuItem label="option5" rightAdorn={ChevronSmallRightIcon}>Menu item</MenuItem>
+			<MenuItem label="option6" rightAdorn={ChevronSmallRightIcon}>Menu item</MenuItem>
+			<MenuItem label="option7" rightAdorn={ChevronSmallRightIcon}>Menu item</MenuItem>
 		</Menu>
 	),
 }

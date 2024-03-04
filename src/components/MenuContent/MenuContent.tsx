@@ -22,12 +22,11 @@ import {
 	useRole,
 	useTypeahead,
 } from '@floating-ui/react'
-import clsx from 'clsx'
 import { forwardRef, useContext, useEffect, useRef, useState } from 'react'
 
 import MenuProps from '../Menu/Menu.types'
 import MenuContext from '../MenuContext'
-import styles from './MenuContent.module.scss'
+import MenuItemsWrapper from '../MenuItemsWrapper'
 
 const MenuContent = forwardRef<
 	HTMLButtonElement,
@@ -49,11 +48,6 @@ const MenuContent = forwardRef<
 		const nodeId = useFloatingNodeId()
 		const parentId = useFloatingParentNodeId()
 		const item = useListItem()
-
-		const menuWrapperClass = clsx({
-			[styles['menu-wrapper']]: true,
-			[styles[`menu-wrapper--${cornerRadius}`]]: cornerRadius,
-		})
 
 		const { context, floatingStyles, refs } = useFloating<HTMLButtonElement>({
 			nodeId,
@@ -159,13 +153,13 @@ const MenuContent = forwardRef<
 									initialFocus={0}
 									modal={false}
 									returnFocus={true}>
-									<div
-										className={menuWrapperClass}
+									<MenuItemsWrapper 
+										cornerRadius={cornerRadius}
 										ref={refs.setFloating}
 										style={floatingStyles}
 										{...getFloatingProps()}>
-										<div className={styles.menu}>{children}</div>
-									</div>
+										{children}
+									</MenuItemsWrapper>
 								</FloatingFocusManager>
 							</FloatingPortal>
 						)}
