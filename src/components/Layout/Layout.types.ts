@@ -8,7 +8,7 @@ export type directionType = 'row'
 export default interface LayoutProps {
   center?: boolean,
   children?: React.ReactNode,
-  classname?: string,
+  className?: string,
   component?: string | ElementType,
   direction?: directionType,
   flexWrap?: 'wrap' | 'nowrap',

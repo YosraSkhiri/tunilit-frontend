@@ -6,7 +6,7 @@ import LayoutProps from './Layout.types'
 const Layout = ({
   center = false,
   children,
-  classname,
+  className,
   component: Component = 'div',
   direction = 'row',
   flexWrap,
@@ -18,7 +18,7 @@ const Layout = ({
     [styles[`flex--${direction}`]]: type === 'flex' && direction,
     [styles[`flex--${flexWrap}`]]: type === 'flex' && flexWrap,
     [styles['center']]: center,
-  }, classname)
+  }, className)
 
   return (
     <Component 
