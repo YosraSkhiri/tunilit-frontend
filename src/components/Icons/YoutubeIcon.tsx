@@ -1,9 +1,10 @@
 import clsx from 'clsx'
+import { forwardRef } from 'react'
 
 import styles from './Icon.module.scss'
 import IconProps from './Icon.types'
 
-const YoutubeIcon = ({
+const YoutubeIcon = forwardRef<SVGSVGElement, IconProps>(({
 	className,
 	height,
 	size = 'md',
@@ -11,7 +12,7 @@ const YoutubeIcon = ({
 	strokeWidth,
 	width,
 	...other
-}: IconProps) => {
+}, ref) => {
 	const iconClass = clsx(
 		{
 			[styles['icon']]: true,
@@ -25,6 +26,7 @@ const YoutubeIcon = ({
 			className={iconClass}
 			fill="none"
 			height={height}
+      ref={ref}
 			viewBox="0 0 30 30"
 			width={width}
 			xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +42,7 @@ const YoutubeIcon = ({
 			/>
 		</svg>
 	)
-}
+})
 
 YoutubeIcon.displayName = 'YoutubeIcon'
 

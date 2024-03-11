@@ -1,9 +1,10 @@
 import clsx from 'clsx'
+import { forwardRef } from 'react'
 
 import styles from './Icon.module.scss'
 import IconProps from './Icon.types'
 
-const FlagIcon = ({
+const FlagIcon = forwardRef<SVGSVGElement, IconProps>(({
 	className,
 	height,
 	size = 'md',
@@ -11,7 +12,7 @@ const FlagIcon = ({
 	strokeWidth,
 	width,
 	...other
-}: IconProps) => {
+}, ref) => {
 	const iconClass = clsx(
 		{
 			[styles['icon']]: true,
@@ -25,6 +26,7 @@ const FlagIcon = ({
 			className={iconClass}
 			fill="none"
 			height={height}
+      ref={ref}
 			viewBox="0 0 30 30"
 			width={width}
 			xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +40,7 @@ const FlagIcon = ({
 			/>
 		</svg>
 	)
-}
+})
 
 FlagIcon.displayName = 'FlagIcon'
 

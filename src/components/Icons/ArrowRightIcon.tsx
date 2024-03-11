@@ -1,9 +1,10 @@
 import clsx from 'clsx'
+import { forwardRef } from 'react'
 
 import styles from './Icon.module.scss'
 import IconProps from './Icon.types'
 
-const ArrowRightIcon = ({
+const ArrowRightIcon = forwardRef<SVGSVGElement, IconProps>(({
 	className,
 	height,
 	size = 'md',
@@ -11,7 +12,7 @@ const ArrowRightIcon = ({
 	strokeWidth,
 	width,
 	...other
-}: IconProps) => {
+}, ref) => {
 	const iconClass = clsx(
 		{
 			[styles['icon']]: true,
@@ -22,9 +23,10 @@ const ArrowRightIcon = ({
 
 	return (
 		<svg
-			className={iconClass}
+      className={iconClass}
 			fill="none"
 			height={height}
+			ref={ref}
 			viewBox="0 0 30 30"
 			width={width}
 			xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +40,7 @@ const ArrowRightIcon = ({
 			/>
 		</svg>
 	)
-}
+})
 
 ArrowRightIcon.displayName = 'ArrowRightIcon'
 
