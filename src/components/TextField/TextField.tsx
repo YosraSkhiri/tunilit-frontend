@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 
 import HelperText from '../HelperText'
 import Input from '../Input'
-import InputLabel from '../InputLabel'
+import Label from '../Label/index.tsx'
 import styles from './TextField.module.scss'
 import TextFieldProps from './TextField.types.ts'
 
@@ -33,12 +33,12 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 				ref={ref}
       >
 				{label && (
-					<InputLabel
+					<Label
 						disabled={disabled}
 						htmlFor={id}
 						variant={variant}>
 						{label}
-					</InputLabel>
+					</Label>
 				)}
 				<Input
 					defaultValue={defaultValue}
