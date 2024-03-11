@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import InputLabel from './InputLabel'
+import Label from './Label'
 
-const meta: Meta<typeof InputLabel> = {
-	component: InputLabel,
+const meta: Meta<typeof Label> = {
+	component: Label,
 }
 
 export default meta
 
-type Story = StoryObj<typeof InputLabel>
+type Story = StoryObj<typeof Label>
 
 export const DefaultLabel: Story = {
 	args: {
@@ -34,6 +34,13 @@ export const ErrorLabel: Story = {
 	args: {
 		children: 'Label',
 		variant: 'error',
+	},
+}
+
+export const RequiredLabel: Story = {
+	args: {
+		children: 'Label',
+		required: true,
 	},
 }
 

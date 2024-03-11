@@ -1,15 +1,17 @@
+import * as LabelRadix from '@radix-ui/react-label'
 import clsx from 'clsx'
 
-import styles from './InputLabel.module.scss'
-import InputLabelProps from './InputLabel.types'
+import styles from './Label.module.scss'
+import LabelProps from './Label.types'
 
-const InputLabel = ({
+const Label = ({
   children,
   disabled,
   htmlFor,
+  required,
   variant,
   ...other
-}: InputLabelProps) => {
+}: LabelProps) => {
   const labelClass = clsx({
     [styles['label']]: true,
     [styles[`label--${variant}`]]: variant && !disabled,
@@ -17,14 +19,14 @@ const InputLabel = ({
   })
 
   return(
-    <label 
+    <LabelRadix.Root 
       className={labelClass} 
       htmlFor={htmlFor} 
       {...other}
     >
-      {children}
-    </label>
+      {children} {required && '*'}
+    </LabelRadix.Root>
   )
 }
 
-export default InputLabel
+export default Label
