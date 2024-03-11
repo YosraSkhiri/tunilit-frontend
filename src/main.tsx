@@ -1,3 +1,4 @@
+import './sass/global.scss'
 import './sass/react-toastify/main.scss'
 
 import React from 'react'
