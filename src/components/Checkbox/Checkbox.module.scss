@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 4px;
+}
+
+.checkbox__root {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: $corner-radius-xsmall;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+
+  &--default {
+    background-color: $status-generic-2-surface-dark;
+    border-color: $status-generic-2-border-lighter;
+
+    &:hover {
+      background-color: $status-generic-2-surface-darker;
+    }
+    
+    &:focus {
+      box-shadow: $default-focus-outline;
+    }
+  }
+
+  &--checked {
+    background-color: $status-generic-4-surface;
+    border-color: $status-generic-4-border;
+
+    &:hover {
+      background-color: $status-generic-4-surface-dark;
+    }
+
+    &:focus {
+      box-shadow: $default-focus-outline;
+    }
+  }
+
+  &--disabled {
+    background-color: $status-disabled-surface;
+    border-color: $status-disabled-border;
+    cursor: not-allowed;
+  }
+}
+
+.checkbox__icon {
+  stroke-width: 0.22rem;
+
+  &--default {
+    stroke: $status-generic-4-icon;
+    stroke-dasharray: 25;
+    stroke-dashoffset: -25;
+    animation: draw .4s ease-in-out forwards;
+  }
+
+  &--disabled {
+    stroke: $status-disabled-icon;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
