@@ -13,8 +13,8 @@ const ToastContent = ({
 	message,
 }: ToastContentProps) => {
 	return (
-		<Layout classname={styles['toast-content']}>
-			<Layout classname={styles['toast-content__1']}>
+		<Layout className={styles['toast-content']}>
+			<Layout className={styles['toast-content__1']}>
 				{adorn && <div className={styles['toast-content__icon']}>{adorn}</div>}
 				<div>
 					<Typography
@@ -25,7 +25,7 @@ const ToastContent = ({
 				</div>
 			</Layout>
 
-			<Layout classname={styles['toast-content__2']}>
+			<Layout className={styles['toast-content__2']}>
 				{linkProps?.children && (
 					<Link {...linkProps}>{linkProps?.children}</Link>
 				)}

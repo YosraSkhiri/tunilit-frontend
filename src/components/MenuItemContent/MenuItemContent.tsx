@@ -39,8 +39,8 @@ const MenuItemContent = React.forwardRef<
 				{...buttonBaseProps}
 				{...props}
         >
-				<Layout classname={styles['menu-item__content']}>
-					<Layout classname={styles['menu-item__details']}>
+				<Layout className={styles['menu-item__content']}>
+					<Layout className={styles['menu-item__details']}>
 						{renderLeftAdorn && renderLeftAdorn({
               className: styles['menu-item__left-adorn']
             })
