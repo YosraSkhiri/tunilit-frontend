@@ -1,0 +1,63 @@
+.radio-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 4px;
+}
+
+.radio__item {
+  all: unset;
+  display: flex;
+	width: 1.25rem;
+	height: 1.25rem;
+  border-style: solid;
+  border-width: 2px;
+	border-radius: $corner-radius-circular;
+
+	&--default {
+		background-color: $status-generic-2-surface-dark;
+		border-color: $status-generic-2-border-lighter;
+
+		&:hover {
+			background-color: $status-generic-2-surface-darker;
+		}
+
+		&:focus {
+			background-color: $status-generic-4-surface;
+      border-color: $status-generic-4-border;
+      box-shadow: $default-focus-outline;
+
+      .radio__indicator {
+        background-color: $status-generic-4-icon;
+      }
+		}
+
+    &[aria-checked=true] {
+      background-color: $status-generic-4-surface;
+      border-color: $status-generic-4-border;
+
+      .radio__indicator {
+        background-color: $status-generic-4-icon;
+      }
+    }
+	}
+
+  &--disabled {
+    background-color: $status-disabled-surface;
+    border-color: $status-disabled-border;
+    cursor: not-allowed;
+  }
+}
+
+.radio__indicator {
+  display: block;
+  margin: auto;
+  width: 0.625rem;
+  height: 0.625rem;
+	border-radius: $corner-radius-circular;
+
+  &--disabled {
+    background-color: $status-disabled-icon;
+  }
+}
