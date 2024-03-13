@@ -1,0 +1,27 @@
+.chip {
+  display: block;
+  width: fit-content;
+	border-radius: $corner-radius-circular;
+	border-style: solid;
+	border-width: $border-xsmall;
+	border-color: rgba(#000, 0.4);
+	color: rgba(#000, 0.6);
+	font-weight: 500;
+  transition: all 0.25s ease-in-out;
+
+	&:focus {
+		box-shadow: $default-focus-outline;
+	}
+
+	&--md {
+		padding: 7px 16px;
+    line-height: 14px;
+    font-size: 14px;
+	}
+
+	&--sm {
+		padding: 5px 10px;
+    line-height: 10px;
+    font-size: 10px;
+	}
+}
