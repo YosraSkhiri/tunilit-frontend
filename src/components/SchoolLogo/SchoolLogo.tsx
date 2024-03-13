@@ -4,11 +4,11 @@ import clsx from 'clsx'
 import styles from './SchoolLogo.module.scss'
 import SchoolLogoProps from './SchoolLogo.types'
 
-const SchoolLogo = ({ alt, size = 'medium', src }: SchoolLogoProps) => {
+const SchoolLogo = ({ alt, className, size = 'medium', src }: SchoolLogoProps) => {
 	const logoClass = clsx({
 		[styles['s-logo']]: true,
 		[styles[`s-logo--${size}`]]: size,
-	})
+	}, className)
 
 	return (
     <Avatar.Root asChild>

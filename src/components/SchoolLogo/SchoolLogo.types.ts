@@ -7,6 +7,7 @@ export type schoolLogoSizes =
 
 export default interface SchoolLogoProps {
 	alt?: string
-	size?: schoolLogoSizes
-	src: string
+	className?: string,
+	size?: schoolLogoSizes,
+  src: string
 }
