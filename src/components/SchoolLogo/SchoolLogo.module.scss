@@ -45,4 +45,11 @@
 		height: 100%;
 		object-fit: cover;
 	}
+
+  &__fallback {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #f8e0a8;
+  }
 }

@@ -1,3 +1,4 @@
+import * as Avatar from '@radix-ui/react-avatar';
 import clsx from 'clsx'
 
 import styles from './SchoolLogo.module.scss'
@@ -10,13 +11,16 @@ const SchoolLogo = ({ alt, size = 'medium', src }: SchoolLogoProps) => {
 	})
 
 	return (
-		<div className={logoClass}>
-			<img
-				alt={alt}
-				className={styles['s-logo__img']}
-				src={src}
-			/>
-		</div>
+    <Avatar.Root asChild>
+      <div className={logoClass}>
+        <Avatar.Image
+          alt={alt}
+          className={styles['s-logo__img']}
+          src={src}
+        />
+        <Avatar.Fallback className={styles['s-logo__fallback']} delayMs={600} />
+	</div>
+    </Avatar.Root>
 	)
 }
 
