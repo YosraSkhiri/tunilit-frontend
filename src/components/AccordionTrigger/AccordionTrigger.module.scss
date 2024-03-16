@@ -1,4 +1,4 @@
-.summary {
+.trigger {
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -6,6 +6,18 @@
   padding: 1.875rem 1.5rem;
   border-radius: $corner-radius-large;
   cursor: pointer;
+
+  &[data-state=open] {
+    & .trigger__icon--expand {
+      display: none;
+    }
+  }
+
+  &[data-state=closed] {
+    & .trigger__icon--collapse {
+      display: none;
+    }
+  }
 
   &:focus-visible {
 		box-shadow: $default-focus-outline;
@@ -21,7 +33,6 @@
   }
   
 }
-
 
 @keyframes rotate {
   0% {
