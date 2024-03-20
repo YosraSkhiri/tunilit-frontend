@@ -1,0 +1,61 @@
+.badge {
+  position: relative;
+  background: #68DF2E;
+  border: 2px solid $border-1;
+  border-radius: 80px;
+  display: flex;
+  width: fit-content;
+  padding: 10px 25px;
+  height: 42px;
+  background-image: url('/images/shinyBadgeBg.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+
+  &--animate {
+    animation: shine 1s .6s infinite;
+  }
+
+  &__label {
+    position: relative;
+    z-index: 1;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 14px;
+    color: $text-3-default;
+    text-align: center;
+    margin: auto;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    display: block;
+    z-index: 0;
+    height: calc(100% - 4px);
+  }
+
+  &__stars {
+    position: absolute;
+    top: -2px;
+    left: -6px;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200%;
+  }
+
+  50% {
+    background-position: 50%;
+
+  }
+
+  100% {
+    background-position: -200%;
+
+  }
+}
