@@ -1,20 +1,21 @@
 import clsx from 'clsx'
-import { useState } from 'react'
+import { forwardRef, useState } from 'react'
 
 import ButtonBase from '../ButtonBase'
 import Tooltip, { TooltipContent, TooltipTrigger } from '../Tooltip'
 import styles from './InputButton.module.scss'
 import InputButtonProps from './InputButton.types'
 
-const InputButton = ({
+const InputButton = forwardRef<HTMLButtonElement, InputButtonProps>(({
 	ariaLabel,
 	children,
+	className,
 	disabled,
 	size = 'md',
-	tooltip,
+  tooltip,
   variant = 'default',
 	...other
-}: InputButtonProps) => {
+}, ref) => {
 	const [showTooltip, setShowTooltip] = useState<boolean>(false)
 
 	const inputButtonClass = clsx({
@@ -22,14 +23,15 @@ const InputButton = ({
 		[styles[`btn--${variant}`]]: !disabled,
 		[styles[`btn--${size}`]]: size,
 		[styles[`btn--disabled`]]: disabled,
-	})
+	}, className)
 
 	const btnIcon = (
 		<ButtonBase
-			aria-label={ariaLabel}
+      aria-label={ariaLabel}
 			className={inputButtonClass}
 			data-testid="icon-btn"
-      disabled={disabled}
+			disabled={disabled}
+      ref={ref}
 			{...other}>
 			{children}
 		</ButtonBase>
@@ -51,6 +53,6 @@ const InputButton = ({
 	}
 
 	return btnIcon
-}
+})
 
 export default InputButton
