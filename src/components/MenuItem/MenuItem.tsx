@@ -54,6 +54,7 @@ const MenuItem = React.forwardRef<
           },
         }),
       }}
+      {...props}
       >
 		{children}
 	</MenuItemContent>
