@@ -12,7 +12,6 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 		{
 			defaultValue,
 			disabled,
-			floatingUIProps,
 			fullWidth,
 			helperText,
 			id,
@@ -30,7 +29,6 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 		return (
 			<div
 				className={inputGroupClass}
-				ref={ref}
       >
 				{label && (
 					<Label
@@ -44,9 +42,9 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 					defaultValue={defaultValue}
 					disabled={disabled}
 					id={id}
-					variant={variant}
+					ref={ref}
+          variant={variant}
 					{...other}
-					{...floatingUIProps}
 				/>
 				{helperText && (
 					<HelperText
