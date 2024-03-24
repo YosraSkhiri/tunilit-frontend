@@ -1,3 +1,23 @@
-.ac-wrapper {
-	//width: fit-content;
+.ac-container {
+  position: relative;
+}
+
+.leave {
+  transition: ease-in-out .1s;
+}
+
+.leave-from { opacity: 1; }
+.leave-to { opacity: 0; }
+
+.loader--animation {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
 }

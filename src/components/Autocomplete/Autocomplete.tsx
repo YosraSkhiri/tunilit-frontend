@@ -1,279 +1,179 @@
-import {
-  autoUpdate,
-  flip,
-  FloatingFocusManager,
-  FloatingPortal,
-  offset,
-  size,
-  useDismiss,
-  useFloating,
-  useInteractions,
-  useListNavigation,
-  useRole
-} from "@floating-ui/react"
-import { MouseEvent, useEffect, useRef, useState } from 'react'
+import { Combobox, Transition } from '@headlessui/react'
+import { Fragment, MouseEvent } from 'react'
 
-import {ChevronDownIcon,CrossSmallIcon} from '../Icons'
+import { ChevronDownIcon, CrossSmallIcon, LoaderIcon } from '../Icons'
 import InputButton from '../InputButton'
 import MenuItemContent from '../MenuItemContent'
 import MenuItemsWrapper from '../MenuItemsWrapper'
 import Tag from '../Tag'
-import TextField from '../TextField'
-import AutocompleteProps from './Autocomplete.types.ts'
-import { OptionType } from './Autocomplete.types.ts'
+import TextField from '../TextField/TextField.tsx'
+import styles from './Autocomplete.module.scss'
+import AutocompleteProps, { OptionType } from './Autocomplete.types.ts'
 
 const Autocomplete = ({
-  TextFieldProps,
   clearable = false,
-  fullWidth = false,
   id,
-  inputValue = '',
+  inputValue,
   label,
-  multiple= false,
-  onChange,
-  onInputChange,
+  loading,
+  multiple = false,
   options,
-	placeholder,
-  value,
+  placeholder,
+	selectedValue,
+  setInputValue,
+  setSelectedValue,
 }: AutocompleteProps) => {
-  const [open, setOpen] = useState<boolean>(false)
-  const [focus, setFocus] = useState<boolean>(false)
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
-
-  useEffect(() => {
-    if (open && inputValue === value && !multiple) {
-      const selectedItem = listRef.current.filter(item => 
-        item?.getAttribute('data-value')?.toLowerCase().trim() === value.toLowerCase().trim()
-      )
-      // scrollIntoView() doesn't work when called synchronously
-      // https://stackoverflow.com/questions/71667401/ref-scrollintoview-does-not-work-with-behavior-smooth-on-react
-      setTimeout(() => {selectedItem[0]?.scrollIntoView(false)}, 0) 
-    }
-  }, [open, inputValue, value, multiple])
-  
-  const listRef = useRef<Array<HTMLElement | null>>([])
-  const { context, floatingStyles, refs } = useFloating<HTMLDivElement>({
-    whileElementsMounted: autoUpdate,
-    open,
-    onOpenChange: setOpen,
-    middleware: [
-      flip(),
-      offset(10),
-      size({
-        apply({ elements, rects }) {
-          Object.assign(elements.floating.style, {
-            width: `${rects.reference.width}px`,
-          });
-        },
-      }),
-    ]
-  });
-  const role = useRole(context, { role: "listbox" })
-  const dismiss = useDismiss(context)
-  const listNav = useListNavigation(context, {
-    listRef,
-    activeIndex,
-    onNavigate: setActiveIndex,
-    virtual: true,
-    loop: true,
-  })
-  const {
-    getFloatingProps,
-    getItemProps,
-    getReferenceProps,
-  } = useInteractions([role, dismiss, listNav])
-
-  const handleClearInput = (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-    e?.stopPropagation()
-    const resetValue =  multiple ? [] : ''
-    onInputChange && onInputChange(e, '')
-    onChange && onChange(e, resetValue)
-  }
-
-  const showClearable = () => (
-    (clearable && value && value.length > 0 && (focus || open)) && 
-	<InputButton onClick={handleClearInput}>
-		<CrossSmallIcon size='md' />
-	</InputButton>
-  )
-
-  function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value
-    onInputChange && onInputChange(event, value)
-
-    if (value) {
-      setOpen(true)
-      setActiveIndex(0)
-    } else {
-      setOpen(false)
-    }
-  }
-
-  const items = () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const filteredOptions = options?.filter((item: string | {[key: string]: any, label: string}) => {
-      if (typeof item === 'string') 
-        return item.toLowerCase().startsWith(inputValue.toLowerCase())
-      else 
-        return item.label.toLowerCase().startsWith(inputValue.toLowerCase())
+  const filterOptions = () => {
+    return options?.filter((item: string | OptionType) => {
+      const itemLabel = typeof item === 'string' ? item : item.label
+      return itemLabel.toLowerCase().replace(/\s+/g, '').includes(inputValue.toLowerCase().replace(/\s+/g, ''))
     })
+  }
 
-    if (
-      filteredOptions 
-      && filteredOptions?.length <= 0
-      && inputValue !== ''
-      && inputValue !== value
-    ) {
-      return ([])
+  const displayOptions = () => {
+    if (loading) {
+      return (
+        <Combobox.Option disabled as={Fragment} value="NO_OPTIONS">
+          <MenuItemContent disabled={true} size="sm">
+            Loading...
+          </MenuItemContent>
+        </Combobox.Option>
+      )
+    }
+  
+    const filteredOptions = filterOptions()
+    if (!filteredOptions?.length && inputValue !== '' && inputValue !== selectedValue) {
+      return (
+        <Combobox.Option disabled as={Fragment} value="NO_OPTIONS">
+          <MenuItemContent disabled={true} size="sm">
+            No Options
+          </MenuItemContent>
+        </Combobox.Option>
+      )
     } else {
-      if (inputValue === value) {
-        return options
-      } else {
-        return filteredOptions
-      }
+      return filteredOptions?.map((item, index: number) => (
+        <Combobox.Option
+          as={Fragment}
+          data-testid={typeof item === 'string' ? item : item.label}
+          key={`${id}-option-${index}`}
+          value={typeof item === 'string' ? item : item.label}
+        >
+          {({ active, selected }) => (
+            <MenuItemContent 
+              buttonBaseProps={
+                {
+                  id: 
+                  (typeof item === 'object' && item?.id) 
+                  ? item?.id 
+                  : `${id}-option-${index}` 
+                }
+              } 
+              active={active} 
+              selected={selected} 
+              size="sm"
+            >
+              {typeof item === 'string' ? item : item.label}
+            </MenuItemContent>
+          )}
+        </Combobox.Option>
+      ))
     }
   }
 
   const removeTag = (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     const valueToRemove = e?.currentTarget.getAttribute('data-value')
-    const arr = value && typeof value === "object" && value.filter((v: string) => v !== valueToRemove)
-    if (arr) onChange && onChange(undefined, arr)
+    const arr = selectedValue && typeof selectedValue === "object" && selectedValue.filter((v: string) => v !== valueToRemove)
+    if (arr) setSelectedValue(arr)
   }
 
   const displayTags = () => {
-    if(value && typeof value === 'object') return value?.map((v: string, i: number) => (
-      <Tag data-value={v} key={`${id}-option-${i}`} onClick={removeTag}>{v}</Tag>
+    if(selectedValue && typeof selectedValue === 'object') return selectedValue?.map((v: string, i: number) => (
+      <Tag data-testid={`tag-${v}`} data-value={v} key={`${id}-tag-${i}`} onClick={removeTag}>{v}</Tag>
     ))
   }
 
-  const isSelected = (inputValue: string, item: string | OptionType): boolean => {
-    const itemVal = typeof item === 'string' ? item : item.label
-    if(value && multiple) {
-      return value?.includes(itemVal)
-    } 
-    return inputValue === itemVal
+  const handleClearInput = (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    e?.stopPropagation()
+    const resetValue =  multiple ? [] : ''
+    setInputValue('')
+    setSelectedValue(resetValue)
   }
+  
+  const showClearableBtn = () => (
+    (clearable && selectedValue && selectedValue?.length > 0) && 
+	<InputButton onClick={handleClearInput} >
+		<CrossSmallIcon aria-hidden="true" size='md' />
+	</InputButton>
+  )
 
-  const displayOptions = () => {
-    const listOption = items()
-
-    if (listOption && listOption?.length > 0) {
-      return listOption.map((item, index: number) => (
-        <MenuItemContent
-          key={`${id}-${index}`}
-          selected={isSelected(inputValue, item)}
-          size='sm'
-          {...getItemProps({
-            ref(node) {
-              listRef.current[index] = node
-            },
-            onClick() {
-              const clickedOption = typeof item === 'string' ? item : item.label
-              if (value) {
-                if (multiple && typeof value === 'object') {
-                  if( value.includes(clickedOption)) {
-                    const arr = value.filter((v: string) => v !== clickedOption)
-                    onInputChange(undefined, '')
-                    onChange && onChange(undefined, arr)
-                  } else {
-                    const arr = value
-                    arr.push(clickedOption)
-                    onInputChange(undefined, '')
-                    onChange && onChange(undefined, arr)
-                  }
-                  
-                } else {
-                  if (value === clickedOption) {
-                    onInputChange(undefined, '')
-                    onChange && onChange(undefined, '')
-                  } else {
-                    onInputChange(undefined, clickedOption)
-                    onChange && onChange(undefined, clickedOption)
-                  }
-                }
-              }
-              
-              setOpen(false)
-              refs.domReference.current?.focus()
-            },
-          })}
-          buttonBaseProps={{
-            ['data-value']: (typeof item === 'string' ? item : item.label),
-            active: `${activeIndex === index}`,
-            id: `${id}-${index}`,
-          }}
-        >
-          {typeof item === 'string' ? item : item.label}
-        </MenuItemContent>
-      ))
-    }
-  }
+  const showLoadingBtn = () => (
+    loading && 
+	<InputButton disabled>
+		<LoaderIcon aria-hidden="true" className={styles['loader--animation']} size='sm' />
+	</InputButton>
+  )
 
   return (
-	<>
-		<TextField 
-			endAdornment={
-				<>
-					{showClearable()} 
-					<InputButton>
-						<ChevronDownIcon size='md' />
-					</InputButton>
-				</>
-        }
-			floatingUIProps={getReferenceProps({
-			onChange: handleOnChange,
-			value: inputValue,
-			"aria-autocomplete": "list",
-			onFocus() {
-        setFocus(true)
-				setOpen(true)
-			},
-			onBlur() {
-        setFocus(false)
-			},
-			onClick() {
-				setOpen(true)
-			}
-		})}
-			startAdornment={
-				<>
-					{multiple && displayTags()}
-				</>
-        }
-			
-			autoComplete='off'
-			fullWidth={fullWidth}
-			id={id}
-			label={label}
-			placeholder={placeholder}
-			ref={refs.setReference}
-      spellCheck={false}
-      {...TextFieldProps}
-      />
-		<FloatingPortal>
-			{open && (
-				<FloatingFocusManager
-					visuallyHiddenDismiss
-					context={context}
-					initialFocus={-1}
-      >
-					<MenuItemsWrapper
-						maxWidth={false}
-						{...getFloatingProps({
-            ref: refs.setFloating,
-            style: {
-              ...floatingStyles,
-            }
-          })}
-						cornerRadius={10}
+    <Combobox 
+      multiple={multiple}
+      value={selectedValue}
+      onChange={setSelectedValue}
+    >
+      {({ open }) => (
+        <div className={styles['ac-container']}>
+          <div >
+            <Combobox.Input
+              fullWidth
+              endAdornment={
+                <>
+                  {showClearableBtn()} 
+                  {showLoadingBtn()} 
+                  <Combobox.Button as={Fragment} data-testid="showOptionsBtn">
+                    <InputButton>
+                      <ChevronDownIcon 
+                        aria-hidden="true" 
+                        size='md'
+                      />
+                    </InputButton>
+                  </Combobox.Button>
+                </>
+              }
+              startAdornment={
+                <>
+                  {multiple && displayTags()}
+                </>
+              }
+              as={TextField}
+              autoComplete='off'
+              displayValue={(v: OptionType) => typeof v === "string" ? v : v.label}
+              id={id}
+              label={label} 
+              placeholder={placeholder}
+              spellCheck={false} 
+              onChange={(event) => setInputValue(event.target.value)}
+            />
+          </div>
+          <Transition
+            afterLeave={() => setInputValue('')}
+            as={Fragment}
+            leave={styles.leave}
+            leaveFrom={styles['leave-from']}
+            leaveTo={styles['leave-to']}
+            show={open}
           >
-						{displayOptions()}
-					</MenuItemsWrapper>
-				</FloatingFocusManager>
-      )}
-		</FloatingPortal>
-	</>
-    
+            <Combobox.Options static as='div'>
+              <MenuItemsWrapper 
+                fullWidth
+                cornerRadius={10}
+                maxWidth={false}
+              >
+                {displayOptions()}
+              </MenuItemsWrapper>
+            </Combobox.Options>
+          </Transition>
+        </div>
+      )} 
+    </Combobox>
   )
 }
 

@@ -38,31 +38,20 @@ const options = [
 
 const Template1 = () => {
   const [inputValue, setInputValue] = useState<string>('')
-  const [value, setValue] = useState<Array<string> | string>([])
-
-  const handleOnChange = (e: any, newValue: string | Array<string>) => {
-    setValue(newValue)
-  }
-
-  const handleOnInputChange = (e: any, newValue: string) => {
-    setInputValue(newValue)
-  }
+  const [value, setValue] = useState<Array<string> | string>('')
 
   return (
-	<div>
 		<Autocomplete
       clearable
-			fullWidth
-			id='controlledAutocomplete'
-			inputValue={inputValue}
-			label='Select Location'
-			options={options}
-      placeholder='Placeholder'
-			value={value}
-			onChange={handleOnChange}
-			onInputChange={handleOnInputChange}
-      />
-	</div>
+      id='ac-1'
+      inputValue={inputValue}
+      label='Location'
+      options={options}
+      placeholder='placeholder'
+      selectedValue={value}
+      setInputValue={setInputValue}
+      setSelectedValue={setValue}
+    />
   )
 }
 
@@ -72,30 +61,19 @@ const Template2 = () => {
   const [inputValue, setInputValue] = useState<string>('')
   const [value, setValue] = useState<Array<string> | string>([])
 
-  const handleOnChange = (e: any, newValue: string | Array<string>) => {
-    setValue(newValue)
-  }
-
-  const handleOnInputChange = (e: any, newValue: string) => {
-    setInputValue(newValue)
-  }
-
   return (
-	<div>
 		<Autocomplete
       clearable
-			fullWidth
-			multiple
-			id='controlledAutocomplete'
-			inputValue={inputValue}
-			label='Select Location'
-			options={options}
-      placeholder='Placeholder'
-			value={value}
-			onChange={handleOnChange}
-			onInputChange={handleOnInputChange}
-      />
-	</div>
+      multiple
+      id='ac-2'
+      inputValue={inputValue}
+      label='Location'
+      options={options}
+      placeholder='placeholder'
+      selectedValue={value}
+      setInputValue={setInputValue}
+      setSelectedValue={setValue}
+    />
   )
 }
 
