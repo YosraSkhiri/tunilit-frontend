@@ -1,17 +1,18 @@
 import * as LabelRadix from '@radix-ui/react-label'
 import clsx from 'clsx'
+import { forwardRef } from 'react'
 
 import styles from './Label.module.scss'
 import LabelProps from './Label.types'
 
-const Label = ({
+const Label = forwardRef<HTMLLabelElement, LabelProps>(({
   children,
   disabled,
   htmlFor,
   required,
   variant,
   ...other
-}: LabelProps) => {
+}, ref) => {
   const labelClass = clsx({
     [styles['label']]: true,
     [styles[`label--${variant}`]]: variant && !disabled,
@@ -21,12 +22,13 @@ const Label = ({
   return(
     <LabelRadix.Root 
       className={labelClass} 
-      htmlFor={htmlFor} 
+      htmlFor={htmlFor}
+      ref={ref}
       {...other}
     >
       {children} {required && '*'}
     </LabelRadix.Root>
   )
-}
+})
 
 export default Label
