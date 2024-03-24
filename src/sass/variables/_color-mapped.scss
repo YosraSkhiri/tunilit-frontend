@@ -414,6 +414,7 @@ $link-variants : (
 );
 
 $blur-effect: blur(10px);
+$focus-outline: 0 0 0 4px $secondary-dark;
 $default-focus-outline: 0 0 0 4px rgba($secondary-dark, 40%);
 $info-focus-outline: 0 0 0 4px rgba($info, 40%);
 $error-focus-outline: 0 0 0 4px rgba($error, 40%);
