@@ -57,8 +57,6 @@
         fill: $icon-head-eyes-sparkle;
       }
     }
-
-    
   }
 
   &__glasses {
@@ -112,17 +110,6 @@
   align-items: center;
   gap: 4.334%;
   width: fit-content;
-
-  &--link:hover,
-  &--animate {
-    .animate-hide {
-      animation: close 3s steps(1) forwards;
-    }
-    
-    .animate-show {
-      animation: open 3s steps(1) forwards;
-    }
-  }
 }
 
 .text {
@@ -132,51 +119,5 @@
 
   &--light {
     fill: $text-light;
-  }
-}
-
-@keyframes open {
-  0% {
-    opacity: 100%;
-  }
-
-  20% {
-    opacity: 0;
-  }
-
-  40% {
-    opacity: 100%;
-  }
-
-  60% {
-    opacity: 0%;
-  }
-
-  80%,
-  100% {
-    opacity: 100%;
-  }
-}
-
-@keyframes close {
-  0% {
-    opacity: 0%;
-  }
-
-  20% {
-    opacity: 100%;
-  }
-
-  40% {
-    opacity: 0%;
-  }
-
-  60% {
-    opacity: 100%;
-  }
-
-  80%,
-  100% {
-    opacity: 0%;
   }
 }

@@ -1,66 +1,12 @@
 import clsx from 'clsx'
+import { useRef } from 'react'
 
+import LeftEye from './LeftEye'
 import styles from './Logo.module.scss'
-import LogoProps, { EyeProps } from './Logo.types'
+import LogoProps from './Logo.types'
+import RightEye from './RightEye'
 
 type LogoWrapperType = 'div' | 'a'
-
-const Eye = ({
-  animate = false, 
-  closed = false,
-  side = 'left',
-}: EyeProps) => {
-  const closedEyeClass = clsx({
-    [styles['icon--hide']]: !closed,
-    [styles['icon--stroke']]: true,
-    [styles['animate-hide']]: animate,
-  })
-
-  const openEyeClass = clsx({
-    [styles['icon--hide']]: closed,
-    [styles['animate-show']]: animate,
-  })
-
-  if (side === 'left') {
-    return(
-      <>
-        <path className={closedEyeClass} d="M16.7255 29.4918C17.2796 28.3814 18.388 26.1604 21.7131 26.1604C25.0382 26.1604 26.1466 28.3814 26.7008 29.4918" data-testid="left-eye-closed" strokeLinecap="round" strokeWidth="1.8904" />
-        
-        <g className={openEyeClass} data-testid="left-eye-open">
-          <ellipse className={styles['icon__eye-sclera--shadow']} cx="21.775" cy="27.0893" rx="7.39813" ry="7.29091" />
-          <path className={styles['icon__eye-sclera']} clipRule="evenodd" d="M15.2472 30.4948C16.2577 27.7079 19.0069 25.8027 22.24 25.8027C25.0487 25.8027 27.6487 26.8363 29.0023 28.7877C28.2249 31.9952 25.2943 34.3803 21.7978 34.3803C18.9569 34.3803 16.4895 32.8058 15.2472 30.4948Z" fillRule="evenodd" />
-          <path className={styles['icon--stroke']} d="M22.74 34.5304C26.391 34.5304 29.3233 31.231 29.3233 27.1966C29.3233 23.1623 26.391 19.8628 22.74 19.8628C19.0891 19.8628 16.1568 23.1623 16.1568 27.1966C16.1568 31.231 19.0891 34.5304 22.74 34.5304Z" strokeWidth="0.300214" />
-          <ellipse cx="22.74" cy="27.1966" fill="url(#eye-linear-left)" rx="6.43316" ry="7.18369" />
-          <path clipRule="evenodd" d="M16.5214 29.0093C17.2407 27.1646 19.7558 25.8027 22.748 25.8027C25.7401 25.8027 28.2552 27.1646 28.9746 29.0093C28.2552 32.0991 25.7401 34.3803 22.748 34.3803C19.7558 34.3803 17.2407 32.0991 16.5214 29.0093Z" fill="url(#eye-radial-left)" fillRule="evenodd" />
-          <ellipse className={styles['icon__eye--highlight']} cx="1.84303" cy="1.84654" rx="1.84303" ry="1.84654" transform="matrix(-0.861749 0.507335 0.507335 0.861749 24.9805 20.4419)" />
-          <ellipse className={styles['icon__eye--highlight']} cx="0.921513" cy="0.92327" rx="0.921513" ry="0.92327" transform="matrix(-0.861749 0.507335 0.507335 0.861749 27.5846 23.8389)" />
-          <ellipse className={styles['icon__eye-pupil']} cx="22.74" cy="26.9981" rx="1.71551" ry="2.14439" />
-          <path className={styles['icon__eye-sparkle-fill']} d="M25.365 25.0466C25.365 26.136 26.2465 27.0192 27.3339 27.0192C26.2465 27.0192 25.365 27.9023 25.365 28.9918C25.365 27.9023 24.4836 27.0192 23.3962 27.0192C24.4836 27.0192 25.365 26.136 25.365 25.0466Z" />
-          <path className={styles['icon__eye-sparkle-stroke']} d="M25.365 25.0466C25.365 26.136 26.2465 27.0192 27.3339 27.0192C26.2465 27.0192 25.365 27.9023 25.365 28.9918C25.365 27.9023 24.4836 27.0192 23.3962 27.0192C24.4836 27.0192 25.365 26.136 25.365 25.0466Z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.193336" />
-        </g>
-      </>
-    )
-  } 
-    
-  return(
-    <>
-      <path className={closedEyeClass} d="M40.7018 29.4918C41.256 28.3814 42.3643 26.1604 45.6894 26.1604C49.0145 26.1604 50.1229 28.3814 50.6771 29.4918" data-testid="right-eye-closed" strokeLinecap="round" strokeWidth="1.8904" />
-      
-      <g className={openEyeClass} data-testid="right-eye-open">
-        <ellipse className={styles['icon__eye-sclera--shadow']} cx="45.5777" cy="27.0893" rx="7.39813" ry="7.29091" />
-        <path className={styles['icon__eye-sclera']} clipRule="evenodd" d="M39.0494 30.4948C40.0434 27.7079 42.7475 25.8027 45.9275 25.8027C48.6902 25.8027 51.2475 26.8363 52.5789 28.7877C51.8142 31.9952 48.9317 34.3803 45.4926 34.3803C42.6983 34.3803 40.2714 32.8058 39.0494 30.4948Z" fillRule="evenodd" />
-        <path className={styles['icon--stroke']} d="M46.3195 34.5304C49.9705 34.5304 52.9028 31.231 52.9028 27.1966C52.9028 23.1623 49.9705 19.8628 46.3195 19.8628C42.6685 19.8628 39.7362 23.1623 39.7362 27.1966C39.7362 31.231 42.6685 34.5304 46.3195 34.5304Z" strokeWidth="0.300214" />
-        <ellipse cx="46.3195" cy="27.1966" fill="url(#eye-linear-right)" rx="6.43316" ry="7.18369" />
-        <path clipRule="evenodd" d="M40.1008 29.0093C40.8202 27.1646 43.3352 25.8027 46.3274 25.8027C49.3196 25.8027 51.8347 27.1646 52.554 29.0093C51.8347 32.0991 49.3196 34.3803 46.3274 34.3803C43.3352 34.3803 40.8202 32.0991 40.1008 29.0093Z" fill="url(#eye-radial-right)" fillRule="evenodd" />
-        <ellipse className={styles['icon__eye--highlight']} cx="1.84303" cy="1.84654" rx="1.84303" ry="1.84654" transform="matrix(-0.861749 0.507335 0.507335 0.861749 48.5599 20.4419)" />
-        <ellipse className={styles['icon__eye--highlight']} cx="0.921513" cy="0.92327" rx="0.921513" ry="0.92327" transform="matrix(-0.861749 0.507335 0.507335 0.861749 51.1641 23.8389)" />
-        <ellipse className={styles['icon__eye-pupil']} cx="46.3195" cy="26.9981" rx="1.71551" ry="2.14439" />
-        <path className={styles['icon__eye-sparkle-fill']} d="M48.9445 25.0466C48.9445 26.136 49.826 27.0192 50.9133 27.0192C49.826 27.0192 48.9445 27.9023 48.9445 28.9918C48.9445 27.9023 48.0631 27.0192 46.9757 27.0192C48.0631 27.0192 48.9445 26.136 48.9445 25.0466Z" />
-        <path className={styles['icon__eye-sparkle-stroke']} d="M48.9445 25.0466C48.9445 26.136 49.826 27.0192 50.9133 27.0192C49.826 27.0192 48.9445 27.9023 48.9445 28.9918C48.9445 27.9023 48.0631 27.0192 46.9757 27.0192C48.0631 27.0192 48.9445 26.136 48.9445 25.0466Z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.193336" />
-      </g>
-    </>
-  )
-}
 
 const Logo = ({
   animate = false,
@@ -73,46 +19,31 @@ const Logo = ({
   onlyIcon = false,
   textWidth = 111.57,
 }: LogoProps) => {
+  const leftEyeRef = useRef<SVGGElement>(null)
+  const rightEyeRef = useRef<SVGGElement>(null)
+
   const logoClass = clsx({
     [styles.logo]: true,
-    [styles['logo--link']]: link,
-    [styles['logo--animate']]: animate && !link && eyes === 'open',
   }, classname)
 
-  const generateEyes = () => {
-    switch (eyes) {
-      case 'closed':
-        return(
-          <>
-            <Eye closed animate={animate || link} side='left' />
-            <Eye closed animate={animate || link} side='right' />
-          </>
-        )
+  const LogoWrapper: LogoWrapperType = link ? 'a' : 'div'
 
-      case 'wink':
-        return(
-          <>
-            <Eye closed animate={animate || link} side='left' />
-            <Eye animate={animate || link} side='right' />
-          </>
-        )
-
-      default:
-          return(
-            <>
-              <Eye animate={animate || link} side='left' />
-              <Eye animate={animate || link} side='right' />
-            </>
-          )
+  const handleHover = () => {
+    if (eyes === 'open' && animate) {
+      rightEyeRef.current?.children[0]?.classList.toggle(styles['icon--hide'])
+      leftEyeRef.current?.children[0]?.classList.toggle(styles['icon--hide'])
+  
+      rightEyeRef.current?.children[1]?.classList.toggle(styles['icon--hide'])
+      leftEyeRef.current?.children[1]?.classList.toggle(styles['icon--hide'])
     }
   }
-
-  const LogoWrapper: LogoWrapperType = link ? 'a' : 'div'
 
   return (
     <LogoWrapper 
       {...(link && { href: "/" })}
       className={logoClass}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleHover}
     >
       <svg data-testid="logo-icon" fill="none" height={iconHeight} viewBox="0 0 67 60" width={iconWidth} xmlns="http://www.w3.org/2000/svg">
         {/** hoodie */}
@@ -134,7 +65,8 @@ const Logo = ({
         <ellipse className={styles['icon__blush--2']} cx="4.59115" cy="3.54277" rx="4.59115" ry="3.54277" transform="matrix(0.999916 0.0129216 -0.0128398 0.999918 18.5931 33.0935)" />
         {/** /blush 2 */}
         
-        {generateEyes()}
+        <LeftEye animate={animate || link} closed={eyes === "closed" || eyes === "wink"} ref={leftEyeRef} />
+        <RightEye animate={animate || link} closed={eyes === "closed"} ref={rightEyeRef} />
 
         <rect fill="#FF8430" height="2.45634" rx="1.1995" stroke="#610505" strokeWidth="0.428877" width="8.35429" x="29.3773" y="25.8026"/>
         <mask fill="white" id="path-29-inside-1_1324_24673">

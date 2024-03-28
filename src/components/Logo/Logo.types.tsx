@@ -13,5 +13,4 @@ export default interface LogoProps {
 export interface EyeProps {
   animate?: boolean, 
   closed?: boolean,
-  side: 'left' | 'right',
 }
