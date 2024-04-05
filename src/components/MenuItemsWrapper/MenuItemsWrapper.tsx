@@ -6,6 +6,7 @@ import MenuItemsWrapperProps from './MenuItemsWrapper.types'
 
 const MenuItemsWrapper = forwardRef<HTMLDivElement, MenuItemsWrapperProps>(({
   children,
+  className,
   cornerRadius,
   fullWidth = false,
   maxWidth = true,
@@ -16,7 +17,7 @@ const MenuItemsWrapper = forwardRef<HTMLDivElement, MenuItemsWrapperProps>(({
     [styles['menu-wrapper--maxWidth']]: maxWidth,
     [styles['menu-wrapper--fullWidth']]: fullWidth,
     [styles[`menu-wrapper--${cornerRadius}`]]: cornerRadius,
-  })
+  }, className)
   return (
 	<div
 		className={menuWrapperClass}
