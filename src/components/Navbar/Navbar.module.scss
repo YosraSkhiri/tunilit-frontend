@@ -1,0 +1,9 @@
+.nav-flex {
+  justify-content: space-between;
+  align-items: center;
+
+  &-item {
+    align-items: center;
+    gap: 10px;
+  }
+}
