@@ -6,6 +6,7 @@ import TypographyProps from '../Typography/Typography.types'
 type menuItemSize = 'lg' | 'md' | 'sm'
 
 export default interface MenuItemProps {
+  active?: boolean,
 	buttonBaseProps?: ButtonBaseProps,
 	children: ReactNode,
 	disabled?: boolean,

@@ -13,6 +13,7 @@ const MenuItemContent = React.forwardRef<
 >(
 	(
 		{
+      active = false,
 			buttonBaseProps,
       children,
 			disabled = false,
@@ -31,7 +32,9 @@ const MenuItemContent = React.forwardRef<
 			[styles[`menu-item--${size}`]]: size,
 			[styles['menu-item--disabled']]: disabled,
 			[styles['menu-item--selected']]: !disabled && selected,
+			[styles['menu-item--active']]: !disabled && active,
 		})
+
 		return (
 			<ButtonBase
 				className={menuItemClass}

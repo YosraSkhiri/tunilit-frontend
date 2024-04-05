@@ -7,6 +7,10 @@
 	border-color: $status-generic-3-border-light;
 	transition: all 0.2s ease-in-out;
 
+  &--active {
+    box-shadow: $focus-outline !important;
+  }
+
   &--default {
     &:hover {
       background-color: $status-generic-3-surface-darker;
