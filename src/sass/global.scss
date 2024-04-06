@@ -168,6 +168,7 @@ body {
   font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: $surface-page;
   color: $text-3-default;
+  animation: add-noise 4s ease-in 2s forwards;
 
   &::-webkit-scrollbar {
     width: 12px;
@@ -224,3 +225,21 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+@keyframes add-noise {
+  from {  
+    background-image: 
+    linear-gradient(180deg, rgba($surface-page, 1), 
+    rgba($surface-page, 1)), 
+    url('../../public/images/noise.png'),
+    linear-gradient(180deg, $surface-page, $surface-page);
+  }
+
+  to {
+    background-image: 
+    linear-gradient(180deg, rgba($surface-page, 0.95), 
+    rgba($surface-page, 0.95)), 
+    url('../../public/images/noise.png'),
+    linear-gradient(180deg, $surface-page, $surface-page);
+  }
+}
