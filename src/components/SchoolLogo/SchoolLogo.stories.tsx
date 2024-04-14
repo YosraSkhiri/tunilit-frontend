@@ -52,6 +52,15 @@ export const Small: Story = {
 	},
 }
 
+export const Active: Story = {
+	args: {
+		alt: 'Placeholder',
+		size: 'xlarge',
+		src: placeholderImg,
+    active: true,
+	},
+}
+
 export const Playground: Story = {
 	args: {
 		alt: 'Placeholder',
