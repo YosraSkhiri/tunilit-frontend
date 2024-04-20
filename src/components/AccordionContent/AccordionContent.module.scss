@@ -1,3 +1,5 @@
+@use "../../sass/mixins" as *;
+
 .details-content-wrapper {
   width: 100%;
 	max-height: 32.5rem;
@@ -11,26 +13,19 @@
     animation: slideUp 200ms cubic-bezier(0.87, 0, 0.13, 1);
   }
 
-	/* width */
-	&::-webkit-scrollbar {
-		width: 4px;
-	}
-
-	/* Track */
-	&::-webkit-scrollbar-track {
-		background: transparent;
-    margin-bottom: 12px;
-	}
-
-	/* Handle */
-	&::-webkit-scrollbar-thumb {
-		background: #888;
-	}
-
-	/* Handle on hover */
-	&::-webkit-scrollbar-thumb:hover {
-		background: #555;
-	}
+  &::-webkit-scrollbar {
+    width: .5rem;
+  }
+  
+  &::-webkit-scrollbar-track {
+    @include scrollBarTrack();
+    margin-bottom: 0.875rem;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: $corner-radius-circular;
+    @include scrollBarThumb();
+  }
 }
 
 .details-content {

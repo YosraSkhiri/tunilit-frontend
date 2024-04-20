@@ -1,3 +1,5 @@
+@use "./variables/color-mapped" as *;
+
 @mixin generateButtonVariant($button-variants, $variant, $btn-md-height, $btn-lg-height) {
 	border-color: map-get($button-variants, $variant, 'rest', 'border');
 	color: map-get($button-variants, $variant, 'rest', 'text');
@@ -40,4 +42,16 @@
 			stroke: map-get($button-variants, $variant, 'focused', 'icon');
 		}
 	}
+}
+
+@mixin scrollBarTrack() {
+  background-color: $component-scrollbar-track;
+}
+
+@mixin scrollBarThumb() {
+  background: $component-scrollbar-thumb;
+
+  &:hover {
+    background: $component-scrollbar-thumb-dark;
+  }
 }

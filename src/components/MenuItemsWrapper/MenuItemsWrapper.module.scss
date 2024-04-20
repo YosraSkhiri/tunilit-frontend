@@ -1,3 +1,5 @@
+@use "../../sass/mixins" as *;
+
 .menu-wrapper {
   position: absolute;
   width: 100%;
@@ -48,18 +50,19 @@
 		flex-shrink: 0;
 	}
 
-	&::-webkit-scrollbar {
-		width: 8px;
+  &::-webkit-scrollbar {
+    width: 8px;
 		border-radius: 4px;
-	}
-
-	&::-webkit-scrollbar-track {
-		background-color: $component-scrollbar-track;
-		margin-top: 0.625rem;
+  }
+  
+  &::-webkit-scrollbar-track {
+    @include scrollBarTrack();
+    margin-top: 0.625rem;
 		margin-bottom: 0.625rem;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		background: $component-scrollbar-thumb;
-	}
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: $corner-radius-circular;
+    @include scrollBarThumb();
+  }
 }
