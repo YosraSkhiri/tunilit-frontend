@@ -54,33 +54,33 @@
   }
 
   &--body1 {
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 150%;
     font-weight: 400;
   }
 
   &--body2 {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 150%;
     font-weight: 400;
   }
 
   &--body3 {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 150%;
     font-weight: 400;
   }
 
   &--subtitle1 {
-    font-size: 14px;
-    letter-spacing: 1px;
+    font-size: 0.875rem;
+    letter-spacing: 0.01rem;
     line-height: 140%;
     font-weight: 600;
   }
 
   &--subtitle2 {
-    font-size: 10px;
-    letter-spacing: 1px;
+    font-size: 0.625rem;
+    letter-spacing: 0.01rem;
     line-height: 140%;
     font-weight: 600;
   }
@@ -117,7 +117,7 @@
 
     .typography--h1, 
     .typography--h2 {
-      min-width: 60px;
+      min-width: 3.75rem;
     }
   }
 }
@@ -125,6 +125,6 @@
 .adorn {
   position: relative;
   z-index: 0;
-  margin-left: -60px;
+  margin-left: -3.75rem;
   stroke: $text-3-light;
 }
