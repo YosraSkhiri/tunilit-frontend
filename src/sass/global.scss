@@ -231,7 +231,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-image: 
     linear-gradient(180deg, rgba($surface-page, 1), 
     rgba($surface-page, 1)), 
-    url('../../public/images/noise.png'),
+    url('/images/noise.png'),
     linear-gradient(180deg, $surface-page, $surface-page);
   }
 
@@ -239,7 +239,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-image: 
     linear-gradient(180deg, rgba($surface-page, 0.95), 
     rgba($surface-page, 0.95)), 
-    url('../../public/images/noise.png'),
+    url('/images/noise.png'),
     linear-gradient(180deg, $surface-page, $surface-page);
   }
 }
