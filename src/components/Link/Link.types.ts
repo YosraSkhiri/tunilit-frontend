@@ -5,6 +5,7 @@ import TypographyProps from '../Typography/Typography.types'
 type linkVariants = 'default' | 'subtle' | 'light'
 
 export default interface LinkProps {
+  active?: boolean,
 	children: string,
 	component?: ElementType,
   href?: string,

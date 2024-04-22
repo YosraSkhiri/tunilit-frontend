@@ -22,6 +22,14 @@
 			stroke: map-get($link-variants, $variant, 'focused', 'icon');
 		}
 	}
+
+  &-active {
+    color: map-get($link-variants, $variant, 'focused', 'icon');
+    
+		& > svg {
+			stroke: map-get($link-variants, $variant, 'focused', 'icon');
+		}
+  }
 }
 
 .link {

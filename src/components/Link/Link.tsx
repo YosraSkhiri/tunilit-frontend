@@ -5,6 +5,7 @@ import styles from './Link.module.scss'
 import LinkProps from './Link.types.ts'
 
 const Link = ({
+  active,
 	children,
 	component: Component = 'a',
 	href,
@@ -17,6 +18,7 @@ const Link = ({
 }: LinkProps) => {
 	const linkClass = clsx(styles.link, {
 		[styles[`link--${variant}`]]: variant,
+		[styles[`link--${variant}-active`]]: variant && active,
 	})
 
 	const typographyClass = clsx({
