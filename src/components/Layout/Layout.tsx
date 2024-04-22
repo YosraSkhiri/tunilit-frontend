@@ -1,9 +1,10 @@
 import clsx from 'clsx'
+import { forwardRef } from 'react'
 
 import styles from './Layout.module.scss'
 import LayoutProps from './Layout.types'
 
-const Layout = ({
+const Layout = forwardRef<HTMLElement, LayoutProps>(({
   center = false,
   children,
   className,
@@ -12,7 +13,7 @@ const Layout = ({
   flexWrap,
   style,
   type = 'flex',
-}: LayoutProps) => {
+}, ref) => {
   const layoutClass = clsx({
     [styles[type]]: true,
     [styles[`flex--${direction}`]]: type === 'flex' && direction,
@@ -23,11 +24,12 @@ const Layout = ({
   return (
     <Component 
       className={layoutClass}
+      ref={ref}
       style={style}
     >
       {children}
     </Component>
   )
-}
+}) 
 
 export default Layout
