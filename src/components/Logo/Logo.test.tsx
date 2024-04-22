@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
 
 import Logo from './Logo'
@@ -97,19 +97,22 @@ describe('<Logo />', () => {
     expect(openRightEye.nodeName).equal('g')
   })
 
-  it('should render animated logo', () => {
+  it('should animate logo on hover', () => {
     const { container, getByTestId } = render(<Logo animate />)
-    const closedLeftEye = getByTestId('left-eye-closed')
-    const openLeftEye = getByTestId('left-eye-open')
+
+    const logo = container.querySelector(`.${styles.logo}`)
+    logo && fireEvent.mouseOver(logo)
 
     const closedRightEye = getByTestId('right-eye-closed')
+    const closedLeftEye = getByTestId('left-eye-closed')
     const openRightEye = getByTestId('right-eye-open')
+    const openLeftEye = getByTestId('left-eye-open')
 
-    expect(container.firstChild).toHaveClass(styles['logo--animate'])
-    expect(closedLeftEye).toHaveClass(styles['animate-hide'])
-    expect(openLeftEye).toHaveClass(styles['animate-show'])
 
-    expect(closedRightEye).toHaveClass(styles['animate-hide'])
-    expect(openRightEye).toHaveClass(styles['animate-show'])
+    expect(openRightEye).toHaveClass(styles['icon--hide'])
+    expect(openLeftEye).toHaveClass(styles['icon--hide'])
+
+    expect(closedRightEye).not.toHaveClass(styles['icon--hide'])
+    expect(closedLeftEye).not.toHaveClass(styles['icon--hide'])
   })
 })
