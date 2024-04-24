@@ -1,4 +1,5 @@
 import './sass/global.scss'
+import './i18n';
 
 import * as Toast from '@radix-ui/react-toast'
 import React from 'react'
