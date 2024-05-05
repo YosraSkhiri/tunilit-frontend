@@ -1,27 +1,35 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// TODO: Write tests
 import * as AccordionRadix from '@radix-ui/react-accordion'
+import { forwardRef } from 'react'
 
-const Accordion = (props: any) => {
-  const { 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Accordion = forwardRef<HTMLDivElement, any>((props, ref) => {
+  const {
+    asChild, 
     children, 
-    collapsible, 
-    defaultValue, 
+    collapsible,
+    defaultValue,
+    dir,
+    disabled,
     onValueChange,
-    type = 'single',
+    type,
     value,
   } = props
+
 	return (
-		<AccordionRadix.Root 
-      collapsible={collapsible} 
-      defaultValue={defaultValue}
-      type={type} 
+    <AccordionRadix.Root 
+      {...(type === 'single' && {collapsible: collapsible})}
+      asChild={asChild}
+      defaultValue={defaultValue} 
+      dir={dir}
+      disabled={disabled}
+      ref={ref}
+      type={type}
       value={value}
       onValueChange={onValueChange}
     >
       {children}
-    </AccordionRadix.Root>
+    </AccordionRadix.Root>		
 	)
-}
+})
 
 export default Accordion
