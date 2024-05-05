@@ -1,4 +1,5 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import { nanoid } from 'nanoid'
 import { useState } from 'react'
 
 import Badge from '../Badge'
@@ -6,59 +7,44 @@ import IconButton from '../IconButton'
 import { CheckSmallIcon, LanguagesIcon } from '../Icons'
 import MenuItemContent from '../MenuItemContent'
 import MenuItemsWrapper from '../MenuItemsWrapper'
+import styles from './LanguageMenu.module.scss'
+import LanguageMenuProps from './LanguageMenu.types'
 
-// TODO Remove the space in the right of the menu
-// TODO Use redux for handling languages
-// TODO Write tests
-// TODO Refactor code 
-
-const LanguageMenu = () => {
-  const [lang, setLang] = useState('en')
+const LanguageMenu = ({dir, onValueChange, options, value}: LanguageMenuProps) => {
+  const [open, setOpen] = useState<boolean>(false)
   
   return (
-    <DropdownMenu.Root>
-      <Badge content={lang} type='secondary' variant='standard'>
+    <DropdownMenu.Root dir={dir} open={open}>
+      <Badge content={value} type='secondary' variant='standard'>
         <DropdownMenu.Trigger asChild>
-          <IconButton tooltip='Translate' variant='secondary'>
+          <IconButton tooltip='Translate' variant='secondary' onClick={() => setOpen(!open)}>
             <LanguagesIcon />
           </IconButton>
         </DropdownMenu.Trigger> 
       </Badge>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content align='end'>
+        <DropdownMenu.Content align='end' style={{zIndex: 100}}>
           <DropdownMenu.RadioGroup 
-            style={{minWidth: '260px'}} 
-            value={lang} 
-            onValueChange={setLang}
+            className={styles['min-width']}
+            value={value} 
+            onValueChange={onValueChange}
           >
             <MenuItemsWrapper  
               cornerRadius={10}
               maxWidth={false}
             >
-              <DropdownMenu.RadioItem asChild value="ar">
-                <MenuItemContent 
-                  renderLeftAdorn={(props) => lang === 'ar' && <CheckSmallIcon {...props} />} 
-                  selected={lang === 'ar'}
-                >
-                  عربي
-                </MenuItemContent>
-              </DropdownMenu.RadioItem>
-              <DropdownMenu.RadioItem asChild value="fr">
-                <MenuItemContent 
-                  renderLeftAdorn={(props) => lang === 'fr' && <CheckSmallIcon {...props} />}
-                  selected={lang === 'fr'}
-                >
-                  Français
-                </MenuItemContent>
-              </DropdownMenu.RadioItem>
-              <DropdownMenu.RadioItem asChild value="en">
-                <MenuItemContent 
-                  renderLeftAdorn={(props) => lang === 'en' && <CheckSmallIcon {...props} />}
-                  selected={lang === 'en'}
-                >
-                  English
-                </MenuItemContent>
-              </DropdownMenu.RadioItem>
+              {
+                options.map((op) => (
+                  <DropdownMenu.RadioItem asChild key={nanoid()} value={op.value}>
+                    <MenuItemContent 
+                      renderLeftAdorn={(props) => value === op.value && <CheckSmallIcon {...props} />} 
+                      selected={value === op.value}
+                    >
+                      {op.label}
+                    </MenuItemContent>
+                  </DropdownMenu.RadioItem>
+                ))
+              }
             </MenuItemsWrapper>
           </DropdownMenu.RadioGroup>
         </DropdownMenu.Content>
