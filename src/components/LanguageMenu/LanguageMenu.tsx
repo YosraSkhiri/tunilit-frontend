@@ -14,7 +14,7 @@ const LanguageMenu = ({dir, onValueChange, options, value}: LanguageMenuProps) =
   const [open, setOpen] = useState<boolean>(false)
   
   return (
-    <DropdownMenu.Root dir={dir} open={open}>
+    <DropdownMenu.Root dir={dir} modal={false} open={open}>
       <Badge content={value} type='secondary' variant='standard'>
         <DropdownMenu.Trigger asChild>
           <IconButton tooltip='Translate' variant='secondary' onClick={() => setOpen(!open)}>
