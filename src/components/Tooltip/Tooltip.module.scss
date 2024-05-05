@@ -4,6 +4,7 @@
   border: solid $border-small $component-tooltip-border;
   background-color: $component-tooltip-surface;
   backdrop-filter: $blur-effect;
+  z-index: 100;
 
   &__text {
     color: $text-3-default;
