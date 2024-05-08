@@ -19,6 +19,7 @@ export default interface TypographyProps {
   children?: ReactNode,
   className?: string,
   component?: ElementType | string,
+  dir?: 'ltr' | 'rtl',
   noWrap?: boolean,
   variant?: typographyVariantType
 }

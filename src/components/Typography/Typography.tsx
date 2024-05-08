@@ -10,8 +10,9 @@ const Typography = ({
 	children,
 	className,
 	component,
+	dir = 'ltr',
 	noWrap = false,
-	variant = 'body2',
+  variant = 'body2'
 }: TypographyProps) => {
 	const typographyClass = clsx(
 		styles.typography,
@@ -19,6 +20,7 @@ const Typography = ({
 			[styles['typography--nowrap']]: noWrap,
 			[styles[`typography--${variant}`]]: true,
 			[styles[`typography--align-${align}`]]: align,
+			[styles[`typography--title-${dir}`]]: variant === 'title' && dir,
 		},
 		className,
 	)

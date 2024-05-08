@@ -3,9 +3,9 @@ import { describe, expect } from 'vitest'
 
 import Typography from './Typography'
 import styles from './Typography.module.scss'
-import { variantType } from './Typography.types'
+import { typographyVariantType } from './Typography.types'
 
-const variants: variantType[] = [
+const variants: typographyVariantType[] = [
   'body1',
   'body2',
   'body3',
@@ -41,7 +41,7 @@ describe('<Typography />', () => {
     expect(container.firstChild).toHaveClass(styles['typography--nowrap'])
   })
 
-  variants.forEach((variant: variantType) => {
+  variants.forEach((variant: typographyVariantType) => {
     it(`should render ${variant} text`, () => {
       const { container } = render(<Typography variant={variant}>Text</Typography>)
       expect(container.firstChild).toHaveClass(styles[`typography--${variant}`])
@@ -64,7 +64,7 @@ describe('<Typography />', () => {
     expect(container.firstChild?.childNodes[1].nodeName).toBe('svg')
   })
 
-  variants.forEach((variant: variantType) => {
+  variants.forEach((variant: typographyVariantType) => {
     if (variant !== 'h1' && variant !== 'h2') {
       it(`should not render adorn with ${variant}`, () => {
         const { container } = render(<Typography adorn variant={variant}>Text</Typography>)

@@ -1,6 +1,5 @@
 .typography {
   &--title {
-    font-family: 'Abril Fatface', 'Times New Roman', Times, serif;
     font-size: 4.5rem;
     /**
       Used Fluid typography, read this article for more information on 
@@ -9,6 +8,14 @@
     */
     font-size: clamp(2rem, 8.620vw + 0.491rem, 4.2rem);
     line-height: 140%;
+
+    &-ltr {
+      font-family: 'Abril Fatface', 'Times New Roman', Times, serif;
+    }
+
+    &-rtl {
+      font-family: 'Rakkas', serif;
+    }
   }
 
   &--h1 {
