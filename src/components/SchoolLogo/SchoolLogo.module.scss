@@ -1,48 +1,84 @@
 .s-logo {
+  position: relative;
   border-width: $border-xsmall;
 	border-color: $border-3;
 	border-style: solid;
-	overflow: hidden;
 
   &--active {
     box-shadow: $primary-focus-outline;
   }
 
 	&--xxlarge {
-		width: 180px;
-		height: 180px;
-		border-radius: $corner-radius-large;
+		width: 11.25rem;
+		height: 11.25rem;
+    border-radius: $corner-radius-large;
+
+    &-border {
+      border-radius: $corner-radius-large;
+    }
 	}
 
 	&--xlarge {
-		width: 100px;
-		height: 100px;
-		border-radius: $corner-radius-medium;
+		width: 6.25rem;
+		height: 6.25rem;
+    border-radius: $corner-radius-medium;
+
+    &-border {
+      border-radius: $corner-radius-medium;
+    }
 	}
 
 	&--large {
-		width: 72px;
-		height: 72px;
-		border-radius: $corner-radius-medium;
+		width: 4.5rem;
+		height: 4.5rem;
+    border-radius: $corner-radius-medium;
+
+    &-border {
+      border-radius: $corner-radius-medium;
+    }
 	}
 
 	&--medium {
-		width: 45px;
-		height: 45px;
-		border-radius: $corner-radius-small;
+		width: 2.8125rem;
+		height: 2.8125rem;
+    border-radius: $corner-radius-small;
+
+    &-border {
+      border-radius: $corner-radius-small;
+    }
 	}
 
 	&--small {
-		width: 38px;
-		height: 38px;
-		border-radius: $corner-radius-small;
-	}
+		width: 2.375rem;
+		height: 2.375rem;
+    border-radius: $corner-radius-small;
+
+    &-border {
+      border-radius: $corner-radius-small;
+    }	
+  }
 
 	&__img {
+    position: relative;
+    z-index: 2;
+
 		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+
+    &--ambient {
+      position: absolute;
+      z-index: -1;
+      width: 200%;
+      height: 200%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(50px);
+      opacity: .5;
+      object-fit: cover;
+    }
 	}
 
   &__fallback {
