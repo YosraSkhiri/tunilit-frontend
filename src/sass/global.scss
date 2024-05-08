@@ -152,6 +152,19 @@
 
 }
 
+@font-face {
+  font-family: 'Rakkas';
+  src: url('/fonts/Rakkas/rakkas-regular-webfont.eot');
+  src: url('/fonts/Rakkas/rakkas-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/Rakkas/rakkas-regular-webfont.woff2') format('woff2'),
+       url('/fonts/Rakkas/rakkas-regular-webfont.woff') format('woff'),
+       url('/fonts/Rakkas/rakkas-regular-webfont.ttf') format('truetype'),
+       url('/fonts/Rakkas/rakkas-regular-webfont.svg#rakkasregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 * {
   padding: 0;
   margin: 0;
