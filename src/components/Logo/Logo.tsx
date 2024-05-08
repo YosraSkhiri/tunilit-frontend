@@ -10,7 +10,7 @@ type LogoWrapperType = 'div' | 'a'
 
 const Logo = ({
   animate = false,
-  classname,
+  className,
   eyes = 'open',
   iconHeight = 56.4, 
   iconWidth = 65, 
@@ -24,7 +24,7 @@ const Logo = ({
 
   const logoClass = clsx({
     [styles.logo]: true,
-  }, classname)
+  }, className)
 
   const LogoWrapper: LogoWrapperType = link ? 'a' : 'div'
 

@@ -1,6 +1,6 @@
 export default interface LogoProps {
   animate?: boolean,
-  classname?: string,
+  className?: string,
   eyes?: 'open' | 'closed' | 'wink',
   iconHeight?: number,
   iconWidth?: number,
