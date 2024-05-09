@@ -2,20 +2,20 @@
 	stroke: $text-2-default;
 
 	&--sm {
-		width: 16px;
-		height: 16px;
+		width: 1rem;
+		height: 1rem;
 		stroke-width: 1.6;
 	}
 
 	&--md {
-		width: 24px;
-		height: 24px;
+		width: 1.5rem;
+		height: 1.5rem;
 		stroke-width: 2;
 	}
 
 	&--lg {
-		width: 30px;
-		height: 30px;
+		width: 1.875rem;
+		height: 1.875rem;
 		stroke-width: 2;
 	}
 }
