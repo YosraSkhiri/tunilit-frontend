@@ -4,7 +4,7 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended', 'plugin:storybook/recommended'],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', 'eslint-plugin-react', 'typescript-sort-keys', "simple-import-sort", "sort-destructure-keys"],
+  plugins: ['react-refresh', 'eslint-plugin-react', 'typescript-sort-keys', "simple-import-sort", "sort-destructure-keys", "drizzle"],
   rules: {
     "typescript-sort-keys/interface": [
       "error",
@@ -27,5 +27,21 @@ module.exports = {
     ],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    "drizzle/enforce-delete-with-where": [
+      "error",
+      {
+        "drizzleObjectName": [
+          "db"
+        ]
+      }
+    ],
+    "drizzle/enforce-update-with-where": [
+      "error",
+      {
+        "drizzleObjectName": [
+          "db"
+        ]
+      }
+    ]
   },
 }
