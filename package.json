@@ -37,6 +37,7 @@
     "nanoid": "^5.0.7",
     "pg": "^8.11.5",
     "postgres": "^3.4.4",
+    "query-string": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.4",
@@ -46,7 +47,6 @@
     "translation-check": "^1.1.0",
     "uuid": "^9.0.1",
     "vike": "^0.4.171",
-    "vike-react": "^0.4.8",
     "zod": "^3.23.8"
   },
   "devDependencies": {
