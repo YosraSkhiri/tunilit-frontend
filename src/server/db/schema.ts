@@ -1,7 +1,7 @@
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import {
   boolean,
-  index,
+  integer,
   pgTableCreator,
   serial,
   text,
@@ -11,8 +11,8 @@ import {
 
 export const createTable = pgTableCreator((name) => `tl_${name}`);
 
-export const school = createTable(
-  "school",
+export const schools = createTable(
+  "schools",
   {
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }).notNull(),
@@ -35,7 +35,62 @@ export const school = createTable(
       .notNull(),
     updatedAt: timestamp("updatedAt"),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  }),
 );
+
+export const states = createTable(
+  "states",
+  {
+    id: serial("id").primaryKey(),
+    name: varchar("name", { length: 256 }).notNull(),
+    createdAt: timestamp("created_at")
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updatedAt"),
+  },
+);
+
+export const schoolCategories = createTable(
+  "school_categories",
+  {
+    id: serial("id").primaryKey(),
+    name: varchar("name", { length: 256 }).notNull(),
+    createdAt: timestamp("created_at")
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updatedAt"),
+  },
+);
+
+export const locations = createTable(
+  "locations",
+  {
+    id: serial("id").primaryKey(),
+    name: varchar("name", { length: 256 }).notNull(),
+    google_map_link: varchar("google_map_link", { length: 1024 }),
+    address: varchar("address", { length: 1024 }).notNull(),
+    state_id: integer("state_id").notNull(),
+    createdAt: timestamp("created_at")
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updatedAt"),
+  },
+);
+
+export const schoolsRelations = relations(schools, ({ many }) => ({
+  categories: many(schoolCategories),
+}));
+
+export const schoolCategoriesRelations = relations(schoolCategories, ({ many }) => ({
+  schools: many(schools),
+}));
+
+export const statesRelations = relations(states, ({ many }) => ({
+  locations: many(locations),
+}));
+
+export const locationsRelations = relations(locations, ({ one }) => ({
+  state: one(states, {
+    fields: [locations.state_id],
+    references: [states.id],
+  }),
+}));
