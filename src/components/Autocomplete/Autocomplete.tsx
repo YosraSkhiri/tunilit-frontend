@@ -166,6 +166,7 @@ const Autocomplete = ({
                 fullWidth
                 cornerRadius={10}
                 maxWidth={false}
+                style={{position: "absolute", zIndex: 10}}
               >
                 {displayOptions()}
               </MenuItemsWrapper>
