@@ -18,23 +18,31 @@ export default defineConfig(({ mode }) => {
   }
 
   return {
-    plugins: [react(), vike()],
-	test: {
-		globals: true,
-		environment: 'jsdom',
-		css: true,
-		setupFiles: './src/test/setup.ts',
-		include: ['./src/**/*.test.tsx'],
-	},
-	css: {
-		preprocessorOptions: {
-			scss: {
-				additionalData: `
-          @use './src/sass/variables/_color-mapped.scss' as *;
-          @use './src/sass/variables/_sizes-spaces.scss' as *;
-        `,
-			},
-		},
-	},
+    plugins: [
+      react(), 
+      process.env.NODE_ENV !== "storybook" && vike()
+    ],
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      css: true,
+      setupFiles: './src/test/setup.ts',
+      include: ['./src/**/*.test.tsx'],
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @use './src/sass/variables/_color-mapped.scss' as *;
+            @use './src/sass/variables/_sizes-spaces.scss' as *;
+          `,
+        },
+      },
+    },
+    resolve: {
+      alias: {
+        "~": `${__dirname}/src`,
+      }
+    }
   };
 });
