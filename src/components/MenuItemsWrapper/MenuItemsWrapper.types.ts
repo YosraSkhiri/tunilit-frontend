@@ -5,5 +5,6 @@ export default interface MenuItemsWrapperProps extends React.HTMLAttributes<HTML
   className?: string,
   cornerRadius?: 0 | 10 | 20,
   fullWidth?: boolean,
-  maxWidth?: boolean,
+  maxHeight?: boolean,
+  maxWidth?: boolean
 }

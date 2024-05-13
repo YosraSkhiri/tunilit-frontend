@@ -12,6 +12,7 @@ const MenuItemsWrapper = forwardRef<HTMLDivElement, MenuItemsWrapperProps>(({
   className,
   cornerRadius,
   fullWidth = false,
+  maxHeight = true,
   maxWidth = true,
   ...other
 }, ref) => {
@@ -27,6 +28,8 @@ const MenuItemsWrapper = forwardRef<HTMLDivElement, MenuItemsWrapperProps>(({
 
   const menuClass = clsx({
     [styles.menu]: true,
+    [styles['menu--maxHeight']]: maxHeight,
+    [styles['menu--fullHeight']]: !maxHeight,
   })
 
   const updateMenuClass = () => {
