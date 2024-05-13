@@ -53,36 +53,39 @@ const Tabs = ({children, defaultIndex = 0, onChange, showScrollButtons, tabs}: T
   }
 
   return (
-    <Tab.Group defaultIndex={defaultIndex} onChange={onChange}>
-      <div className={styles['tabs-wrapper']}>
-        {
-          showScrollButtons && (
-            <ButtonBase className={styles['tab-scroll-btn']} onClick={() => moveTabsScroll(-1)}>
-              <ChevronSmallLeftIcon />
-            </ButtonBase>
-          )
-        }
-        <Tab.List className={styles['tabs-container']} ref={tabsRef}>
-          {tabs.map((label, i) => (
-            <Tab as={Fragment} key={`tab-${i}`}>
-              {({ selected }) => (
-                <ButtonBase className={tabClass(selected)}>{label}</ButtonBase>
-              )}
-            </Tab>
-          ))}
-        </Tab.List>
-        {
-          showScrollButtons && (
-            <ButtonBase className={styles['tab-scroll-btn']} onClick={() => moveTabsScroll(1)}>
-              <ChevronSmallRightIcon />
-            </ButtonBase>
-          )
-        }
-      </div>
-      <Tab.Panels>
-        {children}
-      </Tab.Panels>
-    </Tab.Group>
+    <div className={styles['tab__group-wrapper']}>
+      <Tab.Group defaultIndex={defaultIndex} onChange={onChange}>
+        <div className={styles['tabs-wrapper']}>
+          {
+            showScrollButtons && (
+              <ButtonBase className={styles['tab-scroll-btn']} onClick={() => moveTabsScroll(-1)}>
+                <ChevronSmallLeftIcon />
+              </ButtonBase>
+            )
+          }
+          <Tab.List className={styles['tabs-container']} ref={tabsRef}>
+            {tabs.map((label, i) => (
+              <Tab as={Fragment} key={`tab-${i}`}>
+                {({ selected }) => (
+                  <ButtonBase className={tabClass(selected)}>{label}</ButtonBase>
+                )}
+              </Tab>
+            ))}
+          </Tab.List>
+          {
+            showScrollButtons && (
+              <ButtonBase className={styles['tab-scroll-btn']} onClick={() => moveTabsScroll(1)}>
+                <ChevronSmallRightIcon />
+              </ButtonBase>
+            )
+          }
+        </div>
+        <Tab.Panels>
+          {children}
+        </Tab.Panels>
+      </Tab.Group>
+    </div>
+
   )
 }
 

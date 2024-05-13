@@ -1,9 +1,17 @@
 @use "../../sass/mixins" as *;
 
+.tab__group-wrapper {
+  width: 100%;
+}
+
 .tabs-wrapper {
   display: flex;
   align-items: center;
   gap: 0.625rem;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 3.75rem;
 }
 
 .tabs-container {
