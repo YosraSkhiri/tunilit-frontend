@@ -16,6 +16,11 @@ const SchoolLogo = ({ active, alt, ambientMode, className, size = 'medium', src 
     [styles[`s-logo--${size}-border`]]: true,
   })
 
+  const logoFallbackClass = clsx({
+    [styles['s-logo__fallback']]: true,
+    [styles[`s-logo--${size}-border`]]: size,
+  })
+
 	return (
     <Avatar.Root asChild>
       <div className={logoClass}>
@@ -33,7 +38,7 @@ const SchoolLogo = ({ active, alt, ambientMode, className, size = 'medium', src 
             />
           )
         }
-        <Avatar.Fallback className={styles['s-logo__fallback']} delayMs={600} />
+        <Avatar.Fallback className={logoFallbackClass} delayMs={600} />
       </div>
     </Avatar.Root>
 	)

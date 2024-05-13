@@ -3,6 +3,7 @@
   border-width: $border-xsmall;
 	border-color: $border-3;
 	border-style: solid;
+  transition: all 0.25s ease-in-out;
 
   &--active {
     box-shadow: $primary-focus-outline;
@@ -86,5 +87,6 @@
     width: 100%;
     height: 100%;
     background-color: #f8e0a8;
+    overflow: hidden;
   }
 }
