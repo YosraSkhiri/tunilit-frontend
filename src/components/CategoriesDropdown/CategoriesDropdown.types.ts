@@ -1,5 +1,4 @@
 export type categoryType = {
-  link: string,
   name: string
 }
 
