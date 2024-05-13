@@ -13,6 +13,7 @@ const Badge = ({
 	const badgeClass = clsx({
 		[styles[`badge--${variant}`]]: variant,
 		[styles[`badge--${type}`]]: type,
+    [styles['badge--position']]: children,
 	})
 
 	const badgeElem =

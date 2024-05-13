@@ -5,8 +5,11 @@
 		position: relative;
 	}
 
+  &--position {
+    position: absolute;
+  }
+
 	&--dot {
-		position: absolute;
 		right: -0.25rem;
 		top: -0.25rem;
 		width: 1rem;
@@ -29,7 +32,6 @@
 	}
 
 	&--standard {
-		position: absolute;
 		right: -0.5rem;
 		bottom: -0.625rem;
 		width: fit-content;
