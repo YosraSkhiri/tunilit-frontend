@@ -4,6 +4,20 @@
   height: 21rem;
   max-width: 22.5rem;
   width: 100%;
+  overflow: visible;
+  outline: 0.0625rem transparent;
+
+  &:focus {
+    .s-card-container {
+      box-shadow: $primary-focus-outline !important;
+    }
+  }
+
+  &:hover {
+    .s-card-container {
+      transform: translateY(-0.3125rem);
+    }
+  }
 }
 
 .s-card-container {
@@ -22,6 +36,11 @@
   border-radius: $corner-radius-large;
   border: $border-xsmall solid $border-3;
   background-color: $surface-box;
+  transition: all 0.25s ease-in-out;
+
+  &--outline {
+    box-shadow: $primary-focus-outline;
+  }
 
   @media screen and (max-width: $breakpoints-tablet) {
     padding-left: 1.25rem;

@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Button from '../Button'
 import ButtonBase from '../ButtonBase/ButtonBase.tsx'
 import { InfoCircleIcon } from '../Icons'
@@ -14,11 +16,22 @@ const SchoolCard = ({
   logo,
   name
 }: SchoolCardProps) => {
+  const [focused, setFocused] = useState(false)
+
+  const toggleFocusState = () => {
+    setFocused(!focused) 
+  }
+
   return (
-    <ButtonBase className={styles['s-card-wrapper']} onClick={() => {}}>
+    <ButtonBase 
+      className={styles['s-card-wrapper']} 
+      onBlur={toggleFocusState} 
+      onClick={() => {}} 
+      onFocus={toggleFocusState}
+    >
       <div className={styles['s-card-container']}>
         <div className={styles['s-card__logo']}>
-          <SchoolLogo size='xlarge' src={logo} />
+          <SchoolLogo active={focused} size='xlarge' src={logo} />
         </div>
         <div className={styles['s-card__details']}>
           <div className={styles['s-card__name']}>
