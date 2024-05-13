@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       react(), 
-      process.env.NODE_ENV !== "storybook" && vike()
+      vike(),
     ],
     test: {
       globals: true,
