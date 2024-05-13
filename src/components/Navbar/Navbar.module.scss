@@ -1,9 +1,49 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  border-bottom: 0.0625rem solid $status-generic-2-border-light;
+  background-color: $status-generic-2-surface-light;
+  backdrop-filter: $blur-effect;
+}
+
 .nav-flex {
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 77.5rem;
+  height: 6.25rem;
+  padding: 0 1.25rem;
+  margin: auto;
 
   &-item {
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
+  }
+}
+
+.nav__mobile-btns {
+  display: none;
+}
+
+@media screen and (max-width: $breakpoints-tablet) {
+  .nav__mobile-btns {
+    display: flex;
+  }
+
+  .nav__desktop-btns {
+    display: none;
+  }
+
+  .nav__categories {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .logo svg:nth-child(2) {
+    display: none;
   }
 }

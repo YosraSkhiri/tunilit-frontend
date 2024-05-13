@@ -3,30 +3,41 @@ import Button from '../Button'
 import CategoriesDropdown from '../CategoriesDropdown'
 import IconButton from '../IconButton'
 import { CompareIcon, SearchIcon } from '../Icons'
-import LanguageMenu from '../LanguageMenu'
 import Layout from '../Layout'
 import Logo from '../Logo'
+import MobileNav from '../MobileNav'
 import styles from './Navbar.module.scss'
+import NavbarProps from './Navbar.types'
 
-const Navbar = () => {
+const Navbar = ({ schoolCategories }: NavbarProps) => {
   return (
-    <nav>
+    <nav className={styles.nav}>
       <Layout className={styles['nav-flex']}>
         <Layout className={styles['nav-flex-item']}>
-          <Logo animate link />
-          <CategoriesDropdown />
+          <Logo animate link className={styles.logo} />
+          <CategoriesDropdown
+            categories={schoolCategories}
+            className={styles['nav__categories']}
+          />
         </Layout>
-        <Layout className={styles['nav-flex-item']}>
+
+        <Layout className={`${styles['nav-flex-item']} ${styles['nav__desktop-btns']}`}>
           <Button>
             Search 
-            <SearchIcon />
+          <SearchIcon />
           </Button>
-          <LanguageMenu />
           <Badge content='4' variant='standard'>
             <IconButton tooltip='Compare List' variant='tertiary'>
               <CompareIcon />
             </IconButton>
           </Badge>
+        </Layout>
+
+        <Layout className={`${styles['nav-flex-item']} ${styles['nav__mobile-btns']}`}>
+          <IconButton variant='primary'>
+            <SearchIcon />
+          </IconButton>
+          <MobileNav schoolCategories={schoolCategories} />
         </Layout>
       </Layout>
     </nav>
