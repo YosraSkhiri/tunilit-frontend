@@ -4,6 +4,14 @@ const config: StorybookConfig = {
   stories: [
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
+  core: {
+    builder: {
+      name: '@storybook/builder-vite',
+      options: {
+        viteConfigPath: './storybook.vite.config.ts',
+      },
+    }
+  },
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
