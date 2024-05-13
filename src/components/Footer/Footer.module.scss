@@ -1,0 +1,61 @@
+.footer-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 3.75rem 0;
+  margin-top: 6.25rem;
+  background-color: $component-footer-backgound;
+  overflow: hidden;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-image: url(/grid.png);
+    background-size: 100%;
+    width: 91.6875rem;
+    height: 91.6875rem;
+  }
+}
+
+.footer-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  max-width: 77.5rem;
+  padding: 0 1.25rem;
+  margin: auto;
+}
+
+.footer__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 15.125rem;
+  width: 100%;
+}
+
+.footer__sm {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.bg-logo {
+  position: absolute;
+  z-index: -1;
+  right: -7.5rem;
+  bottom: -5.75rem;
+  filter: opacity(25%) sepia(100%);
+}
+
+@media screen and (max-width: $breakpoints-phone) {
+  .footer-container {
+    padding: 0 0.625rem;
+  }
+}
