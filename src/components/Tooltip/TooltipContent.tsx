@@ -27,7 +27,7 @@ export const TooltipContent = forwardRef<
         ref={ref}
         {...context.getFloatingProps(otherProps)}
       >
-        <Typography classname={styles['tooltip__text']} variant='body3'>
+        <Typography className={styles['tooltip__text']} variant='body3'>
           {children}
         </Typography>
       </div>

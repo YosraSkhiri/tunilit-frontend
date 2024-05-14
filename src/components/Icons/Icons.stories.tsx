@@ -33,7 +33,7 @@ export const Overview: Story = {
 					key={`icon-${i}`}
 					type="flex">
 					<Typography variant="body3">
-						{Icon?.displayName.slice(0, -4)}
+						{Icon?.displayName?.slice(0, -4)}
 					</Typography>
 					<Icon size="lg" />
 					<Icon size="md" />
