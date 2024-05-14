@@ -22,12 +22,12 @@ const Navbar = ({ schoolCategories }: NavbarProps) => {
         </Layout>
 
         <Layout className={`${styles['nav-flex-item']} ${styles['nav__desktop-btns']}`}>
-          <Button>
+          <Button href='/search'>
             Search 
           <SearchIcon />
           </Button>
           <Badge content='4' variant='standard'>
-            <IconButton tooltip='Compare List' variant='tertiary'>
+            <IconButton href='/compare' tooltip='Compare List' variant='tertiary'>
               <CompareIcon />
             </IconButton>
           </Badge>

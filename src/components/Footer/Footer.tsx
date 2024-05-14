@@ -32,29 +32,33 @@ const Footer = () => {
         </div>
         <div className={styles['footer__section']}>
           <Link 
+            href='/contact' 
             leftAdorn={<ChevronSmallRightIcon />} 
-            typographyProps={{ variant: 'body1' }} 
+            typographyProps={{ variant: 'body1' }}
             variant='subtle'
           >
             Contact
           </Link>
           <Link 
+            href='/about' 
             leftAdorn={<ChevronSmallRightIcon />} 
-            typographyProps={{ variant: 'body1' }} 
+            typographyProps={{ variant: 'body1' }}
             variant='subtle'
           >
             About us
           </Link>
           <Link 
+            href='/termsOfUse' 
             leftAdorn={<ChevronSmallRightIcon />} 
-            typographyProps={{ variant: 'body1' }} 
+            typographyProps={{ variant: 'body1' }}
             variant='subtle'
           >
             Terms of Use
           </Link>
           <Link 
+            href='/privacyPolicy' 
             leftAdorn={<ChevronSmallRightIcon />} 
-            typographyProps={{ variant: 'body1' }} 
+            typographyProps={{ variant: 'body1' }}
             variant='subtle'
           >
             Privacy Policy
@@ -62,11 +66,12 @@ const Footer = () => {
         </div>
         <div className={styles['footer__section']}>
           <Link 
+            href='/search' 
             leftAdorn={<ChevronSmallRightIcon />} 
-            typographyProps={{ variant: 'body1' }} 
+            typographyProps={{ variant: 'body1' }}
             variant='subtle'
           >
-            Educational institutions
+            Search Schools
           </Link>
         </div>
         <Logo onlyIcon className={styles['bg-logo']} iconHeight={347.06} iconWidth={400} />

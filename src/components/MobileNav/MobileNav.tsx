@@ -38,6 +38,9 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
                   <Typography variant='body1'>Categories</Typography>
                 </MenuItemContent>
                 <MenuItemContent 
+                  buttonBaseProps={{
+                    href: '/compare'
+                  }}
                   renderRightAdorn={(props) => <ChevronSmallRightIcon {...props} />}
                   size='lg'
                 >
@@ -47,12 +50,18 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
                   </Layout>
                 </MenuItemContent>
                 <MenuItemContent 
+                  buttonBaseProps={{
+                    href: '/search'
+                  }}
                   renderRightAdorn={(props) => <ChevronSmallRightIcon {...props} />}
                   size='lg'
                 >
-                  <Typography variant='body1'>Educational institutions</Typography>
+                  <Typography variant='body1'>Search Schools</Typography>
                 </MenuItemContent>
                 <MenuItemContent 
+                  buttonBaseProps={{
+                    href: '/contact'
+                  }}
                   renderRightAdorn={(props) => <ChevronSmallRightIcon {...props} />}
                   size='lg'
                 >
