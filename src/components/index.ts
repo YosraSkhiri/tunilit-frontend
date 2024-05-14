@@ -2,6 +2,7 @@ import Accordion from './Accordion'
 import Autocomplete from './Autocomplete'
 import Badge from './Badge'
 import BestDealBadge from './BestDealBadge'
+import Box from './Box'
 import Breadcrumbs from './Breadcrumbs'
 import Button from './Button'
 import ButtonBase from './ButtonBase'
@@ -26,6 +27,7 @@ export {
 	Autocomplete,
 	Badge,
 	BestDealBadge,
+	Box,
 	Breadcrumbs,
 	Button,
 	ButtonBase,
