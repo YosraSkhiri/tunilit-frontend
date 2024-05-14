@@ -1,6 +1,6 @@
 export type OptionType = {
   id?: string,
-  label: string,
+  name: string,
 }
 
 export default interface AutocompleteProps {

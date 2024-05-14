@@ -25,7 +25,7 @@ const Autocomplete = ({
 }: AutocompleteProps) => {
   const filterOptions = () => {
     return options?.filter((item: string | OptionType) => {
-      const itemLabel = typeof item === 'string' ? item : item.label
+      const itemLabel = typeof item === 'string' ? item : item.name
       return itemLabel.toLowerCase().replace(/\s+/g, '').includes(inputValue.toLowerCase().replace(/\s+/g, ''))
     })
   }
@@ -54,9 +54,9 @@ const Autocomplete = ({
       return filteredOptions?.map((item, index: number) => (
         <Combobox.Option
           as={Fragment}
-          data-testid={typeof item === 'string' ? item : item.label}
+          data-testid={typeof item === 'string' ? item : item.name}
           key={`${id}-option-${index}`}
-          value={typeof item === 'string' ? item : item.label}
+          value={typeof item === 'string' ? item : item.name}
         >
           {({ active, selected }) => (
             <MenuItemContent 
@@ -72,7 +72,7 @@ const Autocomplete = ({
               selected={selected} 
               size="sm"
             >
-              {typeof item === 'string' ? item : item.label}
+              {typeof item === 'string' ? item : item.name}
             </MenuItemContent>
           )}
         </Combobox.Option>
@@ -145,7 +145,7 @@ const Autocomplete = ({
               }
               as={TextField}
               autoComplete='off'
-              displayValue={(v: OptionType) => typeof v === "string" ? v : v.label}
+              displayValue={(v: OptionType) => typeof v === "string" ? v : v.name}
               id={id}
               label={label} 
               placeholder={placeholder}
