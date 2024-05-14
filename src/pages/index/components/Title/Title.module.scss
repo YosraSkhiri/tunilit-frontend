@@ -1,0 +1,40 @@
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  row-gap: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 36.875rem;
+  min-width: 17.25rem;
+  width: 100%;
+  list-style: none;
+  color: $text-4-default;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+.line {
+  width: 280px;
+  width: clamp(7.25rem, 34vw + 1.29rem, 17.125rem);
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation-delay: 2s;
+  animation-duration: .8s;
+  animation-name: draw;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

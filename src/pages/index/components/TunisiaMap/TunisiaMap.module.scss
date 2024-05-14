@@ -1,0 +1,27 @@
+.section {
+  max-width: 950px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
+  gap: 30px;
+}
+
+.map-wrapper {
+  //flex: 1;
+  min-width: 290px;
+  margin: auto;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, 171px);
+  row-gap: 100px;
+  column-gap: 62px;
+}
+
+.links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

@@ -1,0 +1,21 @@
+.tabs-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tab__panel-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 360px));
+  justify-content: center;
+  align-items: center;
+  row-gap: 60px;
+  column-gap: 50px;
+}
+
+.link-wrapper {
+  margin-top: 40px;
+}
