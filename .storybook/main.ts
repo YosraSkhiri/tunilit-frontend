@@ -4,28 +4,33 @@ const config: StorybookConfig = {
   stories: [
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
-  core: {
-    builder: {
-      name: '@storybook/builder-vite',
-      options: {
-        viteConfigPath: './storybook.vite.config.ts',
-      },
-    }
-  },
+
+  core: {},
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-styling-webpack",
     "@storybook/addon-a11y",
+    "@chromatic-com/storybook"
   ],
+
   framework: {
     name: "@storybook/react-vite",
-    options: {},
+    options: {
+      builder: {
+        viteConfigPath: "./storybook.vite.config.ts"
+      }
+    },
   },
+
   docs: {
-    autodocs: true,
-    defaultName: 'Documentation',
+    defaultName: 'Documentation'
   },
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
+  }
 };
 export default config;
