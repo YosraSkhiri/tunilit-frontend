@@ -1,4 +1,4 @@
-import { Combobox, Transition } from '@headlessui/react'
+import { Combobox, ComboboxButton,ComboboxInput, ComboboxOption, ComboboxOptions, Transition } from '@headlessui/react'
 import { Fragment, MouseEvent } from 'react'
 
 import { ChevronDownIcon, CrossSmallIcon, LoaderIcon } from '../Icons'
@@ -33,26 +33,26 @@ const Autocomplete = ({
   const displayOptions = () => {
     if (loading) {
       return (
-        <Combobox.Option disabled as={Fragment} value="NO_OPTIONS">
+        <ComboboxOption disabled as={Fragment} value="NO_OPTIONS">
           <MenuItemContent disabled={true} size="sm">
             Loading...
           </MenuItemContent>
-        </Combobox.Option>
+        </ComboboxOption>
       )
     }
   
     const filteredOptions = filterOptions()
     if (!filteredOptions?.length && inputValue !== '' && inputValue !== selectedValue) {
       return (
-        <Combobox.Option disabled as={Fragment} value="NO_OPTIONS">
+        <ComboboxOption disabled as={Fragment} value="NO_OPTIONS">
           <MenuItemContent disabled={true} size="sm">
             No Options
           </MenuItemContent>
-        </Combobox.Option>
+        </ComboboxOption>
       )
     } else {
       return filteredOptions?.map((item, index: number) => (
-        <Combobox.Option
+        <ComboboxOption
           as={Fragment}
           data-testid={typeof item === 'string' ? item : item.name}
           key={`${id}-option-${index}`}
@@ -75,7 +75,7 @@ const Autocomplete = ({
               {typeof item === 'string' ? item : item.name}
             </MenuItemContent>
           )}
-        </Combobox.Option>
+        </ComboboxOption>
       ))
     }
   }
@@ -122,20 +122,20 @@ const Autocomplete = ({
       {({ open }) => (
         <div className={styles['ac-container']}>
           <div >
-            <Combobox.Input
+            <ComboboxInput
               fullWidth
               endAdornment={
                 <>
                   {showClearableBtn()} 
                   {showLoadingBtn()} 
-                  <Combobox.Button as={Fragment} data-testid="showOptionsBtn">
+                  <ComboboxButton as={Fragment} data-testid="showOptionsBtn">
                     <InputButton>
                       <ChevronDownIcon 
                         aria-hidden="true" 
                         size='md'
                       />
                     </InputButton>
-                  </Combobox.Button>
+                  </ComboboxButton>
                 </>
               }
               startAdornment={
@@ -161,7 +161,7 @@ const Autocomplete = ({
             leaveTo={styles['leave-to']}
             show={open}
           >
-            <Combobox.Options static as='div'>
+            <ComboboxOptions static as='div'>
               <MenuItemsWrapper 
                 fullWidth
                 cornerRadius={10}
@@ -170,7 +170,7 @@ const Autocomplete = ({
               >
                 {displayOptions()}
               </MenuItemsWrapper>
-            </Combobox.Options>
+            </ComboboxOptions>
           </Transition>
         </div>
       )} 
