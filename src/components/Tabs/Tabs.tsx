@@ -1,4 +1,4 @@
-import { Tab } from '@headlessui/react'
+import { Tab, TabGroup, TabList, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
 import { Fragment, useRef } from 'react'
 
@@ -54,7 +54,7 @@ const Tabs = ({children, defaultIndex = 0, onChange, showScrollButtons, tabs}: T
 
   return (
     <div className={styles['tab__group-wrapper']}>
-      <Tab.Group defaultIndex={defaultIndex} onChange={onChange}>
+      <TabGroup defaultIndex={defaultIndex} onChange={onChange}>
         <div className={styles['tabs-wrapper']}>
           {
             showScrollButtons && (
@@ -63,7 +63,7 @@ const Tabs = ({children, defaultIndex = 0, onChange, showScrollButtons, tabs}: T
               </ButtonBase>
             )
           }
-          <Tab.List className={styles['tabs-container']} ref={tabsRef}>
+          <TabList className={styles['tabs-container']} ref={tabsRef}>
             {tabs.map((label, i) => (
               <Tab as={Fragment} key={`tab-${i}`}>
                 {({ selected }) => (
@@ -71,7 +71,7 @@ const Tabs = ({children, defaultIndex = 0, onChange, showScrollButtons, tabs}: T
                 )}
               </Tab>
             ))}
-          </Tab.List>
+          </TabList>
           {
             showScrollButtons && (
               <ButtonBase className={styles['tab-scroll-btn']} onClick={() => moveTabsScroll(1)}>
@@ -80,10 +80,10 @@ const Tabs = ({children, defaultIndex = 0, onChange, showScrollButtons, tabs}: T
             )
           }
         </div>
-        <Tab.Panels>
+        <TabPanels>
           {children}
-        </Tab.Panels>
-      </Tab.Group>
+        </TabPanels>
+      </TabGroup>
     </div>
 
   )

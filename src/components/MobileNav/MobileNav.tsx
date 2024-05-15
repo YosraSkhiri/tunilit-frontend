@@ -1,4 +1,4 @@
-import { Popover } from '@headlessui/react'
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { nanoid } from 'nanoid'
 import { useState } from 'react'
 
@@ -16,14 +16,14 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
 
   return (
     <Popover>
-      <Popover.Button as='div' style={{width: 'fit-content'}}>
+      <PopoverButton as='div' style={{width: 'fit-content'}}>
         <Badge variant='dot'>
           <IconButton variant='secondary'>
             <MenuHamburgerIcon />
           </IconButton>
         </Badge>
-      </Popover.Button>
-      <Popover.Panel style={{ position: 'absolute', left: 0, top: 90, width: '100vw'}}>
+      </PopoverButton>
+      <PopoverPanel style={{ position: 'absolute', left: 0, top: 90, width: '100vw'}}>
         <MenuItemsWrapper fullWidth maxHeight={false} style={{ height: 'calc(100vh - 100px)'}} tabIndex={1}> 
           {
             !showCategories && (
@@ -97,7 +97,7 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
             )
           }
         </MenuItemsWrapper>
-      </Popover.Panel>
+      </PopoverPanel>
     </Popover>    
   )
 }

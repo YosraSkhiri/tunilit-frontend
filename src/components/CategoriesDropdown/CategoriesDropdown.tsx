@@ -1,4 +1,4 @@
-import { Popover } from '@headlessui/react'
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { nanoid } from 'nanoid'
 
 import Button from '../Button'
@@ -10,14 +10,14 @@ import CategoriesDropdownProps, { categoryType }  from './CategoriesDropdown.typ
 const CategoriesDropdown = ({categories, className}: CategoriesDropdownProps) => {
   return (
     <Popover className={className}>
-      <Popover.Button as='div'>
+      <PopoverButton as='div'>
         <Button variant='subtle'>
           Categories
           <ChevronDownIcon />
         </Button>
-      </Popover.Button>
+      </PopoverButton>
 
-      <Popover.Panel>
+      <PopoverPanel>
         <MenuItemsWrapper cornerRadius={10} style={{position: 'absolute'}}> 
           {
             categories.map((cat: categoryType) => (
@@ -31,7 +31,7 @@ const CategoriesDropdown = ({categories, className}: CategoriesDropdownProps) =>
             ))
           } 
         </MenuItemsWrapper>
-      </Popover.Panel>
+      </PopoverPanel>
     </Popover>
   )
 }
