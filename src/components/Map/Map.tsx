@@ -1,11 +1,10 @@
-// START: Preserve spaces to avoid auto-sorting
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css";
 import "leaflet-defaulticon-compatibility";
 
 import { divIcon } from 'leaflet'
+import { nanoid } from 'nanoid';
 import { renderToStaticMarkup } from 'react-dom/server'
-// END: Preserve spaces to avoid auto-sorting
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 import styles from './Map.module.scss'
@@ -32,6 +31,7 @@ export default function Map({ locations }: MapProps) {
                 html: renderToStaticMarkup(<Pin />)
               })
             }
+            key={nanoid()}
             position={[l.latitude, l.longitude]}
           >
             <Popup>
