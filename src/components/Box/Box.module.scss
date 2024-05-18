@@ -1,8 +1,16 @@
 .box {
   width: 100%;
-  padding: 40px;
+  padding: 2.5rem;
   border-radius: $corner-radius-large;
-  border: 4px solid $border-2;
+  border: 0.25rem solid $border-2;
   background-color: $status-generic-5-surface;
   box-shadow: $box-drop-shadow;
+}
+
+@media screen and (max-width: 650px) {
+  .box {
+    padding: 0.625rem;
+    border: none;
+    box-shadow: none;
+  }
 }
