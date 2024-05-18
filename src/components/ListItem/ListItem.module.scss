@@ -8,5 +8,6 @@
 
   & svg {
     stroke: $text-4-default;
+    flex-shrink: 0;
   }
 }
