@@ -59,6 +59,10 @@
     }	
   }
 
+  &__skeleton {
+    display: block;
+  }
+
 	&__img {
     position: relative;
     z-index: 2;
