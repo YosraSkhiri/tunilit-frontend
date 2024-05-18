@@ -6,7 +6,7 @@ type linkVariants = 'default' | 'subtle' | 'light'
 
 export default interface LinkProps {
   active?: boolean,
-	children: string,
+	children: ReactNode,
 	component?: ElementType,
   href?: string,
 	leftAdorn?: ReactNode,
