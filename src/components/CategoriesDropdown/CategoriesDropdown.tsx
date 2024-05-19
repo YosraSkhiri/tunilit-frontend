@@ -1,5 +1,6 @@
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { nanoid } from 'nanoid'
+import queryString from 'query-string';
 
 import Button from '../Button'
 import { ChevronDownIcon, ChevronSmallRightIcon } from '../Icons'
@@ -22,6 +23,9 @@ const CategoriesDropdown = ({categories, className}: CategoriesDropdownProps) =>
           {
             categories.map((cat: categoryType) => (
               <MenuItemContent 
+                buttonBaseProps={{
+                  href:`/search?${queryString.stringify({ category: cat.name }, {arrayFormat: 'comma'})}`
+                }}
                 key={nanoid()}
                 renderRightAdorn={(props) => <ChevronSmallRightIcon {...props} />}
                 size='sm'
