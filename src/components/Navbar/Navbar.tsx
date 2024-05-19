@@ -34,7 +34,7 @@ const Navbar = ({ schoolCategories }: NavbarProps) => {
         </Layout>
 
         <Layout className={`${styles['nav-flex-item']} ${styles['nav__mobile-btns']}`}>
-          <IconButton variant='primary'>
+          <IconButton href='/search' variant='primary'>
             <SearchIcon />
           </IconButton>
           <MobileNav schoolCategories={schoolCategories} />

@@ -1,5 +1,6 @@
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+import { CloseButton, Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { nanoid } from 'nanoid'
+import queryString from 'query-string';
 import { useState } from 'react'
 
 import Badge from '../Badge'
@@ -9,6 +10,7 @@ import Layout from '../Layout'
 import MenuItemContent from '../MenuItemContent'
 import MenuItemsWrapper from '../MenuItemsWrapper'
 import Typography from '../Typography/index.tsx'
+import styles from './MobileNav.module.scss'
 import MobileNavProps from './MobileNav.types.ts'
 
 const MobileNav = ({ schoolCategories }: MobileNavProps) => {
@@ -16,14 +18,14 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
 
   return (
     <Popover>
-      <PopoverButton as='div' style={{width: 'fit-content'}}>
+      <PopoverButton as='div'>
         <Badge variant='dot'>
           <IconButton variant='secondary'>
             <MenuHamburgerIcon />
           </IconButton>
         </Badge>
       </PopoverButton>
-      <PopoverPanel style={{ position: 'absolute', left: 0, top: 90, width: '100vw'}}>
+      <PopoverPanel className={styles.menu}>
         <MenuItemsWrapper fullWidth maxHeight={false} style={{ height: 'calc(100vh - 100px)'}} tabIndex={1}> 
           {
             !showCategories && (
@@ -37,36 +39,42 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
                 >
                   <Typography variant='body1'>Categories</Typography>
                 </MenuItemContent>
-                <MenuItemContent 
+
+                <CloseButton 
                   buttonBaseProps={{
                     href: '/compare'
                   }}
-                  renderRightAdorn={(props) => <ChevronSmallRightIcon {...props} />}
-                  size='lg'
+                  as={MenuItemContent}
+                  renderRightAdorn={(props: {className?: string}) => <ChevronSmallRightIcon {...props} />}
+                  size='lg'                         
                 >
                   <Layout style={{ gap: '0.625rem'}}>
                     <Typography variant='body1'>Compare</Typography>
                     <Badge content='10' variant='standard' />
                   </Layout>
-                </MenuItemContent>
-                <MenuItemContent 
+                </CloseButton>
+                
+                <CloseButton
                   buttonBaseProps={{
                     href: '/search'
                   }}
-                  renderRightAdorn={(props) => <ChevronSmallRightIcon {...props} />}
+                  as={MenuItemContent}
+                  renderRightAdorn={(props: {className?: string}) => <ChevronSmallRightIcon {...props} />}
                   size='lg'
                 >
                   <Typography variant='body1'>Search Schools</Typography>
-                </MenuItemContent>
-                <MenuItemContent 
+                </CloseButton>
+
+                <CloseButton
                   buttonBaseProps={{
                     href: '/contact'
                   }}
-                  renderRightAdorn={(props) => <ChevronSmallRightIcon {...props} />}
+                  as={MenuItemContent}
+                  renderRightAdorn={(props: {className?: string}) => <ChevronSmallRightIcon {...props} />}
                   size='lg'
                 >
-                  <Typography variant='body1'>Contact</Typography> 
-                </MenuItemContent>
+                  <Typography variant='body1'>Contact</Typography>
+                </CloseButton>
               </>
             )
           }
@@ -85,13 +93,17 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
                 </MenuItemContent>
 
                 {showCategories && schoolCategories.map(cat => (
-                  <MenuItemContent 
+                  <CloseButton 
+                    buttonBaseProps={{
+                      href:`/search?${queryString.stringify({ category: cat.name }, {arrayFormat: 'comma'})}`
+                    }}
+                    as={MenuItemContent}
                     key={nanoid()}
-                    renderRightAdorn={(props) => <ChevronSmallRightIcon {...props} />}
+                    renderRightAdorn={(props: {className?: string}) => <ChevronSmallRightIcon {...props} />}
                     size='lg'
                   >
                     <Typography variant='body1'>{cat.name}</Typography>
-                  </MenuItemContent>
+                  </CloseButton>
                 ))}
               </>
             )
