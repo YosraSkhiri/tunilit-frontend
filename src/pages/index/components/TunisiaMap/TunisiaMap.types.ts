@@ -1,7 +1,12 @@
 import { MouseEvent } from 'react'
 
-export default interface TunisiaMapProps {
+type state = {
+  count?: string | number,
+  name: string
+}
 
+export default interface TunisiaMapProps {
+  states: Array<state>
 }
 
 export interface MapProps {

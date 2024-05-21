@@ -1,27 +1,41 @@
 .section {
-  max-width: 950px;
+  display: flex;
+  max-width: 59.375rem;
   justify-content: center;
   flex-wrap: wrap;
   margin: auto;
   align-items: center;
-  gap: 30px;
+  gap: 1.875rem;
 }
 
 .map-wrapper {
-  //flex: 1;
-  min-width: 290px;
+  flex-shrink: 1;
+  flex-grow: 0;
+  max-width: 18.125rem;
   margin: auto;
+
+  & > svg {
+    width: 100%;
+  }
+}
+
+.links-wrapper {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 30rem;
+  padding: 0 2.1875rem;
 }
 
 .links {
   display: grid;
-  grid-template-columns: repeat(2, 171px);
-  row-gap: 100px;
-  column-gap: 62px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(10.6875rem, 1fr));
+  row-gap: 6.25rem;
+  column-gap: 3.875rem;
 }
 
 .links-section {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 }
