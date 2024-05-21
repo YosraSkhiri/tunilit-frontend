@@ -1,83 +1,53 @@
-import { Tab } from '@headlessui/react'
+import { TabPanel } from '@headlessui/react'
 import { nanoid } from 'nanoid'
+import queryString from 'query-string'
 
-import {Link, SchoolCard,Tabs} from '../../../../components'
-import {ArrowRightIcon} from '../../../../components/Icons'
+import {Link, SchoolCard, Tabs} from '~/components'
+import {ArrowRightIcon} from '~/components/Icons'
+
 import styles from './SchoolsTabs.module.scss'
 import SchoolsTabsProps from './SchoolsTabs.types.ts'
 
-const schools = [
-  {
-    link: '#',
-    name: 'School Name',
-    category: 'Category',
-    logo: 'https://utfs.io/f/c5f8a1e1-24a5-455d-a144-790885ba1fbd-3wpiq8.png'
-  },
-  {
-    link: '#',
-    name: 'School Name',
-    category: 'Category',
-    logo: 'https://utfs.io/f/c5f8a1e1-24a5-455d-a144-790885ba1fbd-3wpiq8.png'
-  },
-  {
-    link: '#',
-    name: 'School Name',
-    category: 'Category',
-    logo: 'https://utfs.io/f/c5f8a1e1-24a5-455d-a144-790885ba1fbd-3wpiq8.png'
-  },
-  {
-    link: '#',
-    name: 'School Name',
-    category: 'Category',
-    logo: 'https://utfs.io/f/c5f8a1e1-24a5-455d-a144-790885ba1fbd-3wpiq8.png'
-  },
-  {
-    link: '#',
-    name: 'School Name',
-    category: 'Category',
-    logo: 'https://utfs.io/f/c5f8a1e1-24a5-455d-a144-790885ba1fbd-3wpiq8.png'
-  },
-  {
-    link: '#',
-    name: 'School Name',
-    category: 'Category',
-    logo: 'https://utfs.io/f/c5f8a1e1-24a5-455d-a144-790885ba1fbd-3wpiq8.png'
-  },
-]
+const SchoolsTabs = ({categories, schools}: SchoolsTabsProps) => {
+  const renderTabs = () => {
+    return categories.map((cat: string) => (
+      <TabPanel key={nanoid()}>
+        <div className={styles['tab__panel-container']}>
+          {
+            schools[cat].map(
+              s => 
+                <SchoolCard 
+                  category={s.categories !== null ? s.categories : ''}
+                  key={nanoid()}  
+                  link={`/school/${s.slug}`}
+                  logo={`${import.meta.env.VITE_IMAGES_URL}${s.logoKey}`}
+                  name={s.name}
+                />
+            )
+          }
+        </div>
+        <div className={styles['link-wrapper']}>
+          <Link 
+            underline 
+            href={`/search?${queryString.stringify({ categories: cat }, {arrayFormat: 'comma'})}`} 
+            rightAdorn={<ArrowRightIcon />} 
+            typographyProps={{variant: 'body1'}}
+          >
+            Explore More      
+          </Link>
+        </div>
+      </TabPanel>
+    ))
+  }
 
-const SchoolsTabs = ({}: SchoolsTabsProps) => {
   return (
     <div className={styles['tabs-wrapper']}>
       <Tabs 
-        tabs={[
-          'Tab 1',
-          'Tab 2',
-          'Tab 3',
-          'Tab 4',
-          'Tab 5',
-          'Tab 6',
-        ]}
+        tabs={[...categories]}
       >
-        <Tab.Panel>
-          <div className={styles['tab__panel-container']}>
-            {
-              schools.map(s => (
-                <SchoolCard key={nanoid()} {...s} />
-              ))
-            }
-          </div>
-        </Tab.Panel>
+        {renderTabs()}
       </Tabs>
-      
-
-      <div className={styles['link-wrapper']}>
-      <Link underline href='#' rightAdorn={<ArrowRightIcon />} typographyProps={{variant: 'body1'}}>
-        Explore More      
-      </Link>
-      </div>
-      
-    </div>
-      
+    </div>    
   )
 }
 

@@ -4,7 +4,8 @@ import { Controller, SubmitHandler,useForm } from "react-hook-form"
 import {
   Autocomplete,
   Button,
-} from '../../../../components'
+} from '~/components'
+
 import styles from './HeaderForm.module.scss'
 import HeaderFormProps from './HeaderForm.types.ts'
 
@@ -20,14 +21,13 @@ const HeaderForm = ({categoryOptions, handleSearch, stateOptions}: HeaderFormPro
       category: [],
     },
   })
-
+  
   const [stateInputValue, setStateInputValue] = useState<string>('')
   const [categoryInputValue, setCategoryInputValue] = useState<string>('')
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     if(data.category.length > 0 || data.state.length > 0) {
       handleSearch({categories: data.category, states: data.state})
-      '/searchResult?state=&schoolCategory='
     }
   }
 

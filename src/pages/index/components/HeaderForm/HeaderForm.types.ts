@@ -1,4 +1,4 @@
-import { OptionType } from '../../../../components/Autocomplete/Autocomplete.types'
+import { OptionType } from '~/components/Autocomplete/Autocomplete.types'
 
 export default interface HeaderFormProps {
 	categoryOptions: Array<OptionType>

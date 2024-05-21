@@ -9,13 +9,15 @@
 .tab__panel-container {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 360px));
+  grid-template-columns: repeat(auto-fit, minmax(16.25rem, 22.5rem));
   justify-content: center;
   align-items: center;
-  row-gap: 60px;
-  column-gap: 50px;
+  row-gap: 3.75rem;
+  column-gap: 3.125rem;
 }
 
 .link-wrapper {
-  margin-top: 40px;
+  width: fit-content;
+  margin: auto;
+  margin-top: 2.5rem;
 }

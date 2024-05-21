@@ -15,13 +15,13 @@
 }
 
 .section {
-  padding: 120px 0;
+  padding: 7.5rem 0;
 
   &__title-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-bottom: 40px;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
 
     &--center {
       justify-content: center;
@@ -35,7 +35,7 @@
   }
 
   &__title {
-    max-width: 482px;
+    max-width: 30.125rem;
     //margin-bottom: 60px;
     color: $text-4-default;
   }

@@ -1,20 +1,21 @@
 import queryString from 'query-string';
 import { navigate } from 'vike/client/router'
 
-import { Typography } from '../../components'
-import { useData } from '../../renderer/useData'
+import { Typography } from '~/components'
+import { useData } from '~/renderer/useData'
+
 import { Data } from './+data'
 import { HeaderForm, HeroTitle, SchoolsTabs, TunisiaMap } from './components'
 import styles from './Page.module.scss'
 
 const Page = () => {
-  const { schoolCategories, states} = useData<Data>()
+  const { schoolCategories, schoolsTabs, states } = useData<Data>()
 
   const handleSearch = async ({ categories, states}: {categories: Array<string>, states: Array<string>}) => {
-    const statesString = queryString.stringify({ states }, {arrayFormat: 'comma'})
-    const categoriesString = queryString.stringify({ categories }, {arrayFormat: 'comma'})
+    const statesString = queryString.stringify({ state: states }, {arrayFormat: 'comma'})
+    const categoriesString = queryString.stringify({ category: categories }, {arrayFormat: 'comma'})
 
-    const navigationPromise = navigate(`/searchResult?${statesString}&${categoriesString}`)
+    const navigationPromise = navigate(`/search?${statesString}&${categoriesString}`)
     await navigationPromise
   }
 
@@ -41,7 +42,10 @@ const Page = () => {
           Discover More Learning Opportunities
         </Typography>
 
-        <SchoolsTabs />
+        <SchoolsTabs 
+          categories={Object.keys(schoolsTabs)}
+          schools={schoolsTabs}
+        />
       </div>
 
       <div className={styles['section']}>
@@ -53,7 +57,9 @@ const Page = () => {
           Browse Educational institutions by Tunisia’s locations
           </Typography>   
         </div>
-        <TunisiaMap states={states} />
+        <TunisiaMap 
+          states={states} 
+        />
       </div>
 
     </div>
