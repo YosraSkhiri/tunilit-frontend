@@ -13,9 +13,11 @@ import IconButton from './IconButton'
 import Layout from './Layout'
 import Link from './Link'
 import Navbar from './Navbar'
+import Paragraph from './Paragraph'
 import Radio from './Radio'
 import SchoolCard from './SchoolCard'
 import SchoolLogo from './SchoolLogo'
+import SearchForm from './SearchForm'
 import Tabs from './Tabs'
 import Tag from './Tag'
 import TextField from './TextField'
@@ -38,9 +40,11 @@ export {
 	Layout,
 	Link,
 	Navbar,
+  Paragraph,
 	Radio,
 	SchoolCard,
 	SchoolLogo,
+	SearchForm,
 	Tabs,
 	Tag,
 	TextField,

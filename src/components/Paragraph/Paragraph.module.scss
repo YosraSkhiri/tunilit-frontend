@@ -1,0 +1,10 @@
+.paragraph-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.paragraph {
+  overflow: hidden;
+  width: 100%;
+}
