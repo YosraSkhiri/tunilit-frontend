@@ -262,6 +262,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   outline: none;
 
   @media screen and (max-width: $breakpoints-tablet) {
+    width: 100%;
     padding: 0;
   }
 }
