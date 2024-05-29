@@ -1,3 +1,5 @@
+export type coordsType = [long: number, lat: number]
+
 export type locationType = {
   address: string,
   latitude: number,
@@ -5,5 +7,5 @@ export type locationType = {
 }
 
 export default interface MapProps {
-  locations: Array<locationType>
+  locations?: Array<locationType>
 }
