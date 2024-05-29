@@ -7,19 +7,20 @@ import LinkProps from './Link.types.ts'
 const Link = ({
   active,
 	children,
+	className,
 	component: Component = 'a',
 	href,
 	leftAdorn,
 	rightAdorn,
 	typographyProps,
 	underline = false,
-	variant = 'default',
+  variant = 'default',
 	...other
 }: LinkProps) => {
 	const linkClass = clsx(styles.link, {
 		[styles[`link--${variant}`]]: variant,
 		[styles[`link--${variant}-active`]]: variant && active,
-	})
+	}, className)
 
 	const typographyClass = clsx({
 		[styles['link--underline']]: underline,

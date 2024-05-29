@@ -2,6 +2,8 @@
 	color: map-get($link-variants, $variant, 'rest', 'text');
 
 	& > svg {
+    flex-shrink: 0;
+    flex-grow: 0;
 		stroke: map-get($link-variants, $variant, 'rest', 'icon');
 	}
 
@@ -37,7 +39,6 @@
 	align-items: center;
 	width: fit-content;
 	gap: 10px;
-	white-space: nowrap;
 	transition: all 0.1s ease-in-out;
 	border-radius: 4px;
 
