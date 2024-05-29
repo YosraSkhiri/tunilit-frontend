@@ -16,6 +16,8 @@
     <a href="https://github.com/YosraSkhiri/tunilit-frontend/issues">Request Feature</a>
     •
     <a href="https://tunilit-storybook.vercel.app">Storybook</a>
+    •
+    <a href="https://www.figma.com/design/KY0zfzlTOGNfpbDW8hsLtm/Tunilit-Beta?m=dev&node-id=848%3A1374&t=K36VYQnkNa46wFuG-1">Figma File</a>
   </p>
 </p>
 
