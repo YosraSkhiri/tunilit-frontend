@@ -7,7 +7,7 @@ export type buttonVariantType = 'primary'
 | 'error'
 | 'subtle'
 
-type BtnSizes = 'md' | 'lg'
+type BtnSizes = 'sm' | 'md' | 'lg' 
 
 export default interface IconButtonProps extends ButtonBaseProps {
   ariaLabel?: string,

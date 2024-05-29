@@ -1,5 +1,6 @@
 @use "../../sass/mixins" as *;
 
+$btn-sm-size: $btn-sm-height;
 $btn-md-size: $btn-md-height;
 $btn-lg-size: $btn-lg-height;
 
@@ -18,7 +19,12 @@ $btn-lg-size: $btn-lg-height;
 	transition: all 0.3s ease-in-out;
 	cursor: pointer;
 
-	&--md {
+	&--sm {
+		width: $btn-sm-size;
+		height: $btn-sm-size;
+	}
+
+  &--md {
 		width: $btn-md-size;
 		height: $btn-md-size;
 	}
