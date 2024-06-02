@@ -1,5 +1,5 @@
-import ButtonBaseProps from '../ButtonBase/ButtonBase.types';
+import { RealButtonBaseProps } from '../ButtonBase/ButtonBase.types';
 
-export default interface AccordionTriggerProps extends ButtonBaseProps {
+export default interface AccordionTriggerProps extends RealButtonBaseProps {
   children: string,
 }
