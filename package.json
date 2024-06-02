@@ -33,6 +33,7 @@
     "@rehooks/local-storage": "^2.4.5",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@vercel/postgres": "^0.8.0",
+    "@vite-plugin-vercel/vike": "^7.0.0",
     "clsx": "^2.1.0",
     "css-loader": "^6.9.0",
     "drizzle-orm": "^0.30.10",
