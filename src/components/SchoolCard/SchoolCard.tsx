@@ -26,7 +26,7 @@ const SchoolCard = ({
     <ButtonBase 
       className={styles['s-card-wrapper']} 
       onBlur={toggleFocusState} 
-      onClick={() => {}} 
+      onClick={() =>  window.location.href = link} 
       onFocus={toggleFocusState}
     >
       <div className={styles['s-card-container']}>
