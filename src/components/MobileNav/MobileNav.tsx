@@ -1,6 +1,7 @@
 import { CloseButton, Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+import { useLocalStorage } from '@rehooks/local-storage'
 import { nanoid } from 'nanoid'
-import queryString from 'query-string';
+import queryString from 'query-string'
 import { useState } from 'react'
 
 import Badge from '../Badge'
@@ -15,11 +16,20 @@ import MobileNavProps from './MobileNav.types.ts'
 
 const MobileNav = ({ schoolCategories }: MobileNavProps) => {
   const [showCategories, setShowCategories] = useState(false)
+  const [bookmarks] = useLocalStorage('bookmarks')
+
+  const getNumberOfBookmarks = () => {
+    if (bookmarks) {
+      const b = bookmarks?.split(',')?.length
+      return (b !== undefined ? String(b) : '0')
+    }
+    return "0"
+  }
 
   return (
     <Popover>
       <PopoverButton as='div'>
-        <Badge variant='dot'>
+        <Badge variant={!!getNumberOfBookmarks() === true ? 'dot' : undefined}>
           <IconButton variant='secondary'>
             <MenuHamburgerIcon />
           </IconButton>
@@ -40,17 +50,21 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
                   <Typography variant='body1'>Categories</Typography>
                 </MenuItemContent>
 
-                <CloseButton 
-                  buttonBaseProps={{
-                    href: '/compare'
+                <CloseButton
+                  {...{
+                    onClick: async () => {
+                      const list = localStorage.getItem('bookmarks')
+                      const listQueryString = queryString.stringify({ list: list })
+                      window.location.href = `/bookmarks?${listQueryString}`
+                    }
                   }}
                   as={MenuItemContent}
                   renderRightAdorn={(props: {className?: string}) => <ChevronSmallRightIcon {...props} />}
-                  size='lg'                         
+                  size='lg'
                 >
                   <Layout style={{ gap: '0.625rem'}}>
-                    <Typography variant='body1'>Compare</Typography>
-                    <Badge content='10' variant='standard' />
+                    <Typography variant='body1'>Bookmarks</Typography>
+                    <Badge content={getNumberOfBookmarks()} variant='standard' />
                   </Layout>
                 </CloseButton>
                 
