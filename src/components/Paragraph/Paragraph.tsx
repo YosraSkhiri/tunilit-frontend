@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect,useRef, useState } from 'react'
 
 import { ChevronSmallRightIcon } from '../Icons'
 import Link from '../Link'
@@ -13,11 +13,11 @@ const variants = {
   },
   body2: {
     lineHeight: 150,
-    fontSize: 1
+    fontSize: 1 // rem
   },
   body3: {
     lineHeight: 150,
-    fontSize: 0.875
+    fontSize: 0.875 // rem
   }
 }
 
@@ -33,15 +33,31 @@ const Paragraph = ({
   )
 
   const [height, setHeight] = useState<string>(() => generateHeight())
+  const [isTruncated, setIsTruncated] = useState(false)
+  const paragraphRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && paragraphRef.current) {
+      const paragraphHeight = paragraphRef?.current?.scrollHeight
+      const maxAllowedHeight = parseFloat(generateHeight()) * 16 // convert rem to px (assuming 1rem = 16px)
+      if (paragraphHeight > maxAllowedHeight) {
+        setIsTruncated(true)
+      } else {
+        setIsTruncated(false)
+      }
+    }
+  }, [children, maxLines, variant])
 
   return (
     <div className={styles['paragraph-wrapper']} {...other}>
       <div 
         className={styles['paragraph']}
+        ref={paragraphRef}
         {
           ...(maxLines && {
             style: {
-              height: `${height}`
+              height: `${height}`,
+              overflow: 'hidden'
             }
           })
         }
@@ -49,7 +65,7 @@ const Paragraph = ({
         <Typography className={className} variant={variant}>{children}</Typography>
       </div>
       {
-        maxLines && (
+        isTruncated && (
           <Link 
             underline 
             typographyProps={{
