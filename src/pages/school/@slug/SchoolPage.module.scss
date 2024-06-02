@@ -1,12 +1,48 @@
-.school__info-1 {
-  justify-content: space-between;
-  gap: 30px;
+.container {
+  display: flex;
+  gap: 80px;
+  flex-direction: column;
 }
 
-.school__info {
-  gap: 30px;
-}
-
-.school__name {
+.section__title {
+  margin-bottom: 20px;
   color: $text-4-default;
+}
+
+.section__sub-title {
+  color: $text-4-default;
+  margin-bottom: 20px;
+}
+
+.content-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  grid-template-areas: "desc contact-info" "location location";
+  gap: 40px;
+
+  & > div:first-child {
+    grid-area: desc;
+  }
+
+  & > div:nth-child(2) {
+    grid-area: contact-info;
+  }
+
+  & > div:last-child {
+    grid-area: location;
+  }
+
+  @media screen and (max-width: $breakpoints-tablet) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "desc" "contact-info" "location";
+  }
+}
+
+.locations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
 }

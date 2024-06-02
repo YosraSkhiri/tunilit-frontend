@@ -1,5 +1,3 @@
-import '~/sass/global.scss'
-
 import { Footer,Navbar } from '~/components'
 import { usePageContext } from '~/renderer/usePageContext'
 
@@ -7,7 +5,8 @@ import styles from './PageLayout.module.scss'
 
 const PageLayout = ({ children }: { children: React.ReactNode }) => {
   const pageContext = usePageContext()
-  const { schoolCategories } = pageContext.data;
+  const data = pageContext?.data
+  const schoolCategories = data?.schoolCategories || []
 
   return (
     <div className={styles.wrapper}>

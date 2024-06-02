@@ -1,4 +1,3 @@
-// https://vike.dev/data
 export { data }
 export type Data = Awaited<ReturnType<typeof data>>
 import type { PageContextServer } from 'vike/types'
@@ -13,21 +12,18 @@ import {
 
 const data = async (pageContext: PageContextServer) => {
 	const slug = pageContext?.routeParams?.slug
+  let categories
+  let locations
 
 	const school = await getSchoolBySlug(slug)
-	const categories = await getCategoriesBySchool(school[0].id)
-  const locations = await getLocationsBySchool(school[0].id)
-
+  if (school && school[0]) {
+    categories = await getCategoriesBySchool(school[0].id)
+    locations = await getLocationsBySchool(school[0].id)
+  }
+	
 	const schoolCategories = getAllCategories
 	const states = getAllStates
 
-  console.log({
-    school: {
-      data: school[0],
-      categories,
-      locations,
-    },
-  })
 	return {
 		schoolCategories,
 		states,

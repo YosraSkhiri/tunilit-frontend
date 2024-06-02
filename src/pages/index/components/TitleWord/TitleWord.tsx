@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 
-import {Typography} from '../../../../components'
+import {Typography} from '~/components'
+
 import styles from './TitleWord.module.scss'
 import TitleWordProps from './TitleWord.types.ts'
 

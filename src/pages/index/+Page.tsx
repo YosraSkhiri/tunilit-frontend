@@ -1,11 +1,11 @@
 import queryString from 'query-string';
 import { navigate } from 'vike/client/router'
 
-import { Typography } from '~/components'
+import { SearchForm,Typography } from '~/components'
 import { useData } from '~/renderer/useData'
 
 import { Data } from './+data'
-import { HeaderForm, HeroTitle, SchoolsTabs, TunisiaMap } from './components'
+import { HeroTitle, SchoolsTabs, TunisiaMap } from './components'
 import styles from './Page.module.scss'
 
 const Page = () => {
@@ -28,8 +28,14 @@ const Page = () => {
             Whether for a hobby or to start a career path, Tunilit is the perfect place to find the best learning path for you.
           </Typography>
           <div className={styles['header__form']}>
-            <HeaderForm 
+            <SearchForm 
+              buttonProps={{
+                children: 'Expoler',
+                arrow: true,
+                shadow: true
+              }}
               categoryOptions={schoolCategories}
+              className={styles['form']}
               handleSearch={handleSearch}
               stateOptions={states}
             />

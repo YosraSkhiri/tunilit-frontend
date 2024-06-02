@@ -1,0 +1,43 @@
+.school__header {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.school__logo {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: fit-content;
+}
+
+.school__brief {
+  max-width: 663px;
+  width: 100%;
+}
+
+.school__name-wrapper {
+  color: $text-4-default;
+  margin-bottom: 10px;
+}
+
+.school__categories-wrapper {
+  flex-shrink: 1;
+}
+
+.school__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.actions-wrapper {
+  width: fit-content;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}

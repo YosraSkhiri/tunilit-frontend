@@ -41,6 +41,12 @@
   }
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 @media screen and (max-width: $breakpoints-tablet) {
   .header-container {
     padding-top: 0rem;
