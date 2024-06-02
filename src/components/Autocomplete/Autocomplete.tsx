@@ -58,7 +58,7 @@ const Autocomplete = ({
           key={`${id}-option-${index}`}
           value={typeof item === 'string' ? item : item.name}
         >
-          {({ active, selected }) => (
+          {({ focus, selected }) => (
             <MenuItemContent 
               buttonBaseProps={
                 {
@@ -68,7 +68,7 @@ const Autocomplete = ({
                   : `${id}-option-${index}` 
                 }
               } 
-              active={active} 
+              active={focus} 
               selected={selected} 
               size="sm"
             >
@@ -115,6 +115,7 @@ const Autocomplete = ({
 
   return (
     <Combobox 
+      immediate
       multiple={multiple}
       value={selectedValue}
       onChange={setSelectedValue}
@@ -161,7 +162,7 @@ const Autocomplete = ({
             leaveTo={styles['leave-to']}
             show={open}
           >
-            <ComboboxOptions static as='div'>
+            <ComboboxOptions static as='div' modal={false}>
               <MenuItemsWrapper 
                 fullWidth
                 cornerRadius={10}
