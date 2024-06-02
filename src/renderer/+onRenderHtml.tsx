@@ -5,6 +5,7 @@ import ReactDOMServer from 'react-dom/server'
 import { dangerouslySkipEscape,escapeInject } from 'vike/server'
 import type { OnRenderHtmlAsync } from 'vike/types'
 
+import { getPageDescription } from './getPageDescription'
 import { getPageTitle } from './getPageTitle'
 import { PageShell } from './PageShell'
 
@@ -23,8 +24,8 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<OnRender
   )
 
   // See https://vike.dev/head
-  const title = getPageTitle(pageContext)
-  const desc = pageContext.data?.description || pageContext.config.description || 'Demo of using Vike'
+  const title = getPageTitle(pageContext) || "Tunilit"
+  const description = getPageDescription(pageContext) || "Find the best learning path for you."
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
@@ -34,7 +35,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<OnRender
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="${desc}" />
+        <meta name="description" content="${description}" />
         <title>${title}</title>
       </head>
       <body>
