@@ -7,6 +7,7 @@ import appleBooksIllusBg from "/images/appleBooksBg.webp"
 import certifIllusBg from "/images/certifBg.webp"
 import globeIllusBg from "/images/globeBg.webp"
 import openBookIllusBg from "/images/openBookBg.webp"
+import { Title } from '~/components'
 
 import {
   AppleBooksIllus,
@@ -14,7 +15,6 @@ import {
   GlobeIllus,
   OpenBookIllus,
 } from "../Illustrations"
-import Title from "../Title"
 import styles from './HeroTitle.module.scss'
 
 const HeroTitle = () => {

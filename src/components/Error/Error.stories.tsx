@@ -10,4 +10,8 @@ export default meta
 
 type Story = StoryObj<typeof Error>
 
-export const Overview: Story = {}
+export const Overview: Story = {
+  args: {
+    message: 'No!'
+  }
+}

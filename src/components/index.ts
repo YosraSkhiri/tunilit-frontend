@@ -22,6 +22,7 @@ import SearchForm from './SearchForm'
 import Tabs from './Tabs'
 import Tag from './Tag'
 import TextField from './TextField'
+import Title from './Title'
 import Toast from './Toast'
 import Typography from './Typography'
 
@@ -50,6 +51,7 @@ export {
 	Tabs,
 	Tag,
 	TextField,
+  Title,
 	Toast,
 	Typography,
 }
