@@ -41,7 +41,7 @@ const Navbar = ({ schoolCategories }: NavbarProps) => {
         </Layout>
 
         <Layout className={`${styles['nav-flex-item']} ${styles['nav__desktop-btns']}`}>
-          <Button href='/search'>
+          <Button href='/explore'>
             Search 
           <SearchIcon />
           </Button>

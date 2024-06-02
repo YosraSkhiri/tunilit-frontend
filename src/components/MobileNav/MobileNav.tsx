@@ -70,7 +70,7 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
                 
                 <CloseButton
                   buttonBaseProps={{
-                    href: '/search'
+                    href: '/explore'
                   }}
                   as={MenuItemContent}
                   renderRightAdorn={(props: {className?: string}) => <ChevronSmallRightIcon {...props} />}

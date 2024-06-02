@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
         <div className={styles['footer__section']}>
           <Link 
-            href='/search' 
+            href='/explore' 
             leftAdorn={<ChevronSmallRightIcon />} 
             typographyProps={{ variant: 'body1' }}
             variant='subtle'
