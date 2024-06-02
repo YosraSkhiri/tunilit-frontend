@@ -1,6 +1,5 @@
 import queryString from 'query-string'
 import { SubmitHandler, useForm } from "react-hook-form"
-import { navigate } from 'vike/client/router'
 
 import { Button, SearchForm, Typography } from '~/components'
 import { SearchIcon } from '~/components/Icons'
@@ -23,17 +22,13 @@ const Page = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const searchQueryString = queryString.stringify({ q: data.query }, {arrayFormat: 'comma'})
-
-    const navigationPromise = navigate(`/search?${searchQueryString}`)
-    await navigationPromise
+    window.location.href = `/search?${searchQueryString}`
   }
 
   const handleAdvancedSearch = async ({ categories, states}: {categories: Array<string>, states: Array<string>}) => {
     const statesString = queryString.stringify({ state: states }, {arrayFormat: 'comma'})
     const categoriesString = queryString.stringify({ category: categories }, {arrayFormat: 'comma'})
-
-    const navigationPromise = navigate(`/search?${statesString}&${categoriesString}`)
-    await navigationPromise
+    window.location.href = `/search?${statesString}&${categoriesString}`
   }
   
   return (

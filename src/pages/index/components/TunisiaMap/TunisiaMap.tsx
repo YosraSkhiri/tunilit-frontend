@@ -1,7 +1,6 @@
 import { nanoid } from 'nanoid'
 import queryString from 'query-string'
 import { MouseEvent } from 'react'
-import { navigate } from 'vike/client/router'
 
 import { Link } from '~/components'
 import {ChevronSmallRightIcon} from '~/components/Icons'
@@ -13,7 +12,7 @@ import TunisiaMapProps from './TunisiaMap.types.ts'
 const TunisiaMap = ({ states }: TunisiaMapProps) => {
   const handleOnStateClick = (e: MouseEvent<SVGPathElement>) => {
     const target = e.target as SVGPathElement
-    navigate(`/search?${queryString.stringify({ state: target.id }, {arrayFormat: 'comma'})}`)
+    window.location.href = `/search?${queryString.stringify({ state: target.id }, {arrayFormat: 'comma'})}`
   }
 
   const chunks = []
