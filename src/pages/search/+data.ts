@@ -16,11 +16,17 @@ const data = async (pageContext: PageContextServer) => {
 	const searchCategories = queryParams?.category?.split(',')
 	const searchQuery = queryParams?.q
 
+  console.log("searchStates", searchStates)
+  console.log("searchCategories", searchCategories)
+  console.log("searchQuery", searchQuery)
+
 	const schoolCategories = getAllCategories
 	const states = getAllStates
 
 	if (searchQuery) {
 		const result = await getByText(searchQuery)
+
+    console.log("result", result)
 
 		return {
 			schoolCategories,
