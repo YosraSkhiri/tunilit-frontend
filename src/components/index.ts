@@ -8,6 +8,7 @@ import Button from './Button'
 import ButtonBase from './ButtonBase'
 import Checkbox from './Checkbox'
 import Chip from './Chip'
+import Error from './Error'
 import Footer from './Footer'
 import IconButton from './IconButton'
 import Layout from './Layout'
@@ -35,12 +36,13 @@ export {
 	ButtonBase,
 	Checkbox,
 	Chip,
+	Error,
 	Footer,
 	IconButton,
 	Layout,
 	Link,
 	Navbar,
-  Paragraph,
+	Paragraph,
 	Radio,
 	SchoolCard,
 	SchoolLogo,
