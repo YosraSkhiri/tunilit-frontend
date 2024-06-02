@@ -48,10 +48,18 @@ export const states = createTable('states', {
 export const schoolCategories = createTable('school_categories', {
 	id: uuid('id').defaultRandom().primaryKey(),
 	name: varchar('name', { length: 256 }).notNull(),
+  categoryButtonColorsId: uuid('category_button_colors_id'),
 	createdAt: timestamp('created_at')
 		.default(sql`CURRENT_TIMESTAMP`)
 		.notNull(),
 	updatedAt: timestamp('updatedAt'),
+})
+
+export const categoryButtonColors = createTable('category_button_colors', {
+  id: uuid('id').defaultRandom().primaryKey(),
+	name: varchar('name', { length: 256 }).notNull(),
+  backgroundColor: varchar('background_color'),
+  textBorderColor: varchar('text_border_color'),
 })
 
 export const locations = createTable('locations', {
@@ -90,8 +98,12 @@ export const schoolsRelations = relations(schools, ({ many }) => ({
 
 export const schoolCategoriesRelations = relations(
 	schoolCategories,
-	({ many }) => ({
+	({ many, one }) => ({
 		schoolsToCategories: many(schoolsToCategories),
+    categoryButtonColors: one(categoryButtonColors, {
+      fields: [schoolCategories.categoryButtonColorsId],
+      references: [categoryButtonColors.id]
+    })
 	})
 )
 
