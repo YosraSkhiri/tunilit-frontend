@@ -20,7 +20,6 @@ const Page = () => {
     await navigationPromise
   }
 
-  if (result) {
     return (
       <div>
         <Typography className={styles['title']} variant='h1'>Search Result for Schools</Typography>
@@ -38,13 +37,13 @@ const Page = () => {
           />
         </Box>
         <div className={styles['search-result__count']}>
-          <Typography className={styles['count']} variant='body1'>{result.length}</Typography>
+          <Typography className={styles['count']} variant='body1'>{result && result?.length ? result.length : 0}</Typography>
           <Typography variant='body1'>Schools Found</Typography>
         </div>
         
         <div className={styles['schools-container']}>
           {
-            result.map(r => (
+            result && result?.map(r => (
               <SchoolCard 
                 category={r?.categories !== null ? r?.categories : ''}
                 key={nanoid()}
@@ -57,11 +56,6 @@ const Page = () => {
         </div>
       </div> 
     )
-  } 
-  
-  return (
-    <div>No result</div>
-  )
 }
 
 export default Page
