@@ -1,4 +1,4 @@
-import ButtonBaseProps from '../ButtonBase/ButtonBase.types'
+import { AnchorButtonBaseProps, RealButtonBaseProps } from '../ButtonBase/ButtonBase.types'
 
 export type buttonVariantType = 'primary'
 | 'secondary'
@@ -9,10 +9,19 @@ export type buttonVariantType = 'primary'
 
 type BtnSizes = 'sm' | 'md' | 'lg' 
 
-export default interface IconButtonProps extends ButtonBaseProps {
+interface CommonIconButtonProps {
   ariaLabel?: string,
   loading?: boolean,
   size?: BtnSizes,
   tooltip?: string,
   variant?: buttonVariantType
 }
+
+export interface AnchorIconButtonProps extends CommonIconButtonProps, AnchorButtonBaseProps {}
+
+export interface RealIconButtonProps extends CommonIconButtonProps, RealButtonBaseProps {}
+
+type IconButtonProps = AnchorIconButtonProps | AnchorIconButtonProps
+
+
+export default IconButtonProps

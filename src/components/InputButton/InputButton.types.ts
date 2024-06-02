@@ -1,11 +1,11 @@
 import { ReactNode } from 'react'
 
-import ButtonBaseProps from '../ButtonBase/ButtonBase.types'
+import { RealButtonBaseProps } from '../ButtonBase/ButtonBase.types'
 
 type variantType = 'default' | 'info' | 'success' | 'error'
 type sizeType = 'md' | 'lg'
 
-export default interface InputButtonProps extends ButtonBaseProps {
+export default interface InputButtonProps extends RealButtonBaseProps {
 	ariaLabel?: string,
   children: ReactNode,
   disabled?: boolean,

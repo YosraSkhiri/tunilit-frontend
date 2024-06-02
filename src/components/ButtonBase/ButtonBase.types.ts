@@ -1,22 +1,24 @@
-import { ElementType, FocusEvent,KeyboardEvent,MouseEvent } from 'react'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType } from 'react'
 
-type BtnTypes = 'button' | 'submit' | 'reset'
-
-interface ButtonBaseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface CommonButtonBaseProps {
   active?: string,
   children?: React.ReactNode,
   className?: string,
   component?: string | ElementType,
   ['data-value']?: string,
   disabled?: boolean,
-  href?: string,
-  onBlur?: (e?: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void,
-  onClick?: (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void,
-  onFocus?: (e?: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void,
-  onKeyDown?: (e?: KeyboardEvent) => void,
-  role?: string,
   tabIndex?: number,
-  type?: BtnTypes
 }
+
+export interface AnchorButtonBaseProps extends CommonButtonBaseProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+  href?: string
+}
+
+export interface RealButtonBaseProps extends CommonButtonBaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
+  href?: never
+}
+
+type ButtonBaseProps = AnchorButtonBaseProps | RealButtonBaseProps
+
 
 export default ButtonBaseProps

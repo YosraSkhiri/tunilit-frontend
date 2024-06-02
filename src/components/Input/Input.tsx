@@ -36,14 +36,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
     [styles['input--disabled']]: disabled,
   })
 
-	const handleOnFocus = (e?: FocusEvent<HTMLInputElement>) => {
+	const handleOnFocus = (e: FocusEvent<HTMLInputElement>) => {
 		onFocus && onFocus(e)
 		inputWrapperRef.current?.classList.add(
 			styles[`input-wrapper--${variant}-focus`]
 		)
 	}
 
-	const handleOnBlur = (e?: FocusEvent<HTMLInputElement>) => {
+	const handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
 		onBlur && onBlur(e)
 		inputWrapperRef.current?.classList.remove(
 			styles[`input-wrapper--${variant}-focus`]

@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
-import ButtonBaseProps from '../ButtonBase/ButtonBase.types';
+import { AnchorButtonBaseProps, RealButtonBaseProps } from '../ButtonBase/ButtonBase.types'
 
 export type buttonVariantType = 'primary'
 | 'secondary'
@@ -11,7 +11,7 @@ export type buttonVariantType = 'primary'
 
 type sizeType = 'lg' | 'md'
 
-export default interface ButtonProps extends ButtonBaseProps {
+interface CommonButtonProps {
   arrow?: boolean,
   children?: ReactNode,
   className?: string,
@@ -22,3 +22,12 @@ export default interface ButtonProps extends ButtonBaseProps {
   size?: sizeType,
   variant?: buttonVariantType
 }
+
+export interface AnchorButtonProps extends CommonButtonProps, AnchorButtonBaseProps {}
+
+export interface RealButtonProps extends CommonButtonProps, RealButtonBaseProps {}
+
+type ButtonProps = AnchorButtonProps | RealButtonProps
+
+
+export default ButtonProps

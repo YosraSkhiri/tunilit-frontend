@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { forwardRef,Fragment, useRef } from 'react'
+import { FocusEvent, forwardRef,Fragment, MouseEvent, useRef } from 'react'
 
 import ButtonBase from '../ButtonBase'
 import { LoaderIcon } from '../Icons'
@@ -46,21 +46,21 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(({
 
 	const WrapperElem: WrapperElemType = shadow || arrow ? 'div' : Fragment
 
-	const handleFocus = (e?: React.FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+	const handleFocus = (e: FocusEvent<HTMLAnchorElement, Element> & FocusEvent<HTMLButtonElement, Element>) => {
 		if (onFocus) onFocus(e)
 		if (arrowSvgRef.current && arrow) {
 			arrowSvgRef.current.classList.add(styles[`arrow--focus-${variant}`])
 		}
 	}
 
-	const handleBlur = (e?: React.FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+	const handleBlur = (e: FocusEvent<HTMLAnchorElement, Element> & FocusEvent<HTMLButtonElement, Element>) => {
 		if (onBlur) onBlur(e)
 		if (arrowSvgRef.current && arrow) {
 			arrowSvgRef.current.classList.remove(styles[`arrow--focus-${variant}`])
 		}
 	}
 
-	const handleClick = (e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+	const handleClick = (e: MouseEvent<HTMLAnchorElement & HTMLButtonElement>) => {
 		if (onClick) onClick(e)
 	}
 
