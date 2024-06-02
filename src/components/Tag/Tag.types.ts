@@ -1,5 +1,5 @@
-import ButtonBaseProps from '../ButtonBase/ButtonBase.types'
+import { RealButtonBaseProps } from '../ButtonBase/ButtonBase.types'
 
-export default interface TagProps extends ButtonBaseProps {
+export default interface TagProps extends RealButtonBaseProps {
 	children: string
 }
