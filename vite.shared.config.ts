@@ -25,6 +25,9 @@ const sharedConfig: UserConfig = {
 			'~': `${__dirname}/src`,
 		},
 	},
+  build: {
+    target: "ES2022"
+  },
 }
 
 export default sharedConfig
