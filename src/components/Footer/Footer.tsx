@@ -1,3 +1,4 @@
+"use client"
 import IconButton from '../IconButton'
 import {ChevronSmallRightIcon, FacebookIcon, LinkedInIcon, MessengerIcon} from '../Icons'
 import Link  from '../Link'

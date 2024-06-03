@@ -1,3 +1,4 @@
+"use client"
 import { Tab, TabGroup, TabList, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
 import { Fragment, useRef } from 'react'

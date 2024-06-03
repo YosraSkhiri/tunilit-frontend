@@ -1,3 +1,4 @@
+"use client"
 import VerificationBadgeProps from './VerificationBadge.types.ts'
 
 const VerificationBadge = ({ size = 'md' }: VerificationBadgeProps) => {

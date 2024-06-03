@@ -1,3 +1,4 @@
+"use client"
 import { useState } from 'react'
 import { Controller, SubmitHandler,useForm } from "react-hook-form"
 

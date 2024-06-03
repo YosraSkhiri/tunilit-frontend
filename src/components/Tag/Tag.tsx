@@ -1,3 +1,4 @@
+"use client"
 import ButtonBase from '../ButtonBase'
 import { CrossSmallIcon } from '../Icons'
 import styles from './Tag.module.scss'

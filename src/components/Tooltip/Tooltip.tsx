@@ -1,3 +1,4 @@
+"use client"
 import TooltipOptions from './Tooltip.types';
 import TooltipContext from './TooltipContext';
 import { useTooltip } from './useTooltip';

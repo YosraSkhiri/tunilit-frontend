@@ -1,3 +1,4 @@
+"use client"
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { nanoid } from 'nanoid'
 import queryString from 'query-string';

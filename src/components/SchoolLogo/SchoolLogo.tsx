@@ -1,3 +1,4 @@
+"use client"
 import * as Avatar from '@radix-ui/react-avatar'
 import clsx from 'clsx'
 import { useState } from 'react'

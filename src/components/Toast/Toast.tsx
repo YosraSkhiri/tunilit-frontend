@@ -1,3 +1,4 @@
+"use client"
 import * as ToastRadix from '@radix-ui/react-toast'
 
 import IconButton from '../IconButton/index.tsx'

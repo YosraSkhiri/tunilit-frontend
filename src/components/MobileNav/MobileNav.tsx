@@ -1,3 +1,4 @@
+"use client"
 import { CloseButton, Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { useLocalStorage } from '@rehooks/local-storage'
 import { nanoid } from 'nanoid'

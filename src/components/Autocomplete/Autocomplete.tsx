@@ -1,3 +1,4 @@
+"use client"
 import { Combobox, ComboboxButton,ComboboxInput, ComboboxOption, ComboboxOptions, Transition } from '@headlessui/react'
 import { Fragment, MouseEvent } from 'react'
 

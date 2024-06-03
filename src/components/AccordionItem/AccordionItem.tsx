@@ -1,3 +1,4 @@
+"use client"
 import * as AccordionRadix from '@radix-ui/react-accordion'
 
 import styles from './AccordionItem.module.scss';

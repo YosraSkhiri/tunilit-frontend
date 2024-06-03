@@ -1,3 +1,4 @@
+"use client"
 import { FloatingPortal, useMergeRefs } from '@floating-ui/react'
 import { forwardRef } from 'react'
 

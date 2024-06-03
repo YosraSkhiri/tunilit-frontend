@@ -1,3 +1,4 @@
+"use client"
 import LoadingSkeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 import SkeletonProps from './Skeleton.types.ts'

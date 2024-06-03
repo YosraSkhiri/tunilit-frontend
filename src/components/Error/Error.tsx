@@ -1,6 +1,6 @@
-import defaultErrorImg from '/images/default-error.svg'
-import noBookmarksErrorImg from '/images/no-bookmarks-error.svg'
-
+"use client"
+import defaultErrorImg from '../../../public/images/default-error.svg'
+import noBookmarksErrorImg from '../../../public/images/no-bookmarks-error.svg'
 import { Typography } from '../index.ts'
 import styles from './Error.module.scss'
 import ErrorProps from './Error.types.ts'

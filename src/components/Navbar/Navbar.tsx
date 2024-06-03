@@ -1,3 +1,4 @@
+"use client"
 import { useLocalStorage } from '@rehooks/local-storage'
 import queryString from 'query-string'
 import { useEffect, useState } from 'react'

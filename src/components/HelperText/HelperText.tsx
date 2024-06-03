@@ -1,3 +1,4 @@
+"use client"
 import clsx from 'clsx'
 
 import styles from './HelperText.module.scss'
