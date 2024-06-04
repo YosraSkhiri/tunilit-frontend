@@ -19,6 +19,7 @@ import Radio from './Radio'
 import SchoolCard from './SchoolCard'
 import SchoolLogo from './SchoolLogo'
 import SearchForm from './SearchForm'
+import Skeleton from './Skeleton'
 import Tabs from './Tabs'
 import Tag from './Tag'
 import TextField from './TextField'
@@ -48,6 +49,7 @@ export {
 	SchoolCard,
 	SchoolLogo,
 	SearchForm,
+  Skeleton,
 	Tabs,
 	Tag,
 	TextField,

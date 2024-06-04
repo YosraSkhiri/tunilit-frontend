@@ -26,3 +26,7 @@
 <!-- PROJECT SHIELDS -->
 
 This project is the frontend for Tunilit. It is built on React  with Vite (https://vitejs.dev/).
+
+Changed to nextjs because of this issue:
+* https://github.com/magne4000/vite-plugin-vercel/issues/49
+* https://github.com/vercel/vercel/issues/11144

@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"app/school/components/Location/Location.tsx -> ~/components/Map\":{\"id\":\"app/school/components/Location/Location.tsx -> ~/components/Map\",\"files\":[\"static/css/_app-pages-browser_src_components_Map_index_tsx.css\",\"static/chunks/_app-pages-browser_src_components_Map_index_tsx.js\"]}}"

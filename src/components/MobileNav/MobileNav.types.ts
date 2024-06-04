@@ -1,6 +1,5 @@
 export type category = {
   id?: string,
-  label: string,
   name: string
 }
 
