@@ -1,15 +1,14 @@
 import type { School } from '~/server/db'
-import { getAllCategories, getAllStates, getSchoolByIds } from '~/server/db'
+import { getAllCategories, getAllStates, getSchoolByIds } from '~/server/queries'
 
-const data = async (searchParams) => {
-
-	const list = searchParams?.list?.split(',')
+const data = async (list?: string) => {
+	const listArr = list?.split(',')
   let schools: Array<School> = []
 
-  if (!list || list.length < 0 || (list.length === 1 && !list[0])) {
+  if (!listArr || listArr.length < 0 || (listArr.length === 1 && !listArr[0])) {
     schools = []
   } else {
-    schools = await getSchoolByIds(list)
+    schools = await getSchoolByIds(listArr)
   }
 
 	const schoolCategories = getAllCategories

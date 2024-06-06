@@ -1,4 +1,6 @@
 "use client"
+import { useRouter } from 'next/navigation'
+import queryString from 'query-string'
 import { useState } from 'react'
 import { Controller, SubmitHandler,useForm } from "react-hook-form"
 
@@ -18,11 +20,18 @@ const SearchForm = ({
   buttonProps, 
   categoryOptions, 
   className,
-  handleSearch,
   selectedCategories=[],
   selectedStates=[], 
   stateOptions,
 }: SearchFormProps) => {
+  const router = useRouter()
+
+  const handleSearch = async ({ categories, states}: {categories: Array<string>, states: Array<string>}) => {
+    const statesString = queryString.stringify({ state: states }, {arrayFormat: 'comma'})
+    const categoriesString = queryString.stringify({ category: categories }, {arrayFormat: 'comma'})
+    router.push(`/search?${statesString}&${categoriesString}`, { scroll: true })
+  }
+
   const { control, handleSubmit } = useForm({
     defaultValues: {
       state: [...selectedStates],

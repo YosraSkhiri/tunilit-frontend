@@ -6,8 +6,12 @@ import BookmarkItem from './components/BookmarkItem'
 import data from './data'
 import styles from './Page.module.scss'
 
-const Page = async ({ searchParams }) => {
-  const { bookmarks } = await data(searchParams)
+const Page = async ({ searchParams }: {
+  searchParams?: {
+    list?: string,
+  }
+}) => {
+  const { bookmarks } = await data(searchParams?.list)
   
   if (!bookmarks || (bookmarks && bookmarks?.length === 0)) {
     return (

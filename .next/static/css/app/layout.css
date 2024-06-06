@@ -1,3 +1,86 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./node_modules/react-loading-skeleton/dist/skeleton.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+@keyframes react-loading-skeleton {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.react-loading-skeleton {
+  --base-color: #ebebeb;
+  --highlight-color: #f5f5f5;
+  --animation-duration: 1.5s;
+  --animation-direction: normal;
+  --pseudo-element-display: block; /* Enable animation */
+
+  background-color: var(--base-color);
+
+  width: 100%;
+  border-radius: 0.25rem;
+  display: inline-flex;
+  line-height: 1;
+
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  overflow: hidden;
+}
+
+.react-loading-skeleton::after {
+  content: ' ';
+  display: var(--pseudo-element-display);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    90deg,
+    var(--base-color),
+    var(--highlight-color),
+    var(--base-color)
+  );
+  transform: translateX(-100%);
+
+  animation-name: react-loading-skeleton;
+  animation-direction: var(--animation-direction);
+  animation-duration: var(--animation-duration);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion) {
+  .react-loading-skeleton {
+    --pseudo-element-display: none; /* Disable animation */
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/app/layout.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.layout_wrapper__L7TNG {
+  width: 100%;
+  height: 100%;
+  padding-top: 6.25rem;
+}
+
+.layout_container__116GV {
+  width: 100%;
+  max-width: 80rem;
+  padding: 0 1.25rem;
+  padding-top: 3.75rem;
+  margin: auto;
+}
+
+@media screen and (max-width: 744px) {
+  .layout_container__116GV {
+    padding: 0 0.625rem;
+    padding-top: 2.5rem;
+  }
+}
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/components/Icons/Icon.module.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -2618,88 +2701,5 @@ input[type=search]::-webkit-search-results-decoration {
   }
   to {
     background-image: linear-gradient(180deg, rgba(242, 236, 230, 0.95), rgba(242, 236, 230, 0.95)), url("/images/noise.png"), linear-gradient(180deg, #f2ece6, #f2ece6);
-  }
-}
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./node_modules/react-loading-skeleton/dist/skeleton.css ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************/
-@keyframes react-loading-skeleton {
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.react-loading-skeleton {
-  --base-color: #ebebeb;
-  --highlight-color: #f5f5f5;
-  --animation-duration: 1.5s;
-  --animation-direction: normal;
-  --pseudo-element-display: block; /* Enable animation */
-
-  background-color: var(--base-color);
-
-  width: 100%;
-  border-radius: 0.25rem;
-  display: inline-flex;
-  line-height: 1;
-
-  position: relative;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  overflow: hidden;
-}
-
-.react-loading-skeleton::after {
-  content: ' ';
-  display: var(--pseudo-element-display);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(
-    90deg,
-    var(--base-color),
-    var(--highlight-color),
-    var(--base-color)
-  );
-  transform: translateX(-100%);
-
-  animation-name: react-loading-skeleton;
-  animation-direction: var(--animation-direction);
-  animation-duration: var(--animation-duration);
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-@media (prefers-reduced-motion) {
-  .react-loading-skeleton {
-    --pseudo-element-display: none; /* Disable animation */
-  }
-}
-
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/app/layout.module.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.layout_wrapper__L7TNG {
-  width: 100%;
-  height: 100%;
-  padding-top: 6.25rem;
-}
-
-.layout_container__116GV {
-  width: 100%;
-  max-width: 80rem;
-  padding: 0 1.25rem;
-  padding-top: 3.75rem;
-  margin: auto;
-}
-
-@media screen and (max-width: 744px) {
-  .layout_container__116GV {
-    padding: 0 0.625rem;
-    padding-top: 2.5rem;
   }
 }

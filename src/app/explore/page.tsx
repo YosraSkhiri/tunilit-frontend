@@ -1,5 +1,3 @@
-import queryString from 'query-string'
-
 import { SearchForm, Typography } from '~/components'
 
 import Form from './components/Form'
@@ -8,13 +6,6 @@ import styles from './Page.module.scss'
 
 const Page = async () => {
   const { schoolCategories, states } = await data()
-
-  const handleAdvancedSearch = async ({ categories, states}: {categories: Array<string>, states: Array<string>}) => {
-    "use server"
-    const statesString = queryString.stringify({ state: states }, {arrayFormat: 'comma'})
-    const categoriesString = queryString.stringify({ category: categories }, {arrayFormat: 'comma'})
-    window.location.href = `/search?${statesString}&${categoriesString}`
-  }
   
   return (
     <div>
@@ -32,7 +23,6 @@ const Page = async () => {
             }}
             categoryOptions={schoolCategories}
             className={styles['search__form-2']}
-            handleSearch={handleAdvancedSearch}
             stateOptions={states}
           />
         </div>

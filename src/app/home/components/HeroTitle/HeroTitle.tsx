@@ -7,10 +7,6 @@ import {
 
 import { Title } from '~/components'
 
-import appleBooksIllusBg from "../../../../../public/images/appleBooksBg.webp"
-import certifIllusBg from "../../../../../public/images/certifBg.webp"
-import globeIllusBg from "../../../../../public/images/globeBg.webp"
-import openBookIllusBg from "../../../../../public/images/openBookBg.webp"
 import {
   AppleBooksIllus,
   CertifIllus,
@@ -132,7 +128,7 @@ const HeroTitle = () => {
           alt="background image"
           className={styles['img']}
           ref={openBookIMGRef}
-          src={openBookIllusBg}
+          src="/images/openBookBg.webp"
         />
       </div>
       <div className={`${styles['header-illus']} ${styles['certif-illus']}`}>
@@ -144,7 +140,7 @@ const HeroTitle = () => {
           alt="background image"
           className={styles['img']}
           ref={certifIMGRef}
-          src={certifIllusBg}
+          src="/images/certifBg.webp"
         />
       </div>
       <div className={`${styles['header-illus']} ${styles['globe-illus']}`}>
@@ -156,7 +152,7 @@ const HeroTitle = () => {
           alt="background image"
           className={styles['img']}
           ref={globeIMGRef}
-          src={globeIllusBg}
+          src="/images/globeBg.webp"
         />
       </div>
       <div className={`${styles['header-illus']} ${styles['apple-books-illus']}`}>
@@ -168,7 +164,7 @@ const HeroTitle = () => {
           alt="background image"
           className={styles['img']}
           ref={appleBooksIMGRef}
-          src={appleBooksIllusBg}
+          src="/images/appleBooksBg.webp"
         />
       </div>
     </div>

@@ -24,12 +24,9 @@ const Form = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const searchQueryString = queryString.stringify({ q: data.query }, {arrayFormat: 'comma'})
-    console.log('explore')
-    //window.location.href = `/search?${searchQueryString}`
-    //window.history.pushState(null, '', `/search?${searchQueryString}`)
-    router.push(`/search?${searchQueryString}`)
-
+    router.push(`/search?${searchQueryString}`, { scroll: true })
   }
+  
   return (
     <form className={styles['search__form-1']} onSubmit={handleSubmit(onSubmit)}>
       <div>

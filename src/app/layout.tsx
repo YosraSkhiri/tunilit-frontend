@@ -4,6 +4,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { Metadata } from 'next'
 
 import { Footer, Navbar } from '~/components'
+import { ToastProvider } from '~/components/Toast/ToastProvider'
 import { getSchoolCategories } from '~/server/data'
 
 import styles from './layout.module.scss'
@@ -29,7 +30,9 @@ const PageLayout = async ({ children }: { children: React.ReactNode }) => {
             <Navbar
               schoolCategories={schoolCategories}
             />
-            {children}
+            <ToastProvider>
+              {children}
+            </ToastProvider>
           </div>
           <Footer />
         </div>

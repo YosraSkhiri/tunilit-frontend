@@ -3,8 +3,7 @@ import {
   getAllStates, 
   getNumberOfSchoolsByState,
   getSchoolsByStatesAndCategories 
-} from '~/server/db'
-
+} from '~/server/queries'
 
 const data = async () => {
 	const schoolCategories = getAllCategories

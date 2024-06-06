@@ -1,7 +1,7 @@
 "use client"
-import defaultErrorImg from '../../../public/images/default-error.svg'
-import noBookmarksErrorImg from '../../../public/images/no-bookmarks-error.svg'
-import { Typography } from '../index.ts'
+import Image from 'next/image'
+
+import Typography from '../Typography'
 import styles from './Error.module.scss'
 import ErrorProps from './Error.types.ts'
 
@@ -11,9 +11,12 @@ const Error = ({
 }: ErrorProps) => {
   return (
     <div className={styles['container']}>
-      <img 
-        className={styles['error__img']} 
-        src={type === 'default' ? defaultErrorImg : noBookmarksErrorImg} 
+      <Image 
+        alt=''
+        className={styles['error__img']}
+        height={156.18}
+        src={type === 'default' ? "/images/default-error.svg" : "/images/no-bookmarks-error.svg"} 
+        width={180} 
       />
       <Typography className={styles['error__msg']}>{message}</Typography>
     </div>

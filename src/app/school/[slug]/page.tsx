@@ -4,10 +4,10 @@ import { Metadata } from 'next'
 import { Box, Link, Paragraph, Typography} from '~/components'
 import { LocationIcon, SparkleIcon } from '~/components/Icons'
 import ListItem from '~/components/ListItem'
+import { getSchoolProfileData } from '~/server/data'
 
 import { ContactInfo, SchoolHeader } from '../components'
 import Locations from '../components/Location/Location'
-import data from './data'
 import styles from './SchoolPage.module.scss'
 
 type Props = {
@@ -19,7 +19,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const slug = params.slug
  
-  const { school } = await data(slug)
+  const info = await getSchoolProfileData(slug)
+  const school = info?.school;
  
   return {
     title: school?.name,
@@ -30,7 +31,11 @@ export async function generateMetadata(
 }
  
 async function Page({ params }: { params: { slug: string } }) {
-  const {categories, school} = await data(params.slug)
+	const info = await getSchoolProfileData(params.slug)
+  const school = info?.school;
+  const categories = info?.categories;
+
+  if (!school) return 'nope'
 
   return (
     <div>

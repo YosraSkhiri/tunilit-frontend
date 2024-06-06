@@ -1,5 +1,4 @@
 import { nanoid } from 'nanoid'
-import queryString from 'query-string'
 
 import { Box, SchoolCard, SearchForm, Typography } from '~/components'
 import { getSchoolCategories, getStates, search } from '~/server/data'
@@ -24,13 +23,6 @@ const Page = async ({ searchParams }: {
   })
   const schoolCategories = await getSchoolCategories()
 
-  const handleAdvancedSearch = async ({ categories, states}: {categories: Array<string>, states: Array<string>}) => {
-    "use server"
-    const statesString = queryString.stringify({ state: states }, {arrayFormat: 'comma'})
-    const categoriesString = queryString.stringify({ category: categories }, {arrayFormat: 'comma'})
-    window.location.href = `/search?${statesString}&${categoriesString}`
-  }
-
   return (
     <div>
       <Typography className={styles['title']} variant='h1'>Search Result for Schools</Typography>
@@ -41,7 +33,6 @@ const Page = async ({ searchParams }: {
           }}
           categoryOptions={schoolCategories}
           className={styles['search-result__form']}
-          handleSearch={handleAdvancedSearch}
           selectedCategories={selectedCategories}
           selectedStates={selectedStates}
           stateOptions={states}

@@ -25,3 +25,5 @@ dist-ssr
 .env
 
 next-env.d.ts
+
+*storybook.log

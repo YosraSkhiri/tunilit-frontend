@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/school/[slug]/page": [
+    "/home/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/school/[slug]/page.css",
-      "static/chunks/app/school/[slug]/page.js"
+      "static/css/app/home/page.css",
+      "static/chunks/app/home/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -17,17 +17,16 @@
       "static/chunks/main-app.js",
       "static/chunks/app/error.js"
     ],
-    "/home/page": [
+    "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/home/page.css",
-      "static/chunks/app/home/page.js"
+      "static/css/app/not-found.css",
+      "static/chunks/app/not-found.js"
     ],
-    "/search/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/search/page.css",
-      "static/chunks/app/search/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
