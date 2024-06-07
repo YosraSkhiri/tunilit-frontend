@@ -119,7 +119,7 @@ const Autocomplete = ({
       immediate
       multiple={multiple}
       value={selectedValue}
-      onChange={setSelectedValue}
+      onChange={(v) => {v !== null && setSelectedValue(v)}}
     >
       {({ open }) => (
         <div className={styles['ac-container']}>

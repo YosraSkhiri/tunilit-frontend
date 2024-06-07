@@ -47,7 +47,7 @@ export default function Map({ locations }: MapProps) {
               })
             }
             key={nanoid()}
-            position={[l.latitude, l.longitude]}
+            position={[+l.latitude, +l.longitude]}
           >
             <Popup>
               {l.address}

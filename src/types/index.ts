@@ -1,8 +1,8 @@
 export type location = {
-  address?: string,
+  address: string,
   googleMapLink?: string,
-  latitude?: string,
-  longitude?: string
+  latitude: number,
+  longitude: number
 }
 
 export interface SchoolProfile {

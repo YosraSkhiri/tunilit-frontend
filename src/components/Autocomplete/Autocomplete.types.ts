@@ -15,5 +15,5 @@ export default interface AutocompleteProps {
   placeholder?: string,
   selectedValue: string | Array<string>,
   setInputValue: React.Dispatch<React.SetStateAction<string>>,
-  setSelectedValue: React.Dispatch<React.SetStateAction<string | Array<string>>>
+  setSelectedValue: React.Dispatch<React.SetStateAction<string | string[]>> 
 }
