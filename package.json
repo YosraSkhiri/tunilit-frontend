@@ -14,7 +14,8 @@
     "db:studio": "drizzle-kit studio",
     "test-storybook": "test-storybook",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "type-check": "npx tsc --noEmit"
   },
   "imports": {
     "~/*": "./src/*.ts"
