@@ -24,8 +24,11 @@ export async function generateMetadata(
  
   return {
     title: school?.name,
+    description: `Explore ${school?.name} Profile`,
     openGraph: {
-      images: [`${process.env.NEXT_PUBLIC_IMAGES_URL}${school?.logoKey}`],
+      images: "/images/SM-image.png",
+      title: school?.name,
+      description: `Explore ${school?.name} Profile`,
     },
   }
 }

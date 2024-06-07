@@ -19,6 +19,7 @@ import Radio from './Radio'
 import SchoolCard from './SchoolCard'
 import SchoolLogo from './SchoolLogo'
 import SearchForm from './SearchForm'
+import ShareDialog from './ShareDialog'
 import Skeleton from './Skeleton'
 import Tabs from './Tabs'
 import Tag from './Tag'
@@ -49,6 +50,7 @@ export {
 	SchoolCard,
 	SchoolLogo,
 	SearchForm,
+  ShareDialog,
   Skeleton,
 	Tabs,
 	Tag,

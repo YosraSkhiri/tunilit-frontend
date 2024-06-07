@@ -3,7 +3,7 @@ import { useLocalStorage } from '@rehooks/local-storage';
 import { nanoid } from 'nanoid'
 import { Fragment, useState } from 'react';
 
-import { Button, Chip, SchoolLogo, Toast, Typography } from '~/components'
+import { Button, Chip, SchoolLogo, ShareDialog,Toast, Typography } from '~/components'
 import { BookmarkIcon, ShareIcon } from '~/components/Icons'
 
 import styles from './SchoolHeader.module.scss'
@@ -67,10 +67,15 @@ const SchoolHeader = ({
               <BookmarkIcon />
               Bookmark
             </Button>
-            <Button variant='secondary'>
-              <ShareIcon />
-              Share
-            </Button>
+            <ShareDialog 
+              trigger={
+                <Button variant='secondary'>
+                  <ShareIcon />
+                  Share
+                </Button>
+              }
+            />
+            
           </div>
         </div>
       </div>
