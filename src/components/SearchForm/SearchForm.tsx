@@ -4,11 +4,8 @@ import queryString from 'query-string'
 import { useState } from 'react'
 import { Controller, SubmitHandler,useForm } from "react-hook-form"
 
-import {
-  Autocomplete,
-  Button,
-} from '~/components'
-
+import Autocomplete from '../Autocomplete'
+import Button from '../Button'
 import SearchFormProps from './SearchForm.types.ts'
 
 interface IFormInput {

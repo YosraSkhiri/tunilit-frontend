@@ -7,7 +7,7 @@ import InputButton from '../InputButton'
 import MenuItemContent from '../MenuItemContent'
 import MenuItemsWrapper from '../MenuItemsWrapper'
 import Tag from '../Tag'
-import TextField from '../TextField/TextField.tsx'
+import TextField from '../TextField'
 import styles from './Autocomplete.module.scss'
 import AutocompleteProps, { OptionType } from './Autocomplete.types.ts'
 

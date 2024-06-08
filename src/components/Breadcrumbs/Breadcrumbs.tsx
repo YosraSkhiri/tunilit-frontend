@@ -3,7 +3,7 @@ import * as Collapsible from '@radix-ui/react-collapsible'
 import { Fragment, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-import ButtonBase from '../ButtonBase/ButtonBase.tsx'
+import ButtonBase from '../ButtonBase'
 import { ChevronSmallRightIcon, MenuHorizontalIcon } from '../Icons'
 import Layout from '../Layout'
 import Link from '../Link'

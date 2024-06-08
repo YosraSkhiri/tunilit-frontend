@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 import Button from '../Button'
-import ButtonBase from '../ButtonBase/ButtonBase.tsx'
+import ButtonBase from '../ButtonBase'
 import { InfoCircleIcon } from '../Icons'
 import SchoolLogo from '../SchoolLogo'
 import Typography from '../Typography'

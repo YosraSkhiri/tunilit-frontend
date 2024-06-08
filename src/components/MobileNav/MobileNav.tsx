@@ -11,7 +11,7 @@ import { ChevronSmallLeftIcon, ChevronSmallRightIcon, MenuHamburgerIcon } from '
 import Layout from '../Layout'
 import MenuItemContent from '../MenuItemContent'
 import MenuItemsWrapper from '../MenuItemsWrapper'
-import Typography from '../Typography/index.tsx'
+import Typography from '../Typography'
 import styles from './MobileNav.module.scss'
 import MobileNavProps from './MobileNav.types.ts'
 
