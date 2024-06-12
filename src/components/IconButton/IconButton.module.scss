@@ -35,27 +35,27 @@ $btn-lg-size: $btn-lg-height;
 	}
 
 	&--primary {
-		@include generateButtonVariant($button-variants, 'primary', $btn-md-height, $btn-lg-height);
+		@include generateButtonVariant($button-variants, 'primary', $btn-sm-height, $btn-md-height, $btn-lg-height);
 	}
 
   &--secondary {
-		@include generateButtonVariant($button-variants, 'secondary', $btn-md-height, $btn-lg-height);
+		@include generateButtonVariant($button-variants, 'secondary', $btn-sm-height, $btn-md-height, $btn-lg-height);
 	}
 
 	&--tertiary {
-		@include generateButtonVariant($button-variants, 'tertiary', $btn-md-height, $btn-lg-height);
+		@include generateButtonVariant($button-variants, 'tertiary', $btn-sm-height, $btn-md-height, $btn-lg-height);
 	}
 
 	&--success {
-		@include generateButtonVariant($button-variants, 'success', $btn-md-height, $btn-lg-height);
+		@include generateButtonVariant($button-variants, 'success', $btn-sm-height, $btn-md-height, $btn-lg-height);
 	}
 
 	&--error {
-		@include generateButtonVariant($button-variants, 'error', $btn-md-height, $btn-lg-height);
+		@include generateButtonVariant($button-variants, 'error', $btn-sm-height, $btn-md-height, $btn-lg-height);
 	}
 
 	&--subtle {
-		@include generateButtonVariant($button-variants, 'subtle', $btn-md-height, $btn-lg-height);
+		@include generateButtonVariant($button-variants, 'subtle', $btn-sm-height, $btn-md-height, $btn-lg-height);
 	}
 
 	&--disabled {
