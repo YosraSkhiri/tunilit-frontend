@@ -1,6 +1,6 @@
 import 'server-only'
 
-import { and, countDistinct, eq, inArray, like, sql } from 'drizzle-orm'
+import { and, asc, countDistinct, eq, inArray, like, sql } from 'drizzle-orm'
 
 import { db, tables } from './db'
 
@@ -49,11 +49,13 @@ const getCategoriesBySchool = async (id: string) => {
 const getSchoolsByStatesAndCategories = async ({
 	categories,
 	limit,
-	states,
+	offset,
+  states,
 }: {
 	categories?: Array<string>
 	limit?: number
-	states?: Array<string>
+	offset?: number,
+  states?: Array<string>
 }) => {
 	const query = db
 		.selectDistinctOn([tables.schools.id], {
@@ -88,6 +90,7 @@ const getSchoolsByStatesAndCategories = async ({
 		)
 
 	if (limit) query.limit(limit)
+  if (offset) query.offset(offset).orderBy(asc(tables.schools.id))
 
 	return await query
 }

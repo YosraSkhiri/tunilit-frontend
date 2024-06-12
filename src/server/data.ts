@@ -17,9 +17,10 @@ export const getSchoolCategories = cache(async () => getAllCategories)
 
 export const getStates = cache(async () => getAllStates)
 
-export const search = async ({ categories, query, states }: {
+export const search = async ({ categories, page, query, states }: {
   categories?: Array<string>, 
-  query?: string, 
+  page: string, 
+  query?: string,
   states?: Array<string>
 }) => {
 	if (query) {
@@ -30,6 +31,8 @@ export const search = async ({ categories, query, states }: {
 	const result = await getSchoolsByStatesAndCategories({
     states: states,
     categories: categories,
+    offset: page === '1' ? +page : (+page - 1) * 9 ,
+    limit: 9,
   })
 
   return result
