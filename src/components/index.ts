@@ -14,6 +14,7 @@ import IconButton from './IconButton'
 import Layout from './Layout'
 import Link from './Link'
 import Navbar from './Navbar'
+import Pagination from './Pagination'
 import Paragraph from './Paragraph'
 import Radio from './Radio'
 import SchoolCard from './SchoolCard'
@@ -45,6 +46,7 @@ export {
 	Layout,
 	Link,
 	Navbar,
+  Pagination,
 	Paragraph,
 	Radio,
 	SchoolCard,
