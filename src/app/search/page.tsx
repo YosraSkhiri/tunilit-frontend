@@ -8,18 +8,21 @@ import styles from './Page.module.scss'
 const Page = async ({ searchParams }: {
   searchParams?: {
     category?: string,
+    page?: string,
     q?: string,
     state?: string
   }
 }) => {
   const selectedStates = searchParams?.state?.split(',')
 	const selectedCategories = searchParams?.category?.split(',')
+  const page = searchParams?.page ? searchParams?.page : '1'
 
   const states = await getStates()
   const result = await search({
     query: searchParams?.q,
     states: selectedStates,
     categories: selectedCategories,
+    page: page,
   })
   const schoolCategories = await getSchoolCategories()
 
@@ -56,6 +59,7 @@ const Page = async ({ searchParams }: {
           ))
         }
       </div>
+      
     </div> 
   )
 }

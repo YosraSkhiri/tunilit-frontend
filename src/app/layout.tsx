@@ -1,6 +1,7 @@
 import '~/sass/global.scss'
 import 'react-loading-skeleton/dist/skeleton.css'
 
+import { Analytics } from '@vercel/analytics/react'
 import { Metadata } from 'next'
 
 import { Footer, Navbar } from '~/components'
@@ -36,6 +37,7 @@ const PageLayout = async ({ children }: { children: React.ReactNode }) => {
           </div>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
 
