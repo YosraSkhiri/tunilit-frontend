@@ -1,4 +1,6 @@
+"use client"
 import { nanoid } from 'nanoid'
+import { useRouter } from 'next/navigation'
 import queryString from 'query-string'
 import { MouseEvent } from 'react'
 
@@ -10,10 +12,11 @@ import styles from './TunisiaMap.module.scss'
 import TunisiaMapProps from './TunisiaMap.types.ts'
 
 const TunisiaMap = ({ states }: TunisiaMapProps) => {
+  const router = useRouter()
+
   const handleOnStateClick = async (e: MouseEvent<SVGPathElement>) => {
-    "use server"
     const target = e.target as SVGPathElement
-    window.location.href = `/search?${queryString.stringify({ state: target.id }, {arrayFormat: 'comma'})}`
+    router.push(`/search?${queryString.stringify({ state: target.id }, {arrayFormat: 'comma'})}`)
   }
 
   const chunks = []
