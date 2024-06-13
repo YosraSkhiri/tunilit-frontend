@@ -153,16 +153,28 @@ const getSchoolInfoBySlug = async (slug: string)  => {
 			whatsup: sql`COALESCE(${tables.schools.sm_whatsup_link}, '')`,
 			locations: sql`
       COALESCE(
-        JSON_AGG(JSON_BUILD_OBJECT(
-            'googleMapLink',
-            ${tables.locations.google_map_link},
-            'address',
-            ${tables.locations.address},
-            'latitude',
-            ${tables.locations.latitude},
-            'longitude',
-            ${tables.locations.longitude}
-          )),
+        JSON_AGG(
+          CASE
+            WHEN 
+              ${tables.locations.google_map_link} IS NOT NULL 
+              OR ${tables.locations.address} IS NOT NULL 
+              OR ${tables.locations.latitude} IS NOT NULL 
+              OR ${tables.locations.longitude} IS NOT NULL 
+            THEN
+              JSON_BUILD_OBJECT(
+                'googleMapLink',
+                ${sql`COALESCE(${tables.locations.google_map_link}, '')`},
+                'address',
+                ${sql`COALESCE(${tables.locations.address}, '')`},
+                'latitude',
+                ${sql`COALESCE(${tables.locations.latitude}, ${0})`},
+                'longitude',
+                ${sql`COALESCE(${tables.locations.longitude}, ${0})`}
+              )
+            ELSE
+              NULL
+            END
+        )FILTER (WHERE ${tables.locations.id} IS NOT NULL),
         '[]'
       )
       `,
