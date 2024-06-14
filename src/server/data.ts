@@ -31,7 +31,7 @@ export const search = async ({ categories, page, query, states }: {
     data = await getSchoolsByStatesAndCategories({
       states: states,
       categories: categories,
-      offset: page === '1' ? +page : (+page - 1) * 9 ,
+      offset: page === '1' ? 0 : (+page - 1) * 9 ,
       limit: 9,
     })
   }
