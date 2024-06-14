@@ -2,7 +2,7 @@ import 'server-only'
 
 import { cache } from 'react'
 
-import { category,SchoolProfile } from '~/types'
+import { category,SchoolProfile, searchResult } from '~/types'
 
 import { 
   getAllCategories, 
@@ -23,17 +23,23 @@ export const search = async ({ categories, page, query, states }: {
   query?: string,
   states?: Array<string>
 }) => {
-	if (query) {
-		const result = await getByText(query)
-		return result
-	}
+  let data;
 
-	const result = await getSchoolsByStatesAndCategories({
-    states: states,
-    categories: categories,
-    offset: page === '1' ? +page : (+page - 1) * 9 ,
-    limit: 9,
-  })
+	if (query) {
+		data = await getByText(query)
+	} else {
+    data = await getSchoolsByStatesAndCategories({
+      states: states,
+      categories: categories,
+      offset: page === '1' ? +page : (+page - 1) * 9 ,
+      limit: 9,
+    })
+  }
+
+  const result: searchResult = {
+    schools: data[0],
+    count: data[1][0].count,
+  }
 
   return result
 }

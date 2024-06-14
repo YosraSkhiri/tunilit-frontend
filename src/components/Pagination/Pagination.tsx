@@ -1,6 +1,8 @@
 "use client"
-import IconButton from '../IconButton'
-import { ChevronSmallLeftIcon,ChevronSmallRightIcon, MenuHorizontalIcon } from '../Icons'
+import { nanoid } from 'nanoid'
+import { useCallback, useMemo, useState } from 'react'
+
+import PaginationItem from '../PaginationItem'
 import styles from './Pagination.module.scss'
 import PaginationProps from './Pagination.types.ts'
 
@@ -8,46 +10,44 @@ const Pagination = ({
   count,
   onChange,
   page,
+  showNext = true,
+  showPrevious = true
 }: PaginationProps) => {
+  const [currentPage, setCurrentPage] = useState<number>(page)
+  
+  const range = useCallback(() => {
+    return Array.from({ length: count }, (_, index) => `${index + 1}`)
+  }, [count])
+
+  const generateItems = useCallback(() => {
+    return [
+      ...(showPrevious ? ['previous'] : []),
+      ...range(),
+      ...(showNext ? ['next'] : []),
+    ]
+  }, [range, showNext, showPrevious])
+
+  const itemList = useMemo(() => generateItems(), [generateItems])
+
+  const handleChange = useCallback((clickedPageNumber: number) => {
+    if (clickedPageNumber > 0 && clickedPageNumber <= count) {
+      setCurrentPage(clickedPageNumber)
+      onChange && onChange(clickedPageNumber)
+    }
+  }, [count, onChange])
+
   return (
     <div className={styles['container']}>
-      <IconButton size='sm' variant='tertiary' onClick={() => onChange()}>
-        <ChevronSmallLeftIcon />
-      </IconButton>
-
       {
-        count <= 8 ? (
-          <>
-            {
-              Array.from({ length: count }).map((_, index) => (
-                <IconButton size='sm' variant={page === (index+1) ? 'primary' : 'subtle'}>
-                  {index + 1}
-                </IconButton>
-              ))
-            }
-          </>
-        ) : (
-          <>
-            {
-              Array.from({ length: 6 }).map((_, index) => (
-                <IconButton size='sm' variant={page === (index+1) ? 'primary' : 'subtle'}>
-                  {index + 1}
-                </IconButton>
-              ))
-            }
-            <IconButton disabled size='sm' variant='subtle'>
-              <MenuHorizontalIcon />
-            </IconButton>
-            <IconButton size='sm' variant={page === count ? 'primary' : 'subtle'}>
-              {count}
-            </IconButton>
-          </>
-        )
+        itemList.map(item => (
+          <PaginationItem 
+            currentPage={currentPage}
+            item={item}
+            key={nanoid()}
+            onClick={handleChange}
+          />
+        ))
       }
-      
-      <IconButton size='sm' variant='tertiary'>
-        <ChevronSmallRightIcon />
-      </IconButton>
     </div>
   )
 }

@@ -1,8 +1,9 @@
 import { nanoid } from 'nanoid'
 
-import { Box, SchoolCard, SearchForm, Typography } from '~/components'
+import { Box,SchoolCard, SearchForm, Typography } from '~/components'
 import { getSchoolCategories, getStates, search } from '~/server/data'
 
+import Pagination from './components/Pagination'
 import styles from './Page.module.scss'
 
 const Page = async ({ searchParams }: {
@@ -42,13 +43,13 @@ const Page = async ({ searchParams }: {
         />
       </Box>
       <div className={styles['search-result__count']}>
-        <Typography className={styles['count']} variant='body1'>{result && result?.length ? result.length : 0}</Typography>
+        <Typography className={styles['count']} variant='body1'>{result && result?.count ? result?.count : 0}</Typography>
         <Typography variant='body1'>Schools Found</Typography>
       </div>
       
       <div className={styles['schools-container']}>
         {
-          result && result?.map(r => (
+          result && result?.schools?.map(r => (
             <SchoolCard 
               category={r?.categories !== null ? r?.categories : ''}
               key={nanoid()}
@@ -59,7 +60,11 @@ const Page = async ({ searchParams }: {
           ))
         }
       </div>
-      
+      <Pagination 
+        count={Math.ceil(result?.count / 9)} 
+        link={`/search?${searchParams?.category ? `category=${searchParams?.category}` : ""}${searchParams?.state ? `&state=${searchParams?.state}` : ""}`}
+        page={+page}
+      />
     </div> 
   )
 }

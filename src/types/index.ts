@@ -29,3 +29,15 @@ export type category = {
   category: string,
   textBorderColor?: string
 }
+
+export interface searchSchool {
+  categories?: string,
+  logoKey?: string,
+  name: string,
+  slug?: string
+}
+
+export interface searchResult {
+  count: number,
+  schools: Array<searchSchool>
+}

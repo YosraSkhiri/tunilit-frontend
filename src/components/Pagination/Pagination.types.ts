@@ -1,5 +1,8 @@
 export default interface PaginationProps {
   count: number,
-  onChange: () => void,
-  page: number
+  link?: string,
+  onChange: (clickedPageNumber: number) => void,
+  page: number,
+  showNext?: boolean,
+  showPrevious?: boolean
 }

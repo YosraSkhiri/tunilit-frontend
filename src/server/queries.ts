@@ -1,6 +1,6 @@
 import 'server-only'
 
-import { and, asc, countDistinct, eq, inArray, like, sql } from 'drizzle-orm'
+import { and, asc, count, countDistinct, eq, inArray, like, sql } from 'drizzle-orm'
 
 import { db, tables } from './db'
 
@@ -57,42 +57,50 @@ const getSchoolsByStatesAndCategories = async ({
 	offset?: number,
   states?: Array<string>
 }) => {
-	const query = db
-		.selectDistinctOn([tables.schools.id], {
-			name: tables.schools.name,
-			logoKey: tables.schools.logo_key,
-			slug: tables.schools.slug,
-			categories: tables.schoolCategories.name,
-		})
-		.from(tables.schools)
-		.leftJoin(
-			tables.locations,
-			eq(tables.locations.schoolId, tables.schools.id)
-		)
-		.leftJoin(tables.states, eq(tables.locations.stateId, tables.states.id))
-		.leftJoin(
-			tables.schoolsToCategories,
-			eq(tables.schoolsToCategories.schoolId, tables.schools.id)
-		)
-		.leftJoin(
-			tables.schoolCategories,
-			eq(tables.schoolCategories.id, tables.schoolsToCategories.categoryId)
-		)
-		.where(
-			and(
-				states && states?.length > 0
-					? inArray(tables.states.name, states)
-					: undefined,
-				categories && categories?.length > 0
-					? inArray(tables.schoolCategories.name, categories)
-					: undefined
-			)
-		)
+  const filteredResult = db
+    .selectDistinctOn([tables.schools.id], {
+      id: tables.schools.id,
+      name: sql<string>`${tables.schools.name}`.as('school_name'),
+      logoKey: sql<string>`COALESCE(${tables.schools.logo_key}, '')`.as('logoKey'),
+      slug: sql<string>`COALESCE(${tables.schools.slug}, '')`.as('slug'),
+      categories: sql<string>`COALESCE(${tables.schoolCategories.name}, '')`.as('categories'),
+    })
+    .from(tables.schools)
+    .leftJoin(
+      tables.locations,
+      eq(tables.locations.schoolId, tables.schools.id)
+    )
+    .leftJoin(tables.states, eq(tables.locations.stateId, tables.states.id))
+    .leftJoin(
+      tables.schoolsToCategories,
+      eq(tables.schoolsToCategories.schoolId, tables.schools.id)
+    )
+    .leftJoin(
+      tables.schoolCategories,
+      eq(tables.schoolCategories.id, tables.schoolsToCategories.categoryId)
+    )
+    .where(
+      and(
+        states && states?.length > 0
+          ? inArray(tables.states.name, states)
+          : undefined,
+        categories && categories?.length > 0
+          ? inArray(tables.schoolCategories.name, categories)
+          : undefined
+      )
+    ).as('filteredResult')
 
-	if (limit) query.limit(limit)
-  if (offset) query.offset(offset).orderBy(asc(tables.schools.id))
+  const totalCount = db.select({
+    count: count(filteredResult.id)
+  })
+  .from(filteredResult)
+  
+  const query = db.select().from(filteredResult)
 
-	return await query
+  if (limit) query.limit(limit)
+  if (offset) query.offset(offset).orderBy(asc(filteredResult.id))
+  
+  return Promise.all([query, totalCount])
 }
 
 const getNumberOfSchoolsByState = async () => {
@@ -107,23 +115,32 @@ const getNumberOfSchoolsByState = async () => {
 }
 
 const getByText = async (q: string) => {
-	return await db
-		.selectDistinctOn([tables.schools.id], {
-			name: tables.schools.name,
-			logoKey: tables.schools.logo_key,
-			slug: tables.schools.slug,
-			categories: tables.schoolCategories.name,
-		})
-		.from(tables.schools)
-		.leftJoin(
-			tables.schoolsToCategories,
-			eq(tables.schoolsToCategories.schoolId, tables.schools.id)
-		)
-		.leftJoin(
-			tables.schoolCategories,
-			eq(tables.schoolCategories.id, tables.schoolsToCategories.categoryId)
-		)
-		.where(like(tables.schools.name, `%${q}%`))
+  const filteredResult = db
+    .selectDistinctOn([tables.schools.id], {
+      id: tables.schools.id,
+      name: sql<string>`${tables.schools.name}`.as('school_name'),
+      logoKey: sql<string>`COALESCE(${tables.schools.logo_key}, '')`.as('logoKey'),
+      slug: sql<string>`COALESCE(${tables.schools.slug}, '')`.as('slug'),
+      categories: sql<string>`COALESCE(${tables.schoolCategories.name}, '')`.as('categories'),
+    })
+    .from(tables.schools)
+    .leftJoin(
+      tables.schoolsToCategories,
+      eq(tables.schoolsToCategories.schoolId, tables.schools.id)
+    )
+    .leftJoin(
+      tables.schoolCategories,
+      eq(tables.schoolCategories.id, tables.schoolsToCategories.categoryId)
+    )
+    .where(like(tables.schools.name, `%${q}%`)).as('filteredResult')
+
+  const totalCount = db.select({
+    count: count(filteredResult.id)
+  }).from(filteredResult)
+
+  const query = db.select().from(filteredResult)
+
+  return Promise.all([query, totalCount])
 }
 
 const getSchoolByIds = async (ids: Array<string>) => {

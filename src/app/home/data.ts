@@ -38,9 +38,9 @@ const data = async () => {
 		schoolCategories,
 		states,
     schoolsTabs: {
-      ['Web development']: webDevSchools,
-      ['Design']: designSchools,
-      ['Languages']: languagesSchools
+      ['Web development']: webDevSchools[0],
+      ['Design']: designSchools[0],
+      ['Languages']: languagesSchools[0]
     }
 	}
 }
