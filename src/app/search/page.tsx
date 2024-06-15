@@ -60,11 +60,15 @@ const Page = async ({ searchParams }: {
           ))
         }
       </div>
-      <Pagination 
-        count={Math.ceil(result?.count / 9)} 
-        link={`/search?${searchParams?.category ? `category=${searchParams?.category}` : ""}${searchParams?.state ? `&state=${searchParams?.state}` : ""}`}
-        page={+page}
-      />
+      {
+        result?.count > 9 ? (
+          <Pagination 
+            count={Math.ceil(result?.count / 9)} 
+            link={`/search?${searchParams?.category ? `category=${searchParams?.category}` : ""}${searchParams?.state ? `&state=${searchParams?.state}` : ""}`}
+            page={+page}
+          />
+        ) : null
+      }
     </div> 
   )
 }
