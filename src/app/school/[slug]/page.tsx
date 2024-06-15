@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import { Metadata } from 'next'
 
-import { Box, Link, Paragraph, Typography} from '~/components'
+import { Box, Error, Link, Paragraph, Typography} from '~/components'
 import { LocationIcon, SparkleIcon } from '~/components/Icons'
 import ListItem from '~/components/ListItem'
 import { getSchoolProfileData } from '~/server/data'
@@ -34,11 +34,11 @@ export async function generateMetadata(
 }
  
 async function Page({ params }: { params: { slug: string } }) {
-	const info = await getSchoolProfileData(params.slug)
+	const info = await getSchoolProfileData(decodeURI(params.slug))
   const school = info?.school;
   const categories = info?.categories;
 
-  if (!school) return 'nope'
+  if (!school) return <Error message="Oops!, this profile doesn't exist." />
 
   return (
     <div>
