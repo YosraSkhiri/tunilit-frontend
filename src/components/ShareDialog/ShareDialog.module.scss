@@ -15,20 +15,21 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 101;
-  max-width: 400px;
+  max-width: 25rem;
   width: 100%;
   background-color: $status-generic-3-surface;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 30px;
-  border-radius: 20px;
+  gap: 1.25rem;
+  padding: 1.875rem;
+  border-radius: 1.25rem;
   border: 1px solid $border-3;
 }
 
 .sm-btns-container {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .sm-btn {
@@ -38,18 +39,24 @@
 
 .sm-img {
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
 }
 
 .link {
   flex-basis: 100%;
-  padding: 4px;
-  border-radius: 10px;
-  background-color: $status-generic-3-surface-dark;
+  flex-shrink: 1;
 }
 
 .link-container {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
+  max-width: 100%;
+}
+
+.link-wrapper {
+  overflow: auto;
+  padding: 0.25rem;
+  border-radius: 0.625rem;
+  background-color: $status-generic-3-surface-dark;
 }
