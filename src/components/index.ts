@@ -13,6 +13,7 @@ import Footer from './Footer'
 import IconButton from './IconButton'
 import Layout from './Layout'
 import Link from './Link'
+import ListItem from './ListItem'
 import Navbar from './Navbar'
 import Pagination from './Pagination'
 import Paragraph from './Paragraph'
@@ -45,6 +46,7 @@ export {
 	IconButton,
 	Layout,
 	Link,
+  ListItem,
 	Navbar,
   Pagination,
 	Paragraph,
