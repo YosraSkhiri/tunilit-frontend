@@ -12,14 +12,16 @@ const Typography = ({
 	className,
 	component,
 	dir = 'ltr',
-	noWrap = false,
-  variant = 'body2'
+	gutterBottom = false,
+  noWrap = false,
+  variant = 'body2',
 }: TypographyProps) => {
 	const typographyClass = clsx(
 		styles.typography,
 		{
 			[styles['typography--nowrap']]: noWrap,
 			[styles[`typography--${variant}`]]: true,
+			[styles[`typography--${variant}-gutter-bottom`]]: gutterBottom,
 			[styles[`typography--align-${align}`]]: align,
 			[styles[`typography--title-${dir}`]]: variant === 'title' && dir,
 		},

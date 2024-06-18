@@ -20,6 +20,7 @@ export default interface TypographyProps {
   className?: string,
   component?: ElementType | string,
   dir?: 'ltr' | 'rtl',
+  gutterBottom?: boolean,
   noWrap?: boolean,
   variant?: typographyVariantType
 }
