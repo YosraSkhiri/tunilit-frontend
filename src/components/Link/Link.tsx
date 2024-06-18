@@ -33,14 +33,15 @@ const Link = ({
 			href={href}
 			{...other}>
 			{leftAdorn}
-			<div className={styles['link-text-wrapper']}>
+			<span className={styles['link-text-wrapper']}>
 				<Typography
 					className={typographyClass}
-					variant="body2"
+					component={'span'}
+          variant="body2"
 					{...typographyProps}>
 					{children}
 				</Typography>
-			</div>
+			</span>
 			{rightAdorn}
 		</Component>
 	)
