@@ -1,11 +1,11 @@
 "use client"
-import { useLocalStorage } from '@rehooks/local-storage';
 import { nanoid } from 'nanoid'
 import { Fragment, useEffect, useRef, useState } from 'react';
 
 import { Button, Chip, SchoolLogo, ShareDialog,Toast, Typography } from '~/components'
 import ButtonProps from '~/components/Button/Button.types';
 import { BookmarkIcon, RemoveBookmarkIcon, ShareIcon } from '~/components/Icons'
+import { useBookmarks } from '~/context/BookmarkProvider';
 
 import styles from './SchoolHeader.module.scss'
 import SchoolHeaderProps from './SchoolHeader.types'
@@ -18,39 +18,23 @@ const SchoolHeader = ({
 }: SchoolHeaderProps) => {
   const unsaveBtnRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null)
   const saveBtnRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null)
-
-  const [bookmarks, setBookmarks]  = useLocalStorage("bookmarks", "")
+  const { addBookmark, bookmarkExist, removeBookmark } = useBookmarks();
   const [open, setOpen] = useState(false)
   const [bookmarkState, setBookmarkState] = useState<'Loading' | 'Bookmark' | 'Saved'>('Loading')
 
   useEffect(() => {
-    const bookmarksArray = bookmarks.split(',')
-    if(bookmarksArray.includes(id)) {
-      setBookmarkState('Saved');
-    } else {
+    if (!bookmarkExist(id)) {
       setBookmarkState('Bookmark');
-    }
-  }, [bookmarks, id])
-
-  const handleBookmarkClick = () => {
-    const currentBookmarks = bookmarks.split(",")
-    if(bookmarkState === 'Saved') {
-      const newBookmarks = currentBookmarks.filter(item => item !== id).join(',')
-      setBookmarks(newBookmarks)
     } else {
-      if (!currentBookmarks.includes(id)) {
-        const newBookmarks = bookmarks ? `${bookmarks},${id}` : id
-        setBookmarks(newBookmarks)
-        setOpen(true)
-      }    
+      setBookmarkState('Saved');
     }
-  }
+  }, [bookmarkExist, id])
 
   const getBookmarkButtonProps = () => {
     let props: ButtonProps = {
       variant: 'tertiary',
       children: (<><BookmarkIcon /> {bookmarkState}</>),
-      onClick: handleBookmarkClick,
+      onClick: () => addBookmark(id),
     }
 
     if(bookmarkState === 'Loading') {
@@ -140,7 +124,7 @@ const SchoolHeader = ({
                       }}
                       ref={unsaveBtnRef}
                       variant='error'
-                      onClick={handleBookmarkClick}
+                      onClick={() => removeBookmark(id)}
                     >
                       <RemoveBookmarkIcon />
                       Remove
