@@ -6,6 +6,7 @@ import { Metadata } from 'next'
 
 import { Footer, Navbar } from '~/components'
 import { ToastProvider } from '~/components/Toast/ToastProvider'
+import { BookmarkProvider } from '~/context/BookmarkProvider'
 import { getSchoolCategories } from '~/server/data'
 
 import styles from './layout.module.scss'
@@ -27,20 +28,21 @@ const PageLayout = async ({ children }: { children: React.ReactNode }) => {
     <html>
       <body>
         <div className={styles.wrapper}>
-          <div className={styles.container}>
-            <Navbar
-              schoolCategories={schoolCategories}
-            />
-            <ToastProvider>
-              {children}
-            </ToastProvider>
-          </div>
-          <Footer />
+          <BookmarkProvider>
+            <div className={styles.container}>
+              <Navbar
+                schoolCategories={schoolCategories}
+              />
+              <ToastProvider>
+                {children}
+              </ToastProvider>
+            </div>
+            <Footer />
+          </BookmarkProvider>
         </div>
         <Analytics />
       </body>
     </html>
-
   )
 }
 
