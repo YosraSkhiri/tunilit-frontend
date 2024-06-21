@@ -1,9 +1,10 @@
 "use client"
 import { CloseButton, Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
-import { useLocalStorage } from '@rehooks/local-storage'
 import { nanoid } from 'nanoid'
 import queryString from 'query-string'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import { useBookmarks } from '~/context/BookmarkProvider.tsx'
 
 import Badge from '../Badge'
 import IconButton from '../IconButton'
@@ -17,20 +18,20 @@ import MobileNavProps from './MobileNav.types.ts'
 
 const MobileNav = ({ schoolCategories }: MobileNavProps) => {
   const [showCategories, setShowCategories] = useState(false)
-  const [bookmarks] = useLocalStorage('bookmarks')
+  const { bookmarks } = useBookmarks()
+  const [bookmarksNumber, setBookmarksNumber] = useState<string>('0')
 
-  const getNumberOfBookmarks = () => {
-    if (bookmarks) {
-      const b = bookmarks?.split(',')?.length
-      return (b !== undefined ? String(b) : '0')
-    }
-    return "0"
-  }
-
+  useEffect(() => {
+    setBookmarksNumber(`${bookmarks.length}`)
+  }, [bookmarks.length])
+  
   return (
     <Popover>
       <PopoverButton as='div'>
-        <Badge variant={!!getNumberOfBookmarks() === true ? 'dot' : undefined}>
+        <Badge 
+          invisible={+bookmarksNumber <= 0}
+          variant={'dot'} 
+        >
           <IconButton variant='secondary'>
             <MenuHamburgerIcon />
           </IconButton>
@@ -65,7 +66,7 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
                 >
                   <Layout style={{ gap: '0.625rem'}}>
                     <Typography variant='body1'>Bookmarks</Typography>
-                    <Badge content={getNumberOfBookmarks()} variant='standard' />
+                    <Badge content={bookmarksNumber} variant='standard' />
                   </Layout>
                 </CloseButton>
                 

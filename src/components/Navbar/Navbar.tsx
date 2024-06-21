@@ -1,7 +1,9 @@
 "use client"
-import { useLocalStorage } from '@rehooks/local-storage'
+import { useRouter } from 'next/navigation'
 import queryString from 'query-string'
 import { useEffect, useState } from 'react'
+
+import { useBookmarks } from '~/context/BookmarkProvider'
 
 import Badge from '../Badge'
 import Button from '../Button'
@@ -15,20 +17,13 @@ import styles from './Navbar.module.scss'
 import NavbarProps from './Navbar.types'
 
 const Navbar = ({ schoolCategories }: NavbarProps) => {
-  const [bookmarks] = useLocalStorage('bookmarks')
-  const [bookmarksNumber, setBookmarksNumber] = useState<string>('')
-
-  const getNumberOfBookmarks = () => {
-    if (bookmarks) {
-      const b = bookmarks?.split(',')?.length
-      return (b !== undefined ? String(b) : '0')
-    }
-    return "0"
-  }
+  const { bookmarks } = useBookmarks()
+  const [bookmarksNumber, setBookmarksNumber] = useState<string>('0')
+  const router = useRouter()
 
   useEffect(() => {
-    setBookmarksNumber(() => getNumberOfBookmarks())
-  }, [])
+    setBookmarksNumber(`${bookmarks.length}`)
+  }, [bookmarks.length])
 
   return (
     <nav className={styles.nav}>
@@ -54,9 +49,8 @@ const Navbar = ({ schoolCategories }: NavbarProps) => {
               tooltip='Bookmarks List'
               variant='tertiary'
               onClick={() => {
-                const list = localStorage.getItem('bookmarks')
-                const listQueryString = queryString.stringify({ list: list })
-                window.location.href = `/bookmarks?${listQueryString}`
+                const listQueryString = queryString.stringify({ list: bookmarks.join(',') })
+                router.push(`/bookmarks?${listQueryString}`)
               }}
             >
               <BookmarkIcon />
