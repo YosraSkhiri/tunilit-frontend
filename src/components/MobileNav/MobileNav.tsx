@@ -1,6 +1,7 @@
 "use client"
 import { CloseButton, Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { nanoid } from 'nanoid'
+import { useRouter } from 'next/navigation'
 import queryString from 'query-string'
 import { useEffect, useState } from 'react'
 
@@ -20,6 +21,7 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
   const [showCategories, setShowCategories] = useState(false)
   const { bookmarks } = useBookmarks()
   const [bookmarksNumber, setBookmarksNumber] = useState<string>('0')
+  const router = useRouter()
 
   useEffect(() => {
     setBookmarksNumber(`${bookmarks.length}`)
@@ -55,9 +57,8 @@ const MobileNav = ({ schoolCategories }: MobileNavProps) => {
                 <CloseButton
                   {...{
                     onClick: async () => {
-                      const list = localStorage.getItem('bookmarks')
-                      const listQueryString = queryString.stringify({ list: list })
-                      window.location.href = `/bookmarks?${listQueryString}`
+                      const listQueryString = queryString.stringify({ list: bookmarks.join(',') })
+                      router.push(`/bookmarks?${listQueryString}`)
                     }
                   }}
                   as={MenuItemContent}
