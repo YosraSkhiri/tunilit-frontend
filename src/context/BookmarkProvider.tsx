@@ -26,12 +26,12 @@ export const BookmarkProvider = ({ children }: {children: ReactNode}) => {
   ]  = useLocalStorage<Array<string>>("bookmarks", [])
 
   const addBookmark = (id: string) => {
-    setBookmarks((prevBookmarks) => prevBookmarks ? [...prevBookmarks, id] : [id]);
+    setBookmarks(bookmarks ? [...bookmarks, id] : [id]);
   }
 
   const removeBookmark = (id: string) => {
-    setBookmarks((prevBookmarks) => 
-      prevBookmarks ? prevBookmarks.filter((bookmark) => bookmark !== id) : []
+    setBookmarks(() => 
+      bookmarks ? bookmarks.filter((bookmark) => bookmark !== id) : []
     )
   }
 
