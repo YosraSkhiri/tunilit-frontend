@@ -1,6 +1,6 @@
 .column-wrapper {
-  max-width: 364px;
-  min-width: 246px;
+  max-width: 22.75rem;
+  min-width: 15.375rem;
   width: 100%;
   flex-shrink: 0;
 }
@@ -8,18 +8,18 @@
 .column-container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 2.5rem;
   width: 100%;
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .actions {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }

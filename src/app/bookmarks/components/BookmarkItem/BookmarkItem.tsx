@@ -1,9 +1,8 @@
 "use client"
-import { useLocalStorage } from '@rehooks/local-storage'
-import queryString from 'query-string'
 
 import { Button,SchoolLogo, Typography } from '~/components'
 import { CrossSmallIcon, ExternalLinkIcon } from '~/components/Icons'
+import { useBookmarks } from '~/context/BookmarkProvider'
 
 import styles from './BookmarkItem.module.scss'
 import BookmarkItemProps from './BookmarkItem.type'
@@ -15,7 +14,7 @@ const BookmarkItem = ({
   name,
   slug,
 }: BookmarkItemProps) => {
-  const [bookmarks, setBookmarks] = useLocalStorage('bookmarks')
+  const {removeBookmark} = useBookmarks()
 
   return (
     <div className={styles['column-wrapper']}>
@@ -38,16 +37,7 @@ const BookmarkItem = ({
           <Button 
             fullWidth
             variant='error' 
-            onClick={() => {
-              const bookmarksArray = bookmarks?.split(',')
-              if (bookmarksArray) {
-                const newBookmarks = bookmarksArray.filter(item => item !== id)
-                const bookmarksString = newBookmarks.join(',')
-                setBookmarks(bookmarksString)
-                const listQueryString = queryString.stringify({ list: bookmarksString })
-                window.location.href = `/bookmarks?${listQueryString}`
-              }
-            }}
+            onClick={() => removeBookmark(id)}
           >
             <CrossSmallIcon />
             Remove
