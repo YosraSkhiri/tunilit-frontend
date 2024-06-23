@@ -2,6 +2,7 @@ import '~/sass/global.scss'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Metadata } from 'next'
 
 import { Footer, Navbar } from '~/components'
@@ -41,6 +42,7 @@ const PageLayout = async ({ children }: { children: React.ReactNode }) => {
           </BookmarkProvider>
         </div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
