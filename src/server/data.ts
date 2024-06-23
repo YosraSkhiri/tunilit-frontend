@@ -13,9 +13,9 @@ import {
   getSchoolsByStatesAndCategories 
 } from './queries'
 
-export const getSchoolCategories = cache(async () => getAllCategories)
+export const getSchoolCategories = cache(async () => await getAllCategories())
 
-export const getStates = cache(async () => getAllStates)
+export const getStates = cache(async () => await getAllStates())
 
 export const search = async ({ categories, page, query, states }: {
   categories?: Array<string>, 

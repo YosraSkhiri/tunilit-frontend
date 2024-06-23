@@ -29,7 +29,7 @@ const Page = async ({ searchParams }: {
 
   return (
     <div>
-      <Typography className={styles['title']} variant='h1'>Search Result for Schools</Typography>
+      <Typography gutterBottom className={styles['title']} variant='h1'>Search Result for Schools</Typography>
       <Box>
         <SearchForm 
           buttonProps={{

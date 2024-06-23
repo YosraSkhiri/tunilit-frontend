@@ -4,8 +4,8 @@ import {
 } from '~/server/queries'
 
 const data = async () => {
-	const schoolCategories = getAllCategories
-	const states = getAllStates
+	const schoolCategories = await getAllCategories()
+	const states = await getAllStates()
 
   return {
     schoolCategories,

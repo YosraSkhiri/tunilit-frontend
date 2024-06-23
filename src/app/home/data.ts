@@ -6,12 +6,12 @@ import {
 } from '~/server/queries'
 
 const data = async () => {
-	const schoolCategories = getAllCategories
+	const schoolCategories = await getAllCategories()
 	const states: Array<{
     count?: string | number,
     id: string,
     name: string
-  }> = getAllStates
+  }> = await getAllStates()
 
   const webDevSchools = await getSchoolsByStatesAndCategories({
     categories: ['Web development'],
