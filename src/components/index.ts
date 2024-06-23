@@ -14,6 +14,7 @@ import IconButton from './IconButton'
 import Layout from './Layout'
 import Link from './Link'
 import ListItem from './ListItem'
+import Logo from './Logo'
 import Navbar from './Navbar'
 import Pagination from './Pagination'
 import Paragraph from './Paragraph'
@@ -47,6 +48,7 @@ export {
 	Layout,
 	Link,
   ListItem,
+  Logo,
 	Navbar,
   Pagination,
 	Paragraph,
