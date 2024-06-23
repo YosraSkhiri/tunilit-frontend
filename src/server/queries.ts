@@ -4,7 +4,7 @@ import { and, asc, count, countDistinct, eq, inArray, like, sql } from 'drizzle-
 
 import { db, tables } from './db'
 
-const getAllStates = await db
+const getAllStates = async () => await db
 	.select({
 		id: tables.states.id,
 		name: tables.states.name,
@@ -12,7 +12,7 @@ const getAllStates = await db
 	.from(tables.states)
 	.orderBy(tables.states.name)
 
-const getAllCategories = await db
+const getAllCategories = async () => await db
 	.select({
 		id: tables.schoolCategories.id,
 		name: tables.schoolCategories.name,
