@@ -1,6 +1,4 @@
 "use client"
-import { useRouter } from 'next/navigation'
-import queryString from 'query-string'
 import { useEffect, useState } from 'react'
 
 import { useBookmarks } from '~/context/BookmarkProvider'
@@ -19,7 +17,6 @@ import NavbarProps from './Navbar.types'
 const Navbar = ({ schoolCategories }: NavbarProps) => {
   const { bookmarks } = useBookmarks()
   const [bookmarksNumber, setBookmarksNumber] = useState<string>('0')
-  const router = useRouter()
 
   useEffect(() => {
     setBookmarksNumber(`${bookmarks.length}`)
@@ -46,12 +43,9 @@ const Navbar = ({ schoolCategories }: NavbarProps) => {
             variant='standard'
           >
             <IconButton 
+              href='/bookmarks'
               tooltip='Bookmarks List'
               variant='tertiary'
-              onClick={() => {
-                const listQueryString = queryString.stringify({ list: bookmarks.join(',') })
-                router.push(`/bookmarks?${listQueryString}`)
-              }}
             >
               <BookmarkIcon />
             </IconButton>
