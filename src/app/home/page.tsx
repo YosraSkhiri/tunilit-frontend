@@ -1,12 +1,12 @@
-import { SearchForm,Typography } from '~/components'
+//import { SearchForm,Typography } from '~/components'
 
-import { HeroTitle, SchoolsTabs, TunisiaMap } from './components'
-import data from './data';
+//import { HeroTitle, SchoolsTabs, TunisiaMap } from './components'
+//import data from './data';
 import styles from './Page.module.scss'
 
 const Page = async () => {
-  const { schoolCategories, schoolsTabs, states } = await data();
-  
+  //const { schoolCategories, schoolsTabs, states } = await data();
+  return 'home'
   return (
     <div>
       <div className={styles['header-container']}>

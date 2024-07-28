@@ -12,6 +12,23 @@ const getAllStates = async () => await db
 	.from(tables.states)
 	.orderBy(tables.states.name)
 
+   const getAllCategories = async () => {
+    try {
+      const result = await db
+        .select({
+          id: tables.schoolCategories.id,
+          name: tables.schoolCategories.name,
+        })
+        .from(tables.schoolCategories)
+        .orderBy(tables.schoolCategories.name);
+  
+      return result;
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      throw error; // Optionally rethrow the error or handle it as needed
+    }
+  };
+/*
 const getAllCategories = async () => await db
 	.select({
 		id: tables.schoolCategories.id,
@@ -19,7 +36,7 @@ const getAllCategories = async () => await db
 	})
 	.from(tables.schoolCategories)
 	.orderBy(tables.schoolCategories.name)
-
+*/
 const getCategoriesBySchool = async (id: string) => {
 	return await db
 		.select({

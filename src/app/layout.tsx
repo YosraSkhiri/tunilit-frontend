@@ -5,10 +5,10 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Metadata } from 'next'
 
-import { Footer, Navbar } from '~/components'
+//import { Footer, Navbar } from '~/components'
 import { ToastProvider } from '~/components/Toast/ToastProvider'
 import { BookmarkProvider } from '~/context/BookmarkProvider'
-import { getSchoolCategories } from '~/server/data'
+//import { getSchoolCategories } from '~/server/data'
 
 import styles from './layout.module.scss'
 
@@ -23,8 +23,14 @@ export const metadata: Metadata = {
 }
 
 const PageLayout = async ({ children }: { children: React.ReactNode }) => {
-	const schoolCategories = await getSchoolCategories()
-
+	//const schoolCategories = await getSchoolCategories()
+return (
+  <html>
+      <body>
+flkkls
+      </body>
+      </html>
+)
   return (
     <html>
       <body>

@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   sassOptions: {
     additionalData: `
       @use './src/sass/variables/_color-mapped.scss' as *;
