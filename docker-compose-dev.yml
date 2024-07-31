@@ -37,6 +37,7 @@ services:
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: tunilit_db
       DB_HOST: db
+      DB_PORT: 5432
     networks:
       - database
     depends_on:

@@ -4,10 +4,9 @@ FROM postgres:15-alpine
 RUN mkdir -p /scripts/sql /docker-entrypoint-initdb.d
 
 # Copy scripts, sql, and data into the container
-COPY scripts/sql /scripts/sql
+COPY scripts/sql /docker-entrypoint-initdb.d
 COPY scripts/data /docker-entrypoint-initdb.d
 COPY scripts/init-data.sh /scripts/
-COPY scripts/wait-for-db.sh /scripts/
 
 # Set the correct permissions
 RUN chmod -R 755 /scripts /docker-entrypoint-initdb.d
