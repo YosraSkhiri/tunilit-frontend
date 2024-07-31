@@ -12,6 +12,8 @@ SQL_FILE="/docker-entrypoint-initdb.d/create_tables.sql"
 declare -A TABLES_CSV_FILES
 TABLES_CSV_FILES=(
   ["tl_states"]="/docker-entrypoint-initdb.d/tl_states.csv"
+  ["tl_category_button_colors"]="/docker-entrypoint-initdb.d/tl_category_button_colors.csv"
+  ["tl_school_categories"]="/docker-entrypoint-initdb.d/tl_school_categories.csv"
 )
 
 # Export the password so psql can use it
