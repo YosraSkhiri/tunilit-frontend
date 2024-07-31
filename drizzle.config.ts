@@ -8,5 +8,6 @@ export default {
   dbCredentials: {
     url: env.POSTGRES_URL,
   },
+  out: "./drizzle",
   tablesFilter: ["tl_*"],
 } satisfies Config;

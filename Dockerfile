@@ -16,4 +16,6 @@ EXPOSE 3000
 
 #USER node
 
+#RUN chmod +x scripts/wait-for-db.sh
+
 CMD ["npm", "run", "dev"]

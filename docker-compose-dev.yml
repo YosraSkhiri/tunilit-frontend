@@ -27,8 +27,21 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - POSTGRES_URL=postgresql://postgres:123456@db:5432/tunilit_db
-
+      POSTGRES_URL: postgresql://postgres:123456@db:5432/tunilit_db
+  init-data:
+    build:
+      context: .
+      dockerfile: Dockerfile.init-data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: tunilit_db
+      DB_HOST: db
+    networks:
+      - database
+    depends_on:
+      - db
+      - app
   drizzle-studio:
     build:
       context: .
