@@ -21,7 +21,7 @@ export const db =
     else await migrateNode(db, { migrationsFolder: './drizzle' });
   }
 
-await dbMigrate();
+//await dbMigrate();
 
 export type State = typeof schema.states.$inferSelect
 export type Category = typeof schema.schoolCategories.$inferSelect
