@@ -14,7 +14,7 @@ import {
 import { db, tables } from './db'
 import { dbMigrate } from './migrate'
 
-await dbMigrate()
+(async () => await dbMigrate())()
 
 const getAllStates = async () =>
 	await db
