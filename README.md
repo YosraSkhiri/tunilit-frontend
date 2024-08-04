@@ -25,5 +25,14 @@
 
 <!-- PROJECT SHIELDS -->
 
-1- generate migrations 
-npx drizzle-kit generate
+## About
+A web application, made from scratch, that helps you discover schools and training centers across
+Tunisia with ease. This platform enables you to search and filter by state or category.
+
+## Running the App
+After you clone the project, run docker compose
+```
+docker compose -f docker-compose-dev.yml up --build
+```
+Open your browser and navigate to http://localhost:3000.
+## 
