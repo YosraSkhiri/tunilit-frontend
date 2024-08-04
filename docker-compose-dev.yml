@@ -3,10 +3,8 @@ services:
     image: postgres:15-alpine
     volumes:
       - pgdata:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: tunilit_db
+    env_file:
+      - .env.development
     networks:
       - database
     ports:
@@ -14,7 +12,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
     init: true
     volumes:
       - .:/usr/src/app
@@ -26,18 +24,14 @@ services:
       - db
     ports:
       - "3000:3000"
-    environment:
-      POSTGRES_URL: postgresql://postgres:123456@db:5432/tunilit_db
+    env_file:
+      - .env.development
   init-data:
     build:
       context: .
-      dockerfile: Dockerfile.init-data
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: tunilit_db
-      DB_HOST: db
-      DB_PORT: 5432
+      dockerfile: docker/Dockerfile.init-data
+    env_file:
+      - .env.development
     networks:
       - database
     depends_on:
@@ -46,9 +40,9 @@ services:
   drizzle-studio:
     build:
       context: .
-      dockerfile: Dockerfile.studio
-    environment:
-      - POSTGRES_URL=postgresql://postgres:123456@db:5432/tunilit_db
+      dockerfile: docker/Dockerfile.studio
+    env_file:
+      - .env.development
     ports:
       - "4983:4983"
     volumes:

@@ -12,12 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-#RUN chown -R node:node /usr/src/app
-
-#USER node
-
-#RUN chmod +x scripts/wait-for-db.sh
-
-#RUN chmod +x scripts/wait-for-db-and-migrate.sh
-
-CMD ["npm", "run", "dev"]
+CMD ["sh", "-c", "npx drizzle-kit generate && npm run dev"]

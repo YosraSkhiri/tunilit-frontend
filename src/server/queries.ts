@@ -1,42 +1,47 @@
 import 'server-only'
 
-import { and, asc, count, countDistinct, eq, inArray, like, sql } from 'drizzle-orm'
+import {
+	and,
+	asc,
+	count,
+	countDistinct,
+	eq,
+	inArray,
+	like,
+	sql,
+} from 'drizzle-orm'
 
 import { db, tables } from './db'
+import { dbMigrate } from './migrate'
 
-const getAllStates = async () => await db
-	.select({
-		id: tables.states.id,
-		name: tables.states.name,
-	})
-	.from(tables.states)
-	.orderBy(tables.states.name)
+await dbMigrate()
 
-   const getAllCategories = async () => {
-    try {
-      const result = await db
-        .select({
-          id: tables.schoolCategories.id,
-          name: tables.schoolCategories.name,
-        })
-        .from(tables.schoolCategories)
-        .orderBy(tables.schoolCategories.name);
-  
-      return result;
-    } catch (error) {
-      console.error('Error fetching categories:', error);
-      throw error; // Optionally rethrow the error or handle it as needed
-    }
-  };
-/*
-const getAllCategories = async () => await db
-	.select({
-		id: tables.schoolCategories.id,
-		name: tables.schoolCategories.name,
-	})
-	.from(tables.schoolCategories)
-	.orderBy(tables.schoolCategories.name)
-*/
+const getAllStates = async () =>
+	await db
+		.select({
+			id: tables.states.id,
+			name: tables.states.name,
+		})
+		.from(tables.states)
+		.orderBy(tables.states.name)
+
+const getAllCategories = async () => {
+	try {
+		const result = await db
+			.select({
+				id: tables.schoolCategories.id,
+				name: tables.schoolCategories.name,
+			})
+			.from(tables.schoolCategories)
+			.orderBy(tables.schoolCategories.name)
+
+		return result
+	} catch (error) {
+		console.error('Error fetching categories:', error)
+		throw error // Optionally rethrow the error or handle it as needed
+	}
+}
+
 const getCategoriesBySchool = async (id: string) => {
 	return await db
 		.select({
@@ -67,57 +72,63 @@ const getSchoolsByStatesAndCategories = async ({
 	categories,
 	limit,
 	offset,
-  states,
+	states,
 }: {
 	categories?: Array<string>
 	limit?: number
-	offset?: number,
-  states?: Array<string>
+	offset?: number
+	states?: Array<string>
 }) => {
-  const filteredResult = db
-    .selectDistinctOn([tables.schools.id], {
-      id: tables.schools.id,
-      name: sql<string>`${tables.schools.name}`.as('school_name'),
-      logoKey: sql<string>`COALESCE(${tables.schools.logo_key}, '')`.as('logoKey'),
-      slug: sql<string>`COALESCE(${tables.schools.slug}, '')`.as('slug'),
-      categories: sql<string>`COALESCE(${tables.schoolCategories.name}, '')`.as('categories'),
-    })
-    .from(tables.schools)
-    .leftJoin(
-      tables.locations,
-      eq(tables.locations.schoolId, tables.schools.id)
-    )
-    .leftJoin(tables.states, eq(tables.locations.stateId, tables.states.id))
-    .leftJoin(
-      tables.schoolsToCategories,
-      eq(tables.schoolsToCategories.schoolId, tables.schools.id)
-    )
-    .leftJoin(
-      tables.schoolCategories,
-      eq(tables.schoolCategories.id, tables.schoolsToCategories.categoryId)
-    )
-    .where(
-      and(
-        states && states?.length > 0
-          ? inArray(tables.states.name, states)
-          : undefined,
-        categories && categories?.length > 0
-          ? inArray(tables.schoolCategories.name, categories)
-          : undefined
-      )
-    ).as('filteredResult')
+	const filteredResult = db
+		.selectDistinctOn([tables.schools.id], {
+			id: tables.schools.id,
+			name: sql<string>`${tables.schools.name}`.as('school_name'),
+			logoKey: sql<string>`COALESCE(${tables.schools.logo_key}, '')`.as(
+				'logoKey'
+			),
+			slug: sql<string>`COALESCE(${tables.schools.slug}, '')`.as('slug'),
+			categories: sql<string>`COALESCE(${tables.schoolCategories.name}, '')`.as(
+				'categories'
+			),
+		})
+		.from(tables.schools)
+		.leftJoin(
+			tables.locations,
+			eq(tables.locations.schoolId, tables.schools.id)
+		)
+		.leftJoin(tables.states, eq(tables.locations.stateId, tables.states.id))
+		.leftJoin(
+			tables.schoolsToCategories,
+			eq(tables.schoolsToCategories.schoolId, tables.schools.id)
+		)
+		.leftJoin(
+			tables.schoolCategories,
+			eq(tables.schoolCategories.id, tables.schoolsToCategories.categoryId)
+		)
+		.where(
+			and(
+				states && states?.length > 0
+					? inArray(tables.states.name, states)
+					: undefined,
+				categories && categories?.length > 0
+					? inArray(tables.schoolCategories.name, categories)
+					: undefined
+			)
+		)
+		.as('filteredResult')
 
-  const totalCount = db.select({
-    count: count(filteredResult.id)
-  })
-  .from(filteredResult)
-  
-  const query = db.select().from(filteredResult)
+	const totalCount = db
+		.select({
+			count: count(filteredResult.id),
+		})
+		.from(filteredResult)
 
-  if (limit) query.limit(limit)
-  if (offset) query.offset(offset).orderBy(asc(filteredResult.id))
-  
-  return Promise.all([query, totalCount])
+	const query = db.select().from(filteredResult)
+
+	if (limit) query.limit(limit)
+	if (offset) query.offset(offset).orderBy(asc(filteredResult.id))
+
+	return Promise.all([query, totalCount])
 }
 
 const getNumberOfSchoolsByState = async () => {
@@ -132,32 +143,39 @@ const getNumberOfSchoolsByState = async () => {
 }
 
 const getByText = async (q: string) => {
-  const filteredResult = db
-    .selectDistinctOn([tables.schools.id], {
-      id: tables.schools.id,
-      name: sql<string>`${tables.schools.name}`.as('school_name'),
-      logoKey: sql<string>`COALESCE(${tables.schools.logo_key}, '')`.as('logoKey'),
-      slug: sql<string>`COALESCE(${tables.schools.slug}, '')`.as('slug'),
-      categories: sql<string>`COALESCE(${tables.schoolCategories.name}, '')`.as('categories'),
-    })
-    .from(tables.schools)
-    .leftJoin(
-      tables.schoolsToCategories,
-      eq(tables.schoolsToCategories.schoolId, tables.schools.id)
-    )
-    .leftJoin(
-      tables.schoolCategories,
-      eq(tables.schoolCategories.id, tables.schoolsToCategories.categoryId)
-    )
-    .where(like(tables.schools.name, `%${q}%`)).as('filteredResult')
+	const filteredResult = db
+		.selectDistinctOn([tables.schools.id], {
+			id: tables.schools.id,
+			name: sql<string>`${tables.schools.name}`.as('school_name'),
+			logoKey: sql<string>`COALESCE(${tables.schools.logo_key}, '')`.as(
+				'logoKey'
+			),
+			slug: sql<string>`COALESCE(${tables.schools.slug}, '')`.as('slug'),
+			categories: sql<string>`COALESCE(${tables.schoolCategories.name}, '')`.as(
+				'categories'
+			),
+		})
+		.from(tables.schools)
+		.leftJoin(
+			tables.schoolsToCategories,
+			eq(tables.schoolsToCategories.schoolId, tables.schools.id)
+		)
+		.leftJoin(
+			tables.schoolCategories,
+			eq(tables.schoolCategories.id, tables.schoolsToCategories.categoryId)
+		)
+		.where(like(tables.schools.name, `%${q}%`))
+		.as('filteredResult')
 
-  const totalCount = db.select({
-    count: count(filteredResult.id)
-  }).from(filteredResult)
+	const totalCount = db
+		.select({
+			count: count(filteredResult.id),
+		})
+		.from(filteredResult)
 
-  const query = db.select().from(filteredResult)
+	const query = db.select().from(filteredResult)
 
-  return Promise.all([query, totalCount])
+	return Promise.all([query, totalCount])
 }
 
 const getSchoolByIds = async (ids: Array<string>) => {
@@ -167,7 +185,7 @@ const getSchoolByIds = async (ids: Array<string>) => {
 		.where(inArray(tables.schools.id, ids))
 }
 
-const getSchoolInfoBySlug = async (slug: string)  => {
+const getSchoolInfoBySlug = async (slug: string) => {
 	return await db
 		.select({
 			id: tables.schools.id,

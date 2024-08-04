@@ -2,10 +2,8 @@ FROM node:18-alpine
 
 WORKDIR /usr/src/app
 
-# Install the latest version of drizzle-orm
 RUN npm install -g drizzle-orm@latest
 
-# Install drizzle-kit
 RUN npm install -g drizzle-kit@latest
 
 EXPOSE 4983
