@@ -12,9 +12,9 @@ import {
 } from 'drizzle-orm'
 
 import { db, tables } from './db'
-import { dbMigrate } from './migrate'
+//import { dbMigrate } from './migrate'
 
-(async () => await dbMigrate())()
+//(async () => await dbMigrate())()
 
 const getAllStates = async () =>
 	await db
