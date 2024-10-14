@@ -9,7 +9,7 @@ import * as schema from './schema'
 
 export const db =
 	env.NODE_ENV === 'production'
-		? drizzleVercel(sqlVercel)
+		? drizzleVercel(sqlVercel, {schema})
 		: drizzleNode(new Pool({ connectionString: env.POSTGRES_URL }))
 
 export type State = typeof schema.states.$inferSelect
